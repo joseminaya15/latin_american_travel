@@ -31,9 +31,6 @@
                         <ul>
                             <li class="border"><a href="tel:+51986628089"><i class="fa fa-whatsapp same m-r-10"></i>986 628 089</a></li>
                             <li class="border"><a href="tel:+16405055"><i class="fa fa-phone same m-r-10"></i>(01) 640 5055</a></li>
-                            <li><a href="https://www.facebook.com/Euroidiomas/" target="_blank" class="mdl-button mdl-js-button mdl-button--icon"><i class="fa fa-facebook same"></i></a></li>
-                            <li><a href="https://www.youtube.com/user/EuroidiomasInstituto" target="_blank" class="mdl-button mdl-js-button mdl-button--icon"><i class="fa fa-youtube same"></i></a></li>
-                            <li><a href="https://open.spotify.com/user/euro.songs" target="_blank" class="mdl-button mdl-js-button mdl-button--icon"><i class="fa fa-spotify unic"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,43 +48,9 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active-link">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Programas y Cursos <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class="menu">
-                                            <a href="#">J&oacute;venes y Adultos</a>
-                                            <ul class="link-interno">
-                                                <li><a href="jovenes_adultos.html">Ingl&eacute;s General</a></li>
-                                                <li><a href="#">Club de conversi&oacute;n</a></li>
-                                                <li><a href="#">Pack Individuales</a></li>
-                                            </ul>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                        <li class="menu one">
-                                            <a href="#">Ni&ntilde;os y Juniors</a>
-                                            <ul class="link-interno">
-                                                <li><a href="summer_Camp.html">Summer Camp</a></li>
-                                            </ul>
-                                        </li>
-                                        <li role="separator" class="divider"></li>
-                                        <li class="menu one">
-                                            <a href="#">Profesores</a>
-                                            <ul class="link-interno">
-                                                <li><a href="exam_cambridge.html">Cambridge</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="" class="link">Modalidades</a></li>
-                            <li><a href="" class="link">Certificaciones</a></li>
-                            <li><a href="" class="link">Mundo corporativo</a></li>
-                            <li><a href="" class="link">Sedes</a></li>
-                            <li><a href="" class="link">Blog</a></li>
-                            <li><a href="" class="link">Cont&aacute;ctanos</a></li>
+                            <li><a href="" class="link">Paquetes</a></li>
+                            <li><a href="" class="link">Ofertas</a></li>
+                            <li><a href="" class="link">Escr&iacute;benos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -126,6 +89,11 @@
                 </div>
             </section>
         </div>
+        <footer>
+            <div class="mdl-container">
+                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
+            </div>
+        </footer>
     </body>
     <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
