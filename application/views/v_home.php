@@ -18,19 +18,19 @@
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>bootstrap/css/bootstrap.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>font-awesome.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>material-icons.css?v=<?php echo time();?>">
-        <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>roboto.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>rubik.css?v=<?php echo time();?>">
     	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>animate.css?v=<?php echo time();?>">
     	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>m-p.min.css?v=<?php echo time();?>">
-    	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>index.css?v=<?php echo time();?>">
+    	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
         <div id="home">
-            <div class="header">
+            <div class="js-header">
                 <div class="container text-right">
                     <div class="redes-header">
                         <ul>
-                            <li class="border"><a href="tel:+51986628089"><i class="fa fa-whatsapp same m-r-10"></i>986 628 089</a></li>
-                            <li class="border"><a href="tel:+16405055"><i class="fa fa-phone same m-r-10"></i>(01) 640 5055</a></li>
+                            <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
+                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-email same m-r-10"></i>latintravelpe@yahoo.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,8 +65,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <!-- <div class="imagen two"></div> -->
-                        <video id="video-home" src="public/video/comunicado.mp4" autoplay></video>
+                        <div class="imagen two"></div>
                         <div class="cont-carousel">
                             <h2>Encuentra tu curso</h2>
                             <a href="#horario" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect link-section">Conoce m&aacute;s</a>
@@ -89,8 +88,48 @@
                 </div>
             </section>
         </div>
+        <section id="contactanos" class="section">
+            <div class="container js-container">
+                <h2 class="">Escr&iacute;benos</h2>
+                <div class="col-xs-12">
+                    <div class="col-sm-6 js-input">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="nombre">
+                            <label class="mdl-textfield__label" for="nombre">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 js-input">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="dni">
+                            <label class="mdl-textfield__label" for="dni">Documento de Identidad</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 js-input">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="correo">
+                            <label class="mdl-textfield__label" for="correo">Correo</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 js-input">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="celular">
+                            <label class="mdl-textfield__label" for="celular">Celular</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 js-input">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <textarea rows="3" class="mdl-textfield__input" type="text" id="mensaje"></textarea>
+                            <label class="mdl-textfield__label" for="mensaje">Mensaje</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
         <footer>
-            <div class="mdl-container">
+            <div class="js-container">
                 <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
             </div>
         </footer>
