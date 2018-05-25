@@ -36,19 +36,20 @@ class Home extends CI_Controller {
        $this->email->initialize($configGmail);
        $this->email->from('jhonatanibericom@gmail.com');
        $this->email->to($correo);
-       $this->email->subject('Gracias por contactarte con American Latin Travel');
+       $this->email->subject('Gracias por contactarte con Américan Látin Trável');
        $texto = '<!DOCTYPE html>
 					<html>
 					<head>
 						<title>Latin travel</title>
 					</head>
 					<body>
-						<h1>Datos personales</h1>
-						<p>'.$nombre.'</p>
-						<p>'.$dni.'</p>
-						<p>'.$correo.'</p>
-						<p>'.$celular.'</p>
-						<p>'.$mensaje.'</p>
+						<h1>Gracias por contactarte con Américan Látin Trável</h1>
+						<h3>Alguien está interesado en ser contactado y estos son sus datos:</h3>
+						<p><strong>Nombre:</strong>'.$nombre.'</p>
+						<p><strong>DNI:</strong>'.$dni.'</p>
+						<p><strong>CORREO:</strong>'.$correo.'</p>
+						<p><strong>CELULAR:</strong>'.$celular.'</p>
+						<p><strong>MENSAJE:</strong>'.$mensaje.'</p>
 					</body>
 				</html>';
        $this->email->message($texto);
