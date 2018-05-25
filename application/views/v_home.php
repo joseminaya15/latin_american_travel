@@ -10,6 +10,7 @@
         <meta name="date"                   content="May 18, 2018"/>
         <meta name="language"               content="es">
         <meta name="theme-color"            content="#000000">
+        <meta name="google-signin-client_id" content="307501810241-9hfg73k6vir6u6v498cdrj920gb68qf4.apps.googleusercontent.com">
     	<title>Latin American Travel</title>
         <link rel="shortcut icon" href="<?php echo RUTA_IMG?>logo/favicon.ico">
     	<link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
@@ -310,6 +311,7 @@
                 <div class="mdl-card">
                     
                 </div>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Comentar</button>
             </div>
         </section>
@@ -367,5 +369,15 @@
     <script src="<?php echo RUTA_PLUGINS?>mdl/material.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>toaster/toastr.js?v=<?php echo time();?>"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
+    <script type="text/javascript">
+        function onSignIn(googleUser) {
+          var profile = googleUser.getBasicProfile();
+          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+    </script>
 </html>
