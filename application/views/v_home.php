@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Enviar</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="enviarDatos();">Enviar</button>
                     </div>
                 </div>
             </div>

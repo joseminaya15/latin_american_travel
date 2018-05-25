@@ -34,3 +34,48 @@ $('#experiencia .owl-carousel').owlCarousel({
 	autoplayTimeout : 5000,
 	navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
 });
+function enviarDatos(){
+	var nombre = $('#nombre').val();
+	var dni = $('#dni').val();
+	var correo = $('#correo').val();
+	var celular = $('#celular').val();
+	var mensaje = $('#mensaje').val();
+	if(nombre == null || nombre == ''){
+		return;
+	}
+	if(dni == null || dni == ''){
+		return;
+	}
+	if(correo == null || correo == ''){
+		return;
+	}
+	if(celular == null || celular == ''){
+		return;
+	}
+	$.ajax({
+		data : {nombre  : nombre,
+				correo  : correo,
+				celular : celular,
+				mensaje : mensaje,
+				dni 	: dni},
+		url  : 'Home/enviarDatos',
+		type : 'POST'
+	}).done(function(data){
+		try{
+        data = JSON.parse(data);
+        if(data.error == 0){
+        	$('#nombre').val("");
+        	$('#dni').val("");
+        	$('#correo').val("");
+        	$('#celular').val("");
+        	$('#mensaje').val("");
+        }else {
+			$('#usuario').parent().addClass('is-invalid');
+			$('#password').parent().addClass('is-invalid');
+        	return;
+        }
+      }catch(err){
+        msj('error',err.message);
+      }
+	});
+}
