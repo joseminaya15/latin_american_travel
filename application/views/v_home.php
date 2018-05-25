@@ -312,7 +312,7 @@
                     
                 </div>
                 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Comentar</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="comentar()">Comentar</button>
             </div>
         </section>
         <section id="contactanos" class="section">

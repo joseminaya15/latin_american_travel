@@ -79,3 +79,6 @@ function enviarDatos(){
       }
 	});
 }
+function comentar(){
+	
+}
