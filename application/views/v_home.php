@@ -78,6 +78,69 @@
         <section id="paquetes" class="section">
             <div class="js-container">
                 <h2>Nuestros Paquetes</h2>
+                <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card__title">
+                        <img src="" alt="">
+                        <div>
+                            <p>3 partidos</p>   
+                        </div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-contenido">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card__title">
+                        <img src="" alt="">
+                        <div>
+                            <p>3 partidos</p>   
+                        </div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-contenido">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card__title">
+                        <img src="" alt="">
+                        <div>
+                            <p>3 partidos</p>   
+                        </div>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-paquetes">
+                            <i class="mdi mdi"></i>
+                            <span></span>
+                        </div>
+                        <div class="js-contenido">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <div id="ofertas" class="section">
