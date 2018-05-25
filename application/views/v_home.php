@@ -152,73 +152,73 @@
                 <div class="js-flex">
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta1"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Machu Picchu</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
+                            <div class="fondo-oferta oferta2"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Ica</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta3"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Arequipa</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta4"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Paracas</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta5"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Puno</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta6"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Chiclayo</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta7"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Lima</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta8"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Huaraz</p>   
                             </div>
                         </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="fondo-oferta oferta9"></div>
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Trujillo</p>   
                             </div>
                         </div>
                     </div>
