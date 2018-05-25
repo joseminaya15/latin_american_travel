@@ -230,79 +230,61 @@
                 <h2 class="js-title">Mira las Experiencias</h2>
                 <div class="owl-carousel owl-theme">
                     <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
+                            </div>
+                            <div class="js-experiencia--contenido">
                                 <h2>Jose Minaya</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text">
                                 <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                            </div>
-                            <div class="mdl-card__actions">
                                 <small>Marzo 03, 2018</small>
                             </div>
                         </div>
                     </div>
                     <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
+                            </div>
+                            <div class="js-experiencia--contenido">
                                 <h2>Franco Condor</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text">
                                 <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                            </div>
-                            <div class="mdl-card__actions">
                                 <small>Marzo 02, 2018</small>
                             </div>
                         </div>
                     </div>
                     <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
+                            </div>
+                            <div class="js-experiencia--contenido">
                                 <h2>Jhonatan Iberico</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text">
                                 <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
-                            </div>
-                            <div class="mdl-card__actions">
                                 <small>Marzo 01, 2018</small>
                             </div>
                         </div>
                     </div>
                     <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
-                                <h2>Franco Condor</h2>
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
                             </div>
-                            <div class="mdl-card__supporting-text">
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                            </div>
-                            <div class="mdl-card__actions">
+                            <div class="js-experiencia--contenido">
+                                <h2>Jhonatan Iberico</h2>
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
                                 <small>Marzo 01, 2018</small>
                             </div>
                         </div>
                     </div>
                     <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
-                                <h2>Franco Condor</h2>
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
                             </div>
-                            <div class="mdl-card__supporting-text">
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                            </div>
-                            <div class="mdl-card__actions">
-                                <small>Marzo 01, 2018</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mdl-card mdl-experiencia">
-                            <div class="mdl-card__title">
-                                <h2>Franco Condor</h2>
-                            </div>
-                            <div class="mdl-card__supporting-text">
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                            </div>
-                            <div class="mdl-card__actions">
+                            <div class="js-experiencia--contenido">
+                                <h2>Jhonatan Iberico</h2>
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
                                 <small>Marzo 01, 2018</small>
                             </div>
                         </div>
