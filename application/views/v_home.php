@@ -16,6 +16,8 @@
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>mdl/material.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>bootstrap-select/css/bootstrap-select.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>bootstrap/css/bootstrap.min.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>owl-carousel/owl.theme.default.min.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>font-awesome.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>material-icons.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>rubik.css?v=<?php echo time();?>">
@@ -30,7 +32,7 @@
                     <div class="redes-header">
                         <ul>
                             <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
-                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-email same m-r-10"></i>latintravelpe@yahoo.com</a></li>
+                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,6 +52,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="" class="link">Paquetes</a></li>
                             <li><a href="" class="link">Ofertas</a></li>
+                            <li><a href="" class="link">Experiencias</a></li>
                             <li><a href="" class="link">Escr&iacute;benos</a></li>
                         </ul>
                     </div>
@@ -59,35 +62,118 @@
                 <div class="owl-carousel owl-theme">
                     <div class="item">
                         <div class="imagen one"></div>
-                        <div class="cont-carousel">
-                            <h2>Vive Comunicado</h2>
-                            <a href="#comunicacion" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect link-section">Conoce m&aacute;s</a>
-                        </div>
                     </div>
                     <div class="item">
                         <div class="imagen two"></div>
-                        <div class="cont-carousel">
-                            <h2>Encuentra tu curso</h2>
-                            <a href="#horario" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect link-section">Conoce m&aacute;s</a>
-                        </div>
                     </div>
                     <div class="item">
                         <div class="imagen three"></div>
-                        <div class="cont-carousel">
-                           <h2>Prueba tu ingl&eacute;s</h2>
-                           <a href="#prueba" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect link-section">Conoce m&aacute;s</a>
-                       </div>
                     </div>
-                    <div class="item">
-                        <div class="imagen four"></div>
-                        <div class="cont-carousel">
-                            <h2>Vive Comunicado</h2>
-                            <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect link-section">Conoce m&aacute;s</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="cont-carousel">
+                    <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
                 </div>
             </section>
         </div>
+        <section id="paquetes" class="section">
+            <div class="js-container">
+                <h2>Nuestros Paquetes</h2>
+            </div>
+        </section>
+        <div id="ofertas" class="section">
+            <div class="js-container">
+                <h2>Mejores Ofertas</h2>
+            </div>
+        </div>
+        <section id="experiencia" class="section">
+            <div class="js-container">
+                <h2>Mira las Experiencias</h2>
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Jose Minaya</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 03, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Franco Condor</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 02, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Jhonatan Iberico</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 01, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Franco Condor</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 01, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Franco Condor</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 01, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="mdl-card mdl-experiencia">
+                            <div class="mdl-card__title">
+                                <h2>Franco Condor</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <small>Marzo 01, 2018</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card">
+                    
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Comentar</button>
+            </div>
+        </section>
         <section id="contactanos" class="section">
             <div class="container js-container">
                 <h2 class="">Escr&iacute;benos</h2>
@@ -136,13 +222,11 @@
     </body>
     <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
-    <script src="<?php echo RUTA_JS?>jquery-ui.min.js?v=<?php echo time();?>"></script>
-    <script src="<?php echo RUTA_JS?>jquery-migrate-1.2.1.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>bootstrap-select/js/bootstrap-select.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>bootstrap-select/js/i18n/defaults-es_ES.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>mdl/material.min.js?v=<?php echo time();?>"></script>
+    <script src="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>toaster/toastr.js?v=<?php echo time();?>"></script>
-    <script src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
 </html>

@@ -75,9 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
+	// 'hostname' => 'localhost',
+	// 'username' => '',
+	// 'password' => '',
+	'hostname' => 'mysql.it-merino.com',
+	'username' => 'brainblue',
+	'password' => 'Brain$blue18',
 	'database' => '',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
