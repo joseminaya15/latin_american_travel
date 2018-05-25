@@ -35,7 +35,7 @@ class Home extends CI_Controller {
                             'newline'   => "\r\n");
        $this->email->initialize($configGmail);
        $this->email->from('jhonatanibericom@gmail.com');
-       $this->email->to();
+       $this->email->to($correo);
        $this->email->subject('Gracias por contactarte con American Latin Travel');
        $texto = '<!DOCTYPE html>
 					<html>
