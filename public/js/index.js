@@ -80,5 +80,7 @@ function enviarDatos(){
 	});
 }
 function comentar(){
-	
+	$( ".abcRioButtonLightBlue" ).on( "click", function() {
+	});
+	$( ".abcRioButtonLightBlue" ).trigger("click");
 }
