@@ -81,7 +81,7 @@
                 <div class="js-flex">
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title">
-                            <img src="" alt="">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div>
                                 <p>3 partidos</p>   
                             </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title">
-                            <img src="" alt="">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
                             <div>
                                 <p>3 partidos</p>   
                             </div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title">
-                            <img src="" alt="">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div>
                                 <p>3 partidos</p>   
                             </div>
