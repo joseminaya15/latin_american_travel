@@ -45,11 +45,11 @@ class Home extends CI_Controller {
 					<body>
 						<h1>Gracias por contactarte con Américan Látin Trável</h1>
 						<h3>Alguien está interesado en ser contactado y estos son sus datos:</h3>
-						<p><strong>Nombre:</strong>'.$nombre.'</p>
-						<p><strong>DNI:</strong>'.$dni.'</p>
-						<p><strong>CORREO:</strong>'.$correo.'</p>
-						<p><strong>CELULAR:</strong>'.$celular.'</p>
-						<p><strong>MENSAJE:</strong>'.$mensaje.'</p>
+						<p><strong>Nombre:</strong> '.$nombre.'</p>
+						<p><strong>DNI:</strong> '.$dni.'</p>
+						<p><strong>CORREO:</strong> '.$correo.'</p>
+						<p><strong>CELULAR:</strong> '.$celular.'</p>
+						<p><strong>MENSAJE:</strong> '.$mensaje.'</p>
 					</body>
 				</html>';
        $this->email->message($texto);
