@@ -311,7 +311,7 @@
                 <div class="mdl-card">
                     
                 </div>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="comentar()">Comentar</button>
             </div>
         </section>
