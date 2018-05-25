@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
     <head>
-    	<meta charset="ISO-8859-1">
+        <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible"  content="IE=edge">
         <meta name="viewport"               content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <meta name="description"            content="Proyecto de desarrollo de un producto wizard online que tenga un quiz y con una unica solucion que es SAP Business One">
@@ -11,9 +11,9 @@
         <meta name="language"               content="es">
         <meta name="theme-color"            content="#000000">
         <meta name="google-signin-client_id" content="307501810241-9hfg73k6vir6u6v498cdrj920gb68qf4.apps.googleusercontent.com">
-    	<title>Latin American Travel</title>
+        <title>Latin American Travel</title>
         <link rel="shortcut icon" href="<?php echo RUTA_IMG?>logo/favicon.ico">
-    	<link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>mdl/material.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>bootstrap-select/css/bootstrap-select.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>bootstrap/css/bootstrap.min.css?v=<?php echo time();?>">
@@ -22,9 +22,9 @@
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>font-awesome.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>material-icons.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>rubik.css?v=<?php echo time();?>">
-    	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>animate.css?v=<?php echo time();?>">
-    	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>m-p.min.css?v=<?php echo time();?>">
-    	<link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_CSS?>animate.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_CSS?>m-p.min.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
         <div id="home">
@@ -290,11 +290,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="mdl-card">
-                    
+                <div class="mdl-comentar">
+                    <div class="form-group">
+                        <label for="comment">Y tú qué opinas?</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
                 </div>
                 <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="comentar()">Comentar</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effec js-button" onclick="comentar()">Comentar</button>
             </div>
         </section>
         <section id="contactanos" class="section">
@@ -332,7 +335,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="enviarDatos();">Enviar</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" onclick="enviarDatos();">Enviar</button>
                     </div>
                 </div>
             </div>
