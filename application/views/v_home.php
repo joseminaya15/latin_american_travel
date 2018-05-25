@@ -76,76 +76,6 @@
                 </div>
             </section>
         </div>
-        <section id="paquetes" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nuestros Paquetes</h2>
-                <div class="js-flex">
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <div id="ofertas" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
@@ -225,6 +155,76 @@
                 </div>
             </div>
         </div>
+        <section id="paquetes" class="section">
+            <div class="js-container">
+                <h2 class="js-title">Nuestros Paquetes</h2>
+                <div class="js-flex">
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="js-paquete-name">
+                                <p>3 partidos</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Moscú - Saransk - Kazan</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
+                            <div class="js-paquete-name">
+                                <p>3 partidos</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Moscú - Saransk - Kazan</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="js-paquete-name">
+                                <p>3 partidos</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Moscú - Saransk - Kazan</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="experiencia" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mira las Experiencias</h2>
