@@ -301,6 +301,7 @@
             </div>
         </section>
         <section id="contactanos" class="section">
+            <div class="fondo-imagen"></div>
             <div class="container js-container">
                 <h2 class="">Escr&iacute;benos</h2>
                 <div class="col-xs-12">
