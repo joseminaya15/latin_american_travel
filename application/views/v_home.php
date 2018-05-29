@@ -335,7 +335,7 @@
                             <label class="mdl-textfield__label" for="mensaje">Mensaje</label>
                         </div>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 text-center">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" onclick="enviarDatos();">Enviar</button>
                     </div>
                 </div>
