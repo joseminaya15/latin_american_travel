@@ -303,7 +303,10 @@
         <section id="contactanos" class="section">
             <div class="fondo-imagen"></div>
             <div class="container js-container">
-                <h2 class="">Escr&iacute;benos</h2>
+                <div class="title-contactanos">
+                    <h2>Escr&iacute;benos</h2>
+                    <p>Te ayudamos a vivir tu mejor experiencia</p>
+                </div>
                 <div class="col-xs-12">
                     <div class="col-sm-6 js-input">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
