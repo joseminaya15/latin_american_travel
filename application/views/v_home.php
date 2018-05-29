@@ -72,7 +72,13 @@
                     </div>
                 </div>
                 <div class="cont-carousel">
-                    <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                    <div class="cont-carousel__contenido">
+                        <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                        <div class="js-search">
+                            <input type="text" class="form-control" placeholder="Busca tu destino ideal">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">BUSCAR</button>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
