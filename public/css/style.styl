@@ -2,9 +2,7 @@ $regular   = 'RubikRegular'
 $medium    = 'RubikMedium'
 $bold      = 'RubikBold'
 $light     = 'RubikLight'
-$default   = #FF8300;
-$primary   = #9FD4C9;
-$secondary = #D5D654;
+$color     = #06A466
 flexCenter()
 	display flex
 	display -webkit-flex
@@ -203,6 +201,26 @@ p
 					&.three
 						background url(../img/fondo/fondo_header3.jpg) no-repeat center center
 						background-size cover
+.owl-theme 
+	.owl-nav
+		flexCenter()
+		position absolute
+		top 0
+		bottom 0
+		z-index 0
+		width 100%
+		.owl-prev
+			position absolute
+			left 0
+			background-color $color
+			&:hover
+				background-color $color
+		.owl-next
+			position absolute
+			right 0
+			background-color $color
+			&:hover
+				background-color $color
 .cont-carousel
 	absolute()
 	flexCenter()
