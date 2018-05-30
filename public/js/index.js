@@ -6,6 +6,27 @@ $win.scroll(function() {
 		$("nav").removeClass("navbarcolor");
 	}
 });
+$('a.link[href^="#"]').click(function(e) {
+ 	var target = $(this).attr('href');
+ 	var strip = target.slice(1);
+ 	var anchor = $("section[id='" + strip + "']");
+ 	e.preventDefault();
+ 	y = (anchor.offset() || {
+ 		"top" : NaN
+ 	}).top;
+ 	// if(isMobile.any()){
+ 	// 	$('html, body').animate({
+	 // 		scrollTop : (y - 40)
+	 // 	}, 'slow');
+ 	// }else{
+ 	// 	$('html, body').animate({
+	 // 		scrollTop : (y - 120)
+	 // 	}, 'slow');
+ 	// }
+ 	$('html, body').animate({
+ 		scrollTop : (y - 20)
+ 	}, 'slow');
+});
 // $('#principal .owl-carousel').owlCarousel({
 // 	lazyLoad : true,
 // 	animateOut: 'fadeOut',

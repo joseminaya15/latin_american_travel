@@ -51,10 +51,10 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="" class="link">Paquetes</a></li>
-                            <li><a href="" class="link">Ofertas</a></li>
-                            <li><a href="" class="link">Experiencias</a></li>
-                            <li><a href="" class="link">Escr&iacute;benos</a></li>
+                            <li><a href="#ofertas" class="link">Ofertas</a></li>
+                            <li><a href="#paquetes" class="link">Paquetes</a></li>
+                            <li><a href="#experiencia" class="link">Experiencias</a></li>
+                            <li><a href="#contactanos" class="link">Escr&iacute;benos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 </div>
             </section>
         </div>
-        <div id="ofertas" class="section">
+        <section id="ofertas" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
                 <div class="js-flex">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <section id="paquetes" class="section">
             <div class="js-container">
                 <h2 class="js-title">Nuestros Paquetes</h2>
