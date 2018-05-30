@@ -60,17 +60,7 @@
                 </div>
             </nav>
             <section id="principal">
-                <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="imagen one"></div>
-                    </div>
-                    <div class="item">
-                        <div class="imagen two"></div>
-                    </div>
-                    <div class="item">
-                        <div class="imagen three"></div>
-                    </div>
-                </div>
+                <div class="fondo-responsive"></div>
                 <div class="cont-carousel">
                     <div class="cont-carousel__contenido">
                         <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>

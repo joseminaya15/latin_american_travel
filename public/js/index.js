@@ -1,3 +1,11 @@
+var $win = $(window);
+$win.scroll(function() {
+	if ($win.scrollTop() > 45) {
+		$("nav").addClass("navbarcolor");
+	} else {
+		$("nav").removeClass("navbarcolor");
+	}
+});
 $('#principal .owl-carousel').owlCarousel({
 	lazyLoad : true,
 	animateOut: 'fadeOut',
