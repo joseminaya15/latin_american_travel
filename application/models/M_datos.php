@@ -26,4 +26,11 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql);
       return $result->result();
     }
+    function getComentarios(){
+      $sql = "SELECT o.*,
+                     DATE_FORMAT(o.fecha, '%M %d, %Y') AS fecha_coment
+               FROM opiniones o ORDER BY o.Id DESC LIMIT 5";
+      $result = $this->db->query($sql);
+      return $result->result();
+    }
 }

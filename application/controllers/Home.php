@@ -91,4 +91,45 @@ class Home extends CI_Controller {
     }
     echo json_encode($data);
   }
+  function comentar(){
+    $data['error'] = EXIT_ERROR;
+    $data['msj']   = null;
+    try {
+      $html  = '';
+      $cont  = 1;
+      $texto = $this->input->post('comentario');
+      $arrayInsert = array('comentario' => $texto,
+                           'Nombre'   => 'User',
+                           'Apellido' => '',
+                           'Email'    => '',
+                           'pass'     => '',
+                           'Foto'     => 'nouser',
+                           'fecha'    => date("Y-m-d"));
+      $datoInsert  = $this->M_datos->insertarDatos($arrayInsert, 'opiniones');
+      $datos = $this->M_datos->getComentarios();
+      if(count($datos) == 0){
+        return;
+      }else {
+        foreach ($datos as $key) {
+          $html .= '<div class="item">
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
+                            </div>
+                            <div class="js-experiencia--contenido">
+                                <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
+                                <p>'.$key->comentario.'</p>
+                                <small>'.$key->fecha_coment.'</small>
+                            </div>
+                        </div>
+                    </div>';
+        }
+      }
+      $data['comentario'] = $html;
+      $data['error'] = EXIT_SUCCESS;
+    }catch(Exception $e){
+      $data['msj'] = $e->getMessage();
+    }
+    echo json_encode($data);
+  }
 }

@@ -65,7 +65,7 @@
                     <div class="cont-carousel__contenido">
                         <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
                         <div class="js-search">
-                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto">
+                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
                         </div>
                     </div>
@@ -224,7 +224,7 @@
         <section id="experiencia" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mira las Experiencias</h2>
-                <div class="owl-carousel owl-theme">
+                <div class="owl-carousel owl-theme comentarios">
                     <div class="item">
                         <div class="mdl-experiencia">
                             <div class="js-experiencia--perfil">
@@ -289,7 +289,7 @@
                 <div class="mdl-comentar">
                     <div class="form-group">
                         <label for="comment">Y tú qué opinas?</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" id="tacomentario" maxlength="250"></textarea>
                     </div>
                 </div>
                 <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>

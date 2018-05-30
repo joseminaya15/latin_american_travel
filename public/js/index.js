@@ -107,15 +107,34 @@ function enviarDatos(){
 }
 function comentar(){
 	$( ".abcRioButtonLightBlue").on( "click", function() {
-		/*function onSignIn(googleUser) {
-          var profile = googleUser.getBasicProfile();
-          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }*/
 	});
-	$( ".abcRioButtonLightBlue" ).trigger("click");
+	$(".abcRioButtonLightBlue" ).trigger("click");
+	var comentario = $('#tacomentario').val();
+	$.ajax({
+		data : {comentario : comentario},
+		url  : 'Home/comentar',
+		type : 'POST'
+	}).done(function(data){
+		try{
+        data = JSON.parse(data);
+        if(data.error == 0){
+        	$('#tacomentario').val("");
+        	$('.owl-stage').html('');
+        	$('.owl-stage').append(data.comentarios);
+        }else {
+        	return;
+        }
+      }catch(err){
+        msj('error',err.message);
+      }
+	});
+}
+function onSignIn(googleUser){
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 function buscarOferta(){
 	var texto = $('#texto').val();
@@ -137,4 +156,10 @@ function buscarOferta(){
         msj('error',err.message);
       }
 	});
+}
+function verificarDatos(e){
+	if(e.keyCode === 13){
+		e.preventDefault();
+		buscarOferta();
+    }
 }
