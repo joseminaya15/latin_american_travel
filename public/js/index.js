@@ -117,3 +117,24 @@ function comentar(){
 	});
 	$( ".abcRioButtonLightBlue" ).trigger("click");
 }
+function buscarOferta(){
+	var texto = $('#texto').val();
+	$.ajax({
+		data : {texto  : texto},
+		url  : 'Home/buscarOferta',
+		type : 'POST'
+	}).done(function(data){
+		try{
+        data = JSON.parse(data);
+        if(data.error == 0){
+        	$('#texto').val("");
+        	$('.paquetes-insert').html('');
+        	$('.paquetes-insert').append(data.html);
+        }else {
+        	return;
+        }
+      }catch(err){
+        msj('error',err.message);
+      }
+	});
+}

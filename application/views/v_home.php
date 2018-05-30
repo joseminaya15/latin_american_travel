@@ -65,8 +65,8 @@
                     <div class="cont-carousel__contenido">
                         <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
                         <div class="js-search">
-                            <input type="text" class="form-control" placeholder="Busca tu destino ideal">
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">BUSCAR</button>
+                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
         <section id="ofertas" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
-                <div class="js-flex">
+                <div class="js-flex paquetes-insert">
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta1"></div>
@@ -355,6 +355,7 @@
     <script src="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_PLUGINS?>toaster/toastr.js?v=<?php echo time();?>"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
     <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
     <script type="text/javascript">
     $( ".target" ).change(function() {
