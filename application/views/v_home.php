@@ -186,14 +186,14 @@
                         <div class="mdl-card__supporting-text">
                             <div class="js-paquetes">
                                 <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
+                                <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
                             </div>
                             <div class="js-paquetes">
                                 <i class="mdi mdi-date_range"></i>
                                 <span>14 Días y 13 Noches</span>
                             </div>
                             <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, periodos históricos forman parte de la excurisión.</p>
                             </div>
                         </div>
                     </div>
@@ -207,14 +207,14 @@
                         <div class="mdl-card__supporting-text">
                             <div class="js-paquetes">
                                 <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
+                                <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
                             </div>
                             <div class="js-paquetes">
                                 <i class="mdi mdi-date_range"></i>
                                 <span>14 Días y 13 Noches</span>
                             </div>
                             <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
