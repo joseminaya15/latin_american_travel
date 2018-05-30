@@ -201,7 +201,7 @@
                         <div class="mdl-card__title p-0">
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Anillo Dorado del Per&uacute;</p>   
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
