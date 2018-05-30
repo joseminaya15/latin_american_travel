@@ -186,14 +186,14 @@
                         <div class="mdl-card__supporting-text">
                             <div class="js-paquetes">
                                 <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
+                                <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
                             </div>
                             <div class="js-paquetes">
                                 <i class="mdi mdi-date_range"></i>
                                 <span>14 Días y 13 Noches</span>
                             </div>
                             <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, periodos históricos forman parte de la excurisión.</p>
                             </div>
                         </div>
                     </div>
@@ -201,20 +201,20 @@
                         <div class="mdl-card__title p-0">
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div class="js-paquete-name">
-                                <p>3 partidos</p>   
+                                <p>Anillo Dorado del Per&uacute;</p>   
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div class="js-paquetes">
                                 <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
+                                <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
                             </div>
                             <div class="js-paquetes">
                                 <i class="mdi mdi-date_range"></i>
                                 <span>14 Días y 13 Noches</span>
                             </div>
                             <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -225,66 +225,7 @@
             <div class="js-container">
                 <h2 class="js-title">Mira las Experiencias</h2>
                 <div class="owl-carousel owl-theme comentarios">
-                    <div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>Jose Minaya</h2>
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                                <small>Marzo 03, 2018</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>Franco Condor</h2>
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias</p>
-                                <small>Marzo 02, 2018</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>Jhonatan Iberico</h2>
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
-                                <small>Marzo 01, 2018</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>Jhonatan Iberico</h2>
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
-                                <small>Marzo 01, 2018</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>Jhonatan Iberico</h2>
-                                <p>Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias. Latin America es bravazo, Siempre  me entero de todas las noticias.</p>
-                                <small>Marzo 01, 2018</small>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo $comentarios ?>
                 </div>
                 <div class="mdl-comentar">
                     <div class="form-group">

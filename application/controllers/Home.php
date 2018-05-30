@@ -14,7 +14,38 @@ class Home extends CI_Controller {
     }
 
 	public function index(){
-		$this->load->view('v_home');
+    $html  = '';
+    $cont  = 1;
+    $activ = '';
+    $datos = $this->M_datos->getComentarios();
+    if(count($datos) == 0){
+      return;
+    }else {
+      foreach ($datos as $key) {
+        if($cont <= 2){
+          $activ = 'active';
+        }else if($cont > 2){
+          $activ = '';
+        }
+        $html .= '<div class="owl-item '.$activ.'" style="width: 563px;">
+                    <div class="item">
+                        <div class="mdl-experiencia">
+                            <div class="js-experiencia--perfil">
+                                <img src="'.RUTA_IMG.'logo/nouser.jpg" alt="">
+                            </div>
+                            <div class="js-experiencia--contenido">
+                                <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
+                                <p>'.$key->comentario.'</p>
+                                <small>'.$key->fecha_coment.'</small>
+                            </div>
+                        </div>
+                    </div>
+                  </div>';
+        $cont++;
+      }
+    }
+    $data['comentarios'] = $html;
+		$this->load->view('v_home', $data);
 	}
 	function enviarDatos(){
 	  $data['error'] = EXIT_ERROR;
@@ -97,6 +128,7 @@ class Home extends CI_Controller {
     try {
       $html  = '';
       $cont  = 1;
+      $activ = '';
       $texto = $this->input->post('comentario');
       $arrayInsert = array('comentario' => $texto,
                            'Nombre'   => 'User',
@@ -111,21 +143,29 @@ class Home extends CI_Controller {
         return;
       }else {
         foreach ($datos as $key) {
-          $html .= '<div class="item">
-                        <div class="mdl-experiencia">
-                            <div class="js-experiencia--perfil">
-                                <img src="<?php echo RUTA_IMG?>logo/nouser.jpg" alt="">
-                            </div>
-                            <div class="js-experiencia--contenido">
-                                <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
-                                <p>'.$key->comentario.'</p>
-                                <small>'.$key->fecha_coment.'</small>
-                            </div>
-                        </div>
+          if($cont <= 2){
+            $activ = 'active';
+          }else if($cont > 2){
+            $activ = '';
+          }
+          $html .= '<div class="owl-item '.$activ.'" style="width: 563px;">
+                      <div class="item">
+                          <div class="mdl-experiencia">
+                              <div class="js-experiencia--perfil">
+                                  <img src="'.RUTA_IMG.'logo/nouser.jpg" alt="">
+                              </div>
+                              <div class="js-experiencia--contenido">
+                                  <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
+                                  <p>'.$key->comentario.'</p>
+                                  <small>'.$key->fecha_coment.'</small>
+                              </div>
+                          </div>
+                      </div>
                     </div>';
+          $cont++;
         }
       }
-      $data['comentario'] = $html;
+      $data['comentarios'] = $html;
       $data['error'] = EXIT_SUCCESS;
     }catch(Exception $e){
       $data['msj'] = $e->getMessage();

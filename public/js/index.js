@@ -106,9 +106,9 @@ function enviarDatos(){
 	});
 }
 function comentar(){
-	$( ".abcRioButtonLightBlue").on( "click", function() {
+	/*$( ".abcRioButtonLightBlue").on( "click", function() {
 	});
-	$(".abcRioButtonLightBlue" ).trigger("click");
+	$(".abcRioButtonLightBlue" ).trigger("click");*/
 	var comentario = $('#tacomentario').val();
 	$.ajax({
 		data : {comentario : comentario},
