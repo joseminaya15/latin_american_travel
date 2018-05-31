@@ -27,11 +27,12 @@ class Home extends CI_Controller {
         }else if($cont > 2){
           $activ = '';
         }
+        $foto = ($key->Foto == 'nouser') ? RUTA_IMG.'logo/nouser.jpg' : $key->Foto;
         $html .= '<div class="owl-item '.$activ.'" style="width: 563px;">
                     <div class="item">
                         <div class="mdl-experiencia">
                             <div class="js-experiencia--perfil">
-                                <img src="'.RUTA_IMG.'logo/nouser.jpg" alt="">
+                                <img src="'.$foto.'" alt="">
                             </div>
                             <div class="js-experiencia--contenido">
                                 <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
@@ -135,13 +136,17 @@ class Home extends CI_Controller {
       $html  = '';
       $cont  = 1;
       $activ = '';
-      $texto = $this->input->post('comentario');
+      $texto    = $this->input->post('comentario');
+      $name     = $this->input->post('name');
+      $lastname = $this->input->post('lastname');
+      $imageUrl = $this->input->post('imageUrl');
+      $email    = $this->input->post('email');
       $arrayInsert = array('comentario' => $texto,
-                           'Nombre'   => 'User',
-                           'Apellido' => '',
-                           'Email'    => '',
+                           'Nombre'   => $name,
+                           'Apellido' => $lastname,
+                           'Email'    => $email,
                            'pass'     => '',
-                           'Foto'     => 'nouser',
+                           'Foto'     => $imageUrl,
                            'fecha'    => date("Y-m-d"));
       $datoInsert  = $this->M_datos->insertarDatos($arrayInsert, 'opiniones');
       $datos = $this->M_datos->getComentarios();
@@ -154,11 +159,12 @@ class Home extends CI_Controller {
           }else if($cont > 2){
             $activ = '';
           }
+          $foto = ($key->Foto == 'nouser') ? RUTA_IMG.'logo/nouser.jpg' : $key->Foto;
           $html .= '<div class="owl-item '.$activ.'" style="width: 563px;">
                       <div class="item">
                           <div class="mdl-experiencia">
                               <div class="js-experiencia--perfil">
-                                  <img src="'.RUTA_IMG.'logo/nouser.jpg" alt="">
+                                  <img src="'.$foto.'" alt="">
                               </div>
                               <div class="js-experiencia--contenido">
                                   <h2>'.$key->Nombre.' '.$key->Apellido.'</h2>
