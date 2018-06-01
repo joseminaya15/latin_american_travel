@@ -333,6 +333,18 @@ p
 		display block
 		img
 			width 100%
+		button
+			transitionTransform()
+			border 1px solid #FFFFFF
+			text-transform initial
+			color #FFFFFF
+			position absolute
+			top 10px
+			right 10px
+			transform scale(0)
+		&:hover
+			button
+				transform scale(1)
 		.js-paquete-name
 			padding 5px 10px
 			p
@@ -424,6 +436,11 @@ footer
 	text-align center
 	p
 		color #FFFFFF
+.mdl-card__menu
+	z-index 10
+	button
+		i
+			color #757575
 /*SCROLL*/
 ::-webkit-scrollbar
 	width 8px

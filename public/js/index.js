@@ -116,7 +116,6 @@ function comentar() {
 	});
 	$(".abcRioButtonLightBlue").trigger("click");
 }
-
 function onSignIn(googleUser) {
 	// console.log('ID: '        + profile.getId()); // Do not send to your backend! Use an ID token instead.
 	// console.log('Name: '      + profile.getGivenName());
@@ -151,7 +150,6 @@ function onSignIn(googleUser) {
 		}
 	});
 }
-
 function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
 	auth2.signOut().then(function () {
@@ -159,7 +157,6 @@ function signOut() {
 		gapi.auth2.getAuthInstance().currentUser.get().reloadAuthResponse();
 	});
 }
-
 function buscarOferta() {
 	var texto = $('#texto').val();
 	$.ajax({
@@ -183,10 +180,29 @@ function buscarOferta() {
 		}
 	});
 }
-
 function verificarDatos(e) {
 	if (e.keyCode === 13) {
 		e.preventDefault();
 		buscarOferta();
 	}
+}
+function openModalOferta(id){
+	var modal      = $('#ModalOferta');
+	var idButton   = $('#'+id);
+	var nameOferta = idButton.parents('.mdl-card__title').find('.js-paquete-name');
+	var htmlModal  = idButton.parents('.mdl-ofertas').find('.modal-paquete');
+    modal.find('.mdl-card__title').find('h2').text(nameOferta[0].innerText);
+    modal.find('.mdl-card__supporting-text').html(htmlModal);
+    modal.find('.mdl-card__supporting-text').find('.modal-paquete').css('display','block');
+    modal.modal('show');
+}
+function openModalPaquete(id){
+	var modal      = $('#ModalPaquete');
+	var idButton   = $('#'+id);
+	var nameOferta = idButton.parents('.mdl-card__title').find('.js-paquete-name');
+	var htmlModal  = idButton.parents('.mdl-paquetes').find('.modal-oferta');
+    modal.find('.mdl-card__title').find('h2').text(nameOferta[0].innerText);
+    modal.find('.mdl-card__supporting-text').html(htmlModal);
+    modal.find('.mdl-card__supporting-text').find('.modal-oferta').css('display','block');
+    modal.modal('show');
 }
