@@ -217,6 +217,18 @@ p
 		font-size 38px
 		text-align center
 		max-width 650px
+.cont-redes
+	flexCenter()
+	justify-content center
+	position absolute
+	bottom 40px
+	left 0
+	right 0
+	text-align center
+	z-index 100
+	width 100%
+	max-width 200px
+	margin auto
 .navbar-default
 	background-color #FFFFFF
 	position absolute
@@ -324,6 +336,11 @@ p
 	&:nth-child(3)
 		.js-paquete-name
 			background-color #00CC44
+	.js-paquetes
+		&.location
+			height 60px
+	.js-contenido
+		height 100px
 .mdl-ofertas
 	box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 	width 100%
@@ -340,6 +357,8 @@ p
 				color #FFFFFF
 				font-size 16px
 		.fondo-oferta
+			flexCenter()
+			justify-content center
 			background-size: 425px !important
 			height 200px
 			position relative
@@ -364,6 +383,15 @@ p
 				background url(../img/ofertas/Huaraz.jpg) no-repeat center center
 			&.oferta9
 				background url(../img/ofertas/Trujillo.jpg) no-repeat center center
+			button
+				transitionTransform()
+				border 1px solid #FFFFFF
+				text-transform initial
+				color #FFFFFF
+				transform scale(0)
+			&:hover
+				button
+					transform scale(1)
 .js-flex
 	flexStart()
 	justify-content center

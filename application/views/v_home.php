@@ -70,6 +70,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="cont-redes">
+                    <p>S&iacute;guenos</p>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-twitter"></i></a>
+                </div>
             </section>
         </div>
         <section id="ofertas" class="section">
@@ -78,7 +83,9 @@
                 <div class="js-flex ofertas-insert">
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta1"></div>
+                            <div class="fondo-oferta oferta1">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Machu Picchu</p>   
                             </div>
@@ -86,7 +93,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta2"></div>
+                            <div class="fondo-oferta oferta2">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Ica</p>   
                             </div>
@@ -94,7 +103,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta3"></div>
+                            <div class="fondo-oferta oferta3">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Arequipa</p>   
                             </div>
@@ -102,7 +113,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta4"></div>
+                            <div class="fondo-oferta oferta4">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Paracas</p>   
                             </div>
@@ -110,7 +123,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta5"></div>
+                            <div class="fondo-oferta oferta5">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Puno</p>   
                             </div>
@@ -118,7 +133,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta6"></div>
+                            <div class="fondo-oferta oferta6">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Chiclayo</p>   
                             </div>
@@ -126,7 +143,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta7"></div>
+                            <div class="fondo-oferta oferta7">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Lima</p>   
                             </div>
@@ -134,7 +153,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta8"></div>
+                            <div class="fondo-oferta oferta8">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Huaraz</p>   
                             </div>
@@ -142,7 +163,9 @@
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta9"></div>
+                            <div class="fondo-oferta oferta9">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ver m&aacute;s</button>
+                            </div>
                             <div class="js-paquete-name">
                                 <p>Trujillo</p>   
                             </div>
@@ -163,7 +186,7 @@
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
+                            <div class="js-paquetes location">
                                 <i class="mdi mdi-location_on"></i>
                                 <span>Moscú - Saransk - Kazan</span>
                             </div>
@@ -184,7 +207,7 @@
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
+                            <div class="js-paquetes location">
                                 <i class="mdi mdi-location_on"></i>
                                 <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
                             </div>
@@ -205,7 +228,7 @@
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
+                            <div class="js-paquetes location">
                                 <i class="mdi mdi-location_on"></i>
                                 <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
                             </div>
