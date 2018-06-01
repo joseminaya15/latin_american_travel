@@ -97,14 +97,14 @@ class Home extends CI_Controller {
     $data['error'] = EXIT_ERROR;
     $data['msj']   = null;
     try {
-      $html  = '';
+      $html  = '';$htmlPaq = '';
       $cont  = 1;
       $img   = '';
       $texto = $this->input->post('texto');
-      $datos = $this->M_datos->getOfertas($texto);
-      if(count($datos) == 0){
-        return;
-      }else {
+      $datos    = $this->M_datos->getOfertas($texto);
+      $paquetes = $this->M_datos->getPaquetesByBusqueda($texto);
+      
+      if(count($datos) != 0){
         foreach ($datos as $key) {
           if($key->lugar == 'Puno' || $key->lugar == 'Paracas'){
             $img = '.jpeg';
@@ -122,7 +122,34 @@ class Home extends CI_Controller {
           $cont++;
         }
       }
+      if(count($paquetes) != 0){
+        foreach ($paquetes as $key) {
+          $htmlPaq.= '<div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <img src="'.RUTA_IMG.'paquetes/'.$key->img.'" alt="">
+                            <div class="js-paquete-name">
+                                <p>'.$key->nombre.'</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>'.$key->lugar.'</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>'.$key->dias.'</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>'.$key->detalle.'</p>
+                            </div>
+                        </div>
+                    </div>';
+        }
+      }
+
       $data['html']  = $html;
+      $data['htmlPaq']  = $htmlPaq;
       $data['error'] = EXIT_SUCCESS;
     }catch(Exception $e){
       $data['msj'] = $e->getMessage();

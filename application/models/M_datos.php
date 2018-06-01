@@ -22,8 +22,9 @@ class M_datos extends  CI_Model{
       return array('error' => EXIT_SUCCESS,'msj' => MSJ_UPT);
     }
     function getOfertas($texto){
-      $sql = "SELECT b.* FROM buscador b WHERE b.lugar LIKE '%".$texto."%'";
-      $result = $this->db->query($sql);
+      $sql = "SELECT b.* FROM buscador b WHERE b.lugar LIKE ?";
+      $result = $this->db->query($sql,array('%'.$texto.'%'));
+      // log_message('error',$this->db->last_query());
       return $result->result();
     }
     function getComentarios(){
@@ -31,6 +32,15 @@ class M_datos extends  CI_Model{
                      DATE_FORMAT(o.fecha, '%M %d, %Y') AS fecha_coment
                FROM opiniones o ORDER BY o.Id DESC LIMIT 5";
       $result = $this->db->query($sql);
+      return $result->result();
+    }
+    function getPaquetesByBusqueda($texto){
+      $sql = "SELECT p.* 
+                FROM paquetes p 
+               WHERE p.nombre  LIKE ?
+                  OR p.detalle LIKE ?
+                  OR p.lugar   LIKE ?";
+      $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%'));
       return $result->result();
     }
 }

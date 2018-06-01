@@ -75,7 +75,7 @@
         <section id="ofertas" class="section">
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
-                <div class="js-flex paquetes-insert">
+                <div class="js-flex ofertas-insert">
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta1"></div>
@@ -154,7 +154,7 @@
         <section id="paquetes" class="section">
             <div class="js-container">
                 <h2 class="js-title">Nuestros Paquetes</h2>
-                <div class="js-flex">
+                <div class="js-flex paquetes-insert">
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">

@@ -171,8 +171,10 @@ function buscarOferta() {
 			data = JSON.parse(data);
 			if (data.error == 0) {
 				$('#texto').val("");
+				$('.ofertas-insert').html('');
+				$('.ofertas-insert').append(data.html);
 				$('.paquetes-insert').html('');
-				$('.paquetes-insert').append(data.html);
+				$('.paquetes-insert').append(data.htmlPaq);
 			} else {
 				return;
 			}
@@ -181,6 +183,7 @@ function buscarOferta() {
 		}
 	});
 }
+
 function verificarDatos(e) {
 	if (e.keyCode === 13) {
 		e.preventDefault();
