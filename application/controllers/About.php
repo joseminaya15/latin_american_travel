@@ -46,7 +46,7 @@ class About extends CI_Controller {
       }
     }
     $data['comentarios'] = $html;
-		$this->load->view('v_home', $data);
+		$this->load->view('v_about', $data);
 	}
   function comentar(){
     $data['error'] = EXIT_ERROR;
