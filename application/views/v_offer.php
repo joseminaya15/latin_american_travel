@@ -11,7 +11,7 @@
         <meta name="language"               content="es">
         <meta name="theme-color"            content="#000000">
         <meta name="google-signin-client_id" content="307501810241-9hfg73k6vir6u6v498cdrj920gb68qf4.apps.googleusercontent.com">
-        <title>Latin American Travel</title>
+        <title>Ofertas | Latin American Travel</title>
         <link rel="shortcut icon" href="<?php echo RUTA_IMG?>logo/favicon.ico">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>mdl/material.min.css?v=<?php echo time();?>">
@@ -27,71 +27,57 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <section id="nosotros">
-            <div class="js-container">
-                
-            </div>
-        </section>
-        <section id="experiencia" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Mira las Experiencias</h2>
-                <div class="owl-carousel owl-theme comentarios">
-                    <?php echo $comentarios ?>
-                </div>
-                <div class="mdl-comentar">
-                    <div class="form-group">
-                        <label for="comment">Y tú qué opinas?</label>
-                        <textarea class="form-control" rows="5" id="tacomentario" maxlength="250"></textarea>
-                    </div>
-                </div>
-                <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effec js-button" onclick="comentar()">Comentar</button>
-            </div>
-        </section>
-        <section id="contactanos" class="section">
-            <div class="fondo-imagen"></div>
-            <div class="container js-container">
-                <div class="title-contactanos">
-                    <h2>Escr&iacute;benos</h2>
-                    <p>Te ayudamos a vivir tu mejor experiencia</p>
-                </div>
-                <div class="col-xs-12">
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="nombre">
-                            <label class="mdl-textfield__label" for="nombre">Nombre</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="dni">
-                            <label class="mdl-textfield__label" for="dni">Documento de Identidad</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="correo">
-                            <label class="mdl-textfield__label" for="correo">Correo</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="celular">
-                            <label class="mdl-textfield__label" for="celular">Celular</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <textarea rows="3" class="mdl-textfield__input" type="text" id="mensaje"></textarea>
-                            <label class="mdl-textfield__label" for="mensaje">Mensaje</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 text-center">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" onclick="enviarDatos();">Enviar</button>
+        <div id="home">
+            <div class="js-header">
+                <div class="container text-right">
+                    <div class="redes-header">
+                        <ul>
+                            <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
+                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="offer" class="link">Ofertas</a></li>
+                            <li><a href="Package" class="link">Paquetes</a></li>
+                            <li><a href="#nosotros" class="link">Nosotros</a></li>
+                            <li><a href="#experiencia" class="link">Experiencias</a></li>
+                            <li><a href="#contactanos" class="link">Escr&iacute;benos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section id="principal">
+                <div class="fondo-responsive"></div>
+                <div class="cont-carousel">
+                    <div class="cont-carousel__contenido">
+                        <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                        <div class="js-search">
+                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont-redes">
+                    <p>S&iacute;guenos</p>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+                </div>
+            </section>
+        </div>
         <footer>
             <div class="js-container">
                 <p>Latin American Travel 2018 - Todos los derechos reservados</p>  

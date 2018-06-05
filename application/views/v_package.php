@@ -11,7 +11,7 @@
         <meta name="language"               content="es">
         <meta name="theme-color"            content="#000000">
         <meta name="google-signin-client_id" content="307501810241-9hfg73k6vir6u6v498cdrj920gb68qf4.apps.googleusercontent.com">
-        <title>Latin American Travel</title>
+        <title>Paquetes | Latin American Travel</title>
         <link rel="shortcut icon" href="<?php echo RUTA_IMG?>logo/favicon.ico">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>mdl/material.min.css?v=<?php echo time();?>">
@@ -27,164 +27,62 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <section id="paquetes" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nuestros Paquetes</h2>
-                <div class="js-flex paquetes-insert">
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
-                            </div>
-                        </div>
-                        <div class="modal-oferta" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, periodos históricos forman parte de la excurisión.</p>
-                            </div>
-                        </div>
-                        <div class="modal-oferta" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>Anillo Dorado del Per&uacute;</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="modal-oferta" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
+        <div id="home">
+            <div class="js-header">
+                <div class="container text-right">
+                    <div class="redes-header">
+                        <ul>
+                            <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
+                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="contactanos" class="section">
-            <div class="fondo-imagen"></div>
-            <div class="container js-container">
-                <div class="title-contactanos">
-                    <h2>Escr&iacute;benos</h2>
-                    <p>Te ayudamos a vivir tu mejor experiencia</p>
-                </div>
-                <div class="col-xs-12">
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="nombre">
-                            <label class="mdl-textfield__label" for="nombre">Nombre</label>
-                        </div>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
                     </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="dni">
-                            <label class="mdl-textfield__label" for="dni">Documento de Identidad</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="correo">
-                            <label class="mdl-textfield__label" for="correo">Correo</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="celular">
-                            <label class="mdl-textfield__label" for="celular">Celular</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 js-input">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <textarea rows="3" class="mdl-textfield__input" type="text" id="mensaje"></textarea>
-                            <label class="mdl-textfield__label" for="mensaje">Mensaje</label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 text-center">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" onclick="enviarDatos();">Enviar</button>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="offer" class="link">Ofertas</a></li>
+                            <li><a href="Package" class="link">Paquetes</a></li>
+                            <li><a href="#nosotros" class="link">Nosotros</a></li>
+                            <li><a href="#experiencia" class="link">Experiencias</a></li>
+                            <li><a href="#contactanos" class="link">Escr&iacute;benos</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+            </nav>
+            <section id="principal">
+                <div class="fondo-responsive"></div>
+                <div class="cont-carousel">
+                    <div class="cont-carousel__contenido">
+                        <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                        <div class="js-search">
+                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont-redes">
+                    <p>S&iacute;guenos</p>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                    <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+                </div>
+            </section>
+        </div>
         <footer>
             <div class="js-container">
                 <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
             </div>
         </footer>
-        <div class="modal fade" id="ModalPaquete" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-large" role="document">
-                <div class="modal-content">
-                    <div class="mdl-card">
-                        <div class="mdl-card__title">
-                            <h2></h2>
-                        </div>
-                        <div class="mdl-card__supporting-text"></div>
-                    </div>
-                    <div class="mdl-card__actions text-right">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button">M&aacute;s Detalle</button>
-                    </div>
-                    <div class="mdl-card__menu">
-                        <button class="mdl-button mdl-js-button mdl-button--icon" data-dismiss="modal"><i class="mdi mdi-close"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
