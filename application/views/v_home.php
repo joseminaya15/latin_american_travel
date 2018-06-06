@@ -84,7 +84,7 @@
                 <div class="js-flex ofertas-insert">
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
-                            <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div class="js-paquete-name">
                                 <p>3 partidos</p>   
@@ -106,7 +106,7 @@
                     </div>
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
-                            <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
                             <div class="js-paquete-name">
                                 <p>3 partidos</p>   
@@ -128,7 +128,7 @@
                     </div>
                     <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
-                            <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
                             <div class="js-paquete-name">
                                 <p>Anillo Dorado del Per&uacute;</p>   
@@ -158,145 +158,91 @@
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta1">
-                                <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Machu Picchu</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta2">
-                                <button id="button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Ica</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta3">
-                                <button id="button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Arequipa</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta4">
-                                <button id="button4" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button4" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Paracas</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta5">
-                                <button id="button5" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button5" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Puno</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta6">
-                                <button id="button6" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button6" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Chiclayo</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta7">
-                                <button id="button7" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button7" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Lima</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta8">
-                                <button id="button8" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button8" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Huaraz</p>   
                             </div>
                         </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
                     </div>
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta9">
-                                <button id="button9" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="openModalOferta(this.id)">Ver m&aacute;s</button>
+                                <button id="button9" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                             </div>
                             <div class="js-paquete-name">
                                 <p>Trujillo</p>   
                             </div>
-                        </div>
-                        <div class="modal-paquete" style="display: none;">
-                            <strong>Cusco:</strong>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                            <strong>Machu Picchu</strong>
-                            <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
                         </div>
                     </div>
                 </div>
