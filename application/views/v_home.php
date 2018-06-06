@@ -82,6 +82,79 @@
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
                 <div class="js-flex ofertas-insert">
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="js-paquete-name">
+                                <p>3 partidos</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes location">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Moscú - Saransk - Kazan</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
+                            <div class="js-paquete-name">
+                                <p>3 partidos</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes location">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, periodos históricos forman parte de la excurisión.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-card mdl-paquetes">
+                        <div class="mdl-card__title p-0">
+                            <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                            <div class="js-paquete-name">
+                                <p>Anillo Dorado del Per&uacute;</p>   
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="js-paquetes location">
+                                <i class="mdi mdi-location_on"></i>
+                                <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
+                            </div>
+                            <div class="js-paquetes">
+                                <i class="mdi mdi-date_range"></i>
+                                <span>14 Días y 13 Noches</span>
+                            </div>
+                            <div class="js-contenido">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="paquetes" class="section">
+            <div class="js-container">
+                <h2 class="js-title">Nuestros paquetes</h2>
+                <div class="js-flex paquetes-insert">
                     <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta1">
@@ -224,79 +297,6 @@
                             <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos más importantes del Perú.  Entre sus calles empedradas se descubren edificios de construcción inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo| barroco andino, como la Catedral y la iglesia de la Compañia; además se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta mágica ciudad cuenta además con una excitante vida nocturna y con cafés, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
                             <strong>Machu Picchu</strong>
                             <p>Machu Picchu que se encuentra a 110 Km. al noroeste de la ciudad del Cusco (4 horas en tren),es una impresionante ciudadela inca enclavada en una montaña pintoresca. Su nombre traducido al español significa "Montaña Vieja". También se le ha llamado "la Ciudad Perdida de los Incas", pues fue abandonado por casi cuatro siglos hasta que fue descubierta para Occidente por Hiram Bingham en 1911. En el año 2008 Machu Picchu fue elegida vía votación mundial por Internet entra las 7 maravillas de mundo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="paquetes" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nuestros Paquetes</h2>
-                <div class="js-flex paquetes-insert">
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
-                            <div class="js-paquete-name">
-                                <p>3 partidos</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Kazan - Saransk -Ekaterimburgo - Sochi</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, periodos históricos forman parte de la excurisión.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
-                            <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                            <div class="js-paquete-name">
-                                <p>Anillo Dorado del Per&uacute;</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>Lima -Cusco (Machu Picchu) - Puno (Valle del Colca) - Arequipa - Paracas - Nazca -Lima</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p></p>
-                            </div>
                         </div>
                     </div>
                 </div>

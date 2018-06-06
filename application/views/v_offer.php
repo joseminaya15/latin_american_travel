@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </nav>
-            <section id="principal">
+            <!-- <section id="principal">
                 <div class="fondo-responsive"></div>
                 <div class="cont-carousel">
                     <div class="cont-carousel__contenido">
@@ -76,7 +76,23 @@
                     <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
                     <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
                 </div>
-            </section>
+            </section> -->
+        </div>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    
+                </div>
+            </main>
         </div>
         <footer>
             <div class="js-container">

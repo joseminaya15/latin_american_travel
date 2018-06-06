@@ -187,7 +187,6 @@ p
 			background linear-gradient(#FFFFFF, transparent)
 			width 100%
 			height 200px
-			margin-top 52px
 .owl-theme 
 	.owl-nav
 		flexCenter()
@@ -242,11 +241,12 @@ p
 			color #FFFFFF
 .navbar-default
 	background-color #FFFFFF
-	position absolute
+	position relative
 	width 100%
 	border-radius 0
 	z-index 100
 	border none
+	margin 0
 	.navbar-nav
 		&>li
 			&>a
@@ -290,6 +290,8 @@ p
 	width 100%
 	.mdl-card__supporting-text
 		width 100%
+.mdl-layout__container
+	position relative
 .mdl-experiencia
 	flexStart()
 	justify-content flex-start
@@ -430,6 +432,8 @@ p
 	p
 		color #02BB73
 		font-size 18px
+.js-paquete
+	color #000000
 footer
 	background-color #007749
 	padding 10px 20px
