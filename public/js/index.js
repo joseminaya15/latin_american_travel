@@ -186,15 +186,8 @@ function verificarDatos(e) {
 		buscarOferta();
 	}
 }
-function openModalOferta(id){
-	var modal      = $('#ModalOferta');
+function goToOferta(id){
 	var idButton   = $('#'+id);
-	var nameOferta = idButton.parents('.mdl-card__title').find('.js-paquete-name');
-	var htmlModal  = idButton.parents('.mdl-ofertas').find('.modal-paquete');
-    modal.find('.mdl-card__title').find('h2').text(nameOferta[0].innerText);
-    modal.find('.mdl-card__supporting-text').html(htmlModal);
-    modal.find('.mdl-card__supporting-text').find('.modal-paquete').css('display','block');
-    modal.modal('show');
 }
 function goToPaquete(id){
 	var idButton   = $('#'+id);
