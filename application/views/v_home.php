@@ -304,7 +304,7 @@
         </section>
         <section id="nosotros">
             <div class="js-container">
-                
+                <h2 class="js-title">Nosotros</h2>
             </div>
         </section>
         <section id="experiencia" class="section">
