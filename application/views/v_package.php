@@ -65,16 +65,16 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Nuestros Paquetes</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Machupicchu</a>
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Aventurero</a>
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Camino Inca</a>
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Arequipa</a>
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Lima</a>
-                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Tambopata</a>
+                    <a id="paquete1" class="mdl-navigation__link" onclick="goToMenu(this.id)">Cusco Machupicchu</a>
+                    <a id="paquete2" class="mdl-navigation__link" onclick="goToMenu(this.id)">Cusco Aventurero</a>
+                    <a id="paquete3" class="mdl-navigation__link" onclick="goToMenu(this.id)">Cusco Camino Inca</a>
+                    <a id="paquete4" class="mdl-navigation__link" onclick="goToMenu(this.id)">Arequipa</a>
+                    <a id="paquete5" class="mdl-navigation__link" onclick="goToMenu(this.id)">Lima</a>
+                    <a id="paquete6" class="mdl-navigation__link" onclick="goToMenu(this.id)">Tambopata</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
-                <section id="" class="section js-paquete">
+                <section id="section-paquete1" class="section js-paquete">
                     <div class="js-container">
                         <h2 class="js-title">Cusco amanecer en Machu Picchu</h2>
                         <p>LIMA - CUSCO – MAHU PICCHU - CUZCO - LIMA</p>
@@ -280,7 +280,7 @@
                         </div>
                     </div>                    
                 </section>
-                <section id="" class="section js-paquete">
+                <section id="section-paquete2" class="section js-paquete js-section--menu js-opacity-done">
                     <div class="js-container">
                         <h2 class="js-title">Cusco Aventurero</h2>
                         <p>CUSCO – MACHU PICCHU</p>
@@ -433,7 +433,7 @@
                         </div>
                     </div>                    
                 </section>
-                <section id="" class="section js-paquete">
+                <section id="section-paquete3" class="section js-paquete js-section--menu js-opacity-done">
                     <div class="js-container">
                         <h2 class="js-title">Cusco Camino Inca</h2>
                         <p>5 DIAS / 4 NOCHES</p>
