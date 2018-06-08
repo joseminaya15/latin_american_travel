@@ -28,7 +28,7 @@
     </head>
     <body>
         <div id="home">
-            <div class="js-header">
+            <!-- <div class="js-header">
                 <div class="container text-right">
                     <div class="redes-header">
                         <ul>
@@ -37,8 +37,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <nav class="navbar navbar-default">
+            </div> -->
+            <nav class="navbar navbar-default js-header--fixed">
                 <div class="container">
                     <div class="navbar-header">
                         <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -63,7 +63,7 @@
         </div>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Title</span>
+                <span class="mdl-layout-title">Nuestros Paquetes</span>
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Machupicchu</a>
                     <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Aventurero</a>
@@ -585,11 +585,6 @@
                 </section>
             </main>
         </div>
-        <footer>
-            <div class="js-container">
-                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
-            </div>
-        </footer>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>

@@ -15,6 +15,12 @@ flexEnd()
 	display flex
 	display -webkit-flex
 	align-items flex-end
+transitionAll()
+	-webkit-transition all .3s linear
+	-moz-transition all .3s linear
+	-ms-transition all .3s linear
+	-o-transition all .3s linear
+	transition all .3s linear
 transitionOpacity()
 	-webkit-transition opacity .3s linear
 	-moz-transition opacity .3s linear
@@ -144,6 +150,8 @@ label
 					flexCenter()
 					color #757575
 					text-decoration none
+.js-header--fixed
+	box-shadow 1px 2px 3px rgba(0,0,0,0.2)
 #principal
 	height 550px
 	overflow hidden
@@ -249,6 +257,8 @@ label
 	z-index 100
 	border none
 	margin 0
+	.navbar-brand
+		flexCenter()
 	.navbar-nav
 		&>li
 			&>a
@@ -277,23 +287,6 @@ label
 		background-color #007749
 		width 100%
 		height 100%
-/*MATERIAL*/
-.mdl-textfield
-	width 100%
-.mdl-textfield__label
-	color #FFFFFF !important
-	font-weight 100
-	&:AFTER
-		bottom 15px
-		background #FFFFFF
-.mdl-textfield__input
-	border-bottom 1px solid #FFFFFF
-.mdl-card
-	width 100%
-	.mdl-card__supporting-text
-		width 100%
-.mdl-layout__container
-	position relative
 .mdl-experiencia
 	flexStart()
 	justify-content flex-start
@@ -451,6 +444,38 @@ footer
 	button
 		i
 			color #757575
+/*MATERIAL*/
+.mdl-textfield
+	width 100%
+.mdl-textfield__label
+	color #FFFFFF !important
+	font-weight 100
+	&:AFTER
+		bottom 15px
+		background #FFFFFF
+.mdl-textfield__input
+	border-bottom 1px solid #FFFFFF
+.mdl-card
+	width 100%
+	.mdl-card__supporting-text
+		width 100%
+.mdl-layout__container
+	position fixed
+	.mdl-layout__drawer
+		background-color $color
+		color #FFFFFF
+		.mdl-navigation
+			.mdl-navigation__link
+				transitionAll()
+				padding 16px 30px
+				text-decoration none
+				color #FFFFFF
+				cursor pointer
+				&.active
+				&:HOVER
+					background-color #FFFFFF
+					opacity 1
+					color $color
 /*MODAL*/
 .modal-large
 	width 100%
