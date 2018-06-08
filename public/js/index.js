@@ -188,9 +188,11 @@ function verificarDatos(e) {
 }
 function goToOferta(id){
 	var idButton   = $('#'+id);
+	location.href = 'Offer';
 }
 function goToPaquete(id){
 	var idButton   = $('#'+id);
+	location.href = 'Package';
 }
 function goToMenu(id){
 	var idLink    = $('#'+id);

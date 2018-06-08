@@ -65,7 +65,7 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Mejores Ofertas</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Mundial Rusia 2018</a>
+                    <a id="oferta1" class="mdl-navigation__link" onclick="goToOferta(this.id)">Mundial Rusia 2018</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
