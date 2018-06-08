@@ -251,6 +251,13 @@
         <section id="nosotros">
             <div class="js-container">
                 <h2 class="js-title">Nosotros</h2>
+                <div class="js-flex">
+                    <div class="js-nosotros--imagen"></div>
+                    <div class="js-noosotros--contenido">
+                        <h2>LATIN AMERICAN TRAVEL, Nos encargamos de conectar los continentes e intercambiar viajes, culturas y m&aacute;s</h2>
+                        <p>LATIN AMERICAN TRAVEL es una agencia especializada en viajes a PERU y todo SUDAM&Eacute;RICA, cuenta con una larga trayectoria y experiencia en la organizaci&oacute;n de viajes en Per&uacute; desde hace m&aacute;s de 10 a&ntilde;os. Hemos sabido dirigir nuestra experiencia con energ&iacute;a y capacidad de renovaci&oacute;n, disponiendo de los medios necesarios para que su viaje sea perfecto y lo m&aacute;s importante, amamos nuestro trabajo y nos sentimos orgullosos de mostrar este fant&aacute;stico pa&iacute;s llamado Per&uacute; al resto del Mundo. Nuestra misi&oacute;n es hacer sencillo cualquier viaje dentro del territorio de Peruano con un estudiado programa que le ayudar&aacute; a conocer lo m&aacute;s interesante de nuestro pa&iacute;s, su gente, su cultura, su naturaleza y... mucho m&aacute;s!</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="experiencia" class="section">
