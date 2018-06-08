@@ -257,6 +257,19 @@
                         <h2>LATIN AMERICAN TRAVEL, Nos encargamos de conectar los continentes e intercambiar viajes, culturas y m&aacute;s</h2>
                         <p>LATIN AMERICAN TRAVEL es una agencia especializada en viajes a PERU y todo SUDAM&Eacute;RICA, cuenta con una larga trayectoria y experiencia en la organizaci&oacute;n de viajes en Per&uacute; desde hace m&aacute;s de 10 a&ntilde;os. Hemos sabido dirigir nuestra experiencia con energ&iacute;a y capacidad de renovaci&oacute;n, disponiendo de los medios necesarios para que su viaje sea perfecto y lo m&aacute;s importante, amamos nuestro trabajo y nos sentimos orgullosos de mostrar este fant&aacute;stico pa&iacute;s llamado Per&uacute; al resto del Mundo. Nuestra misi&oacute;n es hacer sencillo cualquier viaje dentro del territorio de Peruano con un estudiado programa que le ayudar&aacute; a conocer lo m&aacute;s interesante de nuestro pa&iacute;s, su gente, su cultura, su naturaleza y... mucho m&aacute;s!</p>
                     </div>
+                    <h2>OBJETIVOS DE NUESTRA EMPRESA: </h2>
+                    <ul>
+                        <li>•   Brindar el mejor servicio con la más alta calidad.</li>
+                        <li>•   Satisfacción del cliente al proponer un viaje agradable y/o placentero o de negocios
+•   Ser una agencia de Turismo Receptivo líder en el Perú.
+</li>
+                        <li>•   Dar a conocer los diferentes atractivos turísticos (naturales, culturales, históricos, tradiciones, entre otros) de Perú, con el objetivo que nuestros clientes reciban información amena, actualizada y confiable para que conozcan las innumerables y magníficas alternativas para viajar, y tener una experiencia diferente y abierta a explorar nuevos destinos.</li>
+                        <li>•   Promover el turismo en el Perú</li>
+                    </ul>
+                    <h2>Misi&oacute;n</h2>
+                    <p>Generar experiencias de viaje innovadoras, únicas y memorables.</p>
+                    <h2>Visi&oacute;n</h2>
+                    <p>Liderar el mercado de Turismo Receptivo manteniendo nuestro servicio de óptima calidad y nuestro permanente trabajo eficiente de equipo.</p>
                 </div>
             </div>
         </section>
