@@ -65,12 +65,12 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Title</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Cuzco Machupicchu</a>
-                    <a class="mdl-navigation__link" href="">Cuzco Aventurero</a>
-                    <a class="mdl-navigation__link" href="">Cuzco Camino Inca</a>
-                    <a class="mdl-navigation__link" href="">Arequipa</a>
-                    <a class="mdl-navigation__link" href="">Lima</a>
-                    <a class="mdl-navigation__link" href="">Tambopata</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Machupicchu</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Aventurero</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Cuzco Camino Inca</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Arequipa</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Lima</a>
+                    <a class="mdl-navigation__link" onclick="goToMenu(this.id)">Tambopata</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">

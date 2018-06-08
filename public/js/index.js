@@ -192,3 +192,8 @@ function goToOferta(id){
 function goToPaquete(id){
 	var idButton   = $('#'+id);
 }
+function goToMenu(id){
+	var idLink = $('#'+id);
+	$('.mdl-navigation__link').removeClass('active');
+	idLink.addClass('active');
+}
