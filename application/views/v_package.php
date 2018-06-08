@@ -74,7 +74,7 @@
                 </nav>
             </div>
             <main class="mdl-layout__content">
-                <section id="section-paquete1" class="section js-paquete">
+                <section id="section-paquete1" class="section js-paquete js-section--menu">
                     <div class="js-container">
                         <h2 class="js-title">Cusco amanecer en Machu Picchu</h2>
                         <p>LIMA - CUSCO – MAHU PICCHU - CUZCO - LIMA</p>
