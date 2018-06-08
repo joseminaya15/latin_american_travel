@@ -169,9 +169,9 @@ function buscarOferta() {
 			if (data.error == 0) {
 				$('#texto').val("");
 				$('.ofertas-insert').html('');
-				$('.ofertas-insert').append(data.html);
+				$('.ofertas-insert').append(data.htmlPaq);
 				$('.paquetes-insert').html('');
-				$('.paquetes-insert').append(data.htmlPaq);
+				$('.paquetes-insert').append(data.html);
 			} else {
 				return;
 			}
