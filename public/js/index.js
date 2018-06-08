@@ -193,7 +193,11 @@ function goToPaquete(id){
 	var idButton   = $('#'+id);
 }
 function goToMenu(id){
-	var idLink = $('#'+id);
+	var idLink    = $('#'+id);
+	var idSection = $('#section-'+id)
 	$('.mdl-navigation__link').removeClass('active');
+	$('.js-section--menu').addClass('animated fadeOut');
+	idSection.removeClass('animated fadeOut');
+	idSection.addClass('animated fadeIn');
 	idLink.addClass('active');
 }
