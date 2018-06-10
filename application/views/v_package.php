@@ -27,40 +27,28 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <div id="home">
-            <!-- <div class="js-header">
-                <div class="container text-right">
-                    <div class="redes-header">
-                        <ul>
-                            <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
-                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-default js-header--fixed">
+            <div class="container">
+                <div class="navbar-header">
+                    <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
                 </div>
-            </div> -->
-            <nav class="navbar navbar-default js-header--fixed">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="offer" class="link">Ofertas</a></li>
-                            <li><a href="Package" class="link">Paquetes</a></li>
-                            <li><a href="Home#nosotros" class="link">Nosotros</a></li>
-                            <li><a href="Home#experiencia" class="link">Experiencias</a></li>
-                            <li><a href="Home#contactanos" class="link">Escr&iacute;benos</a></li>
-                        </ul>
-                    </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="offer" class="link">Ofertas</a></li>
+                        <li><a href="Package" class="link">Paquetes</a></li>
+                        <li><a href="Home#nosotros" class="link">Nosotros</a></li>
+                        <li><a href="Home#experiencia" class="link">Experiencias</a></li>
+                        <li><a href="Home#contactanos" class="link">Escr&iacute;benos</a></li>
+                    </ul>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Nuestros Paquetes</span>
@@ -445,13 +433,13 @@
                                     <thead>
                                         <tr>
                                             <th>DIA 1</th>
-                                            <th>CUSCO:  CITY TOUR, TOUR A LAS RUINAS</th>
+                                            <th>CUSCO (3.350 M.S.N.M) - KM 82 (2.800 M.S.N.M) - HUAYLLABAMBA (3.000 M.S.N.M)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td>Recepci&oacute;n en el aeropuerto, traslado al hotel elegido y acomodación, por la tarde se realizara City Tour.- Los lugares a visitar son: Templo del Sol Qoricancha, La Catedral, Sayahuaman, Quenqo,  Pucapucara, Tambomachay. Pernocte. Visita opcional centro cultural  QOSQO de arte nativo. Retorno al hotel.</td>
+                                            <td>Recojo a las 06:00 hrs. aprox., en el recorrido se hace una parada en Ollantaytambo, ultima poblaci&oacute;n por d&oacute;nde se pasa antes de iniciar el Camino Inca, se debe aprovechar de esta parada para hacer las &uacute;ltimas compras, aqu&iacute; tambi&eacute;n es recomendable comprar los bastones de madera que les servir&aacute; de mucha ayuda en el camino, continuando se llega al Km. 82 (2600 m.s.n.m.). Punto de inicio del Camino Inca. Tiempo de caminata: 06 horas por un camino llano, es un entrenamiento para el segundo día. Ah&iacute; vamos a disfrutar la vista del nevado Ver&oacute;nica (5.720 m.s.n.m.).La caminata promedio es de 03 horas hasta el lugar del almuerzo cerca al complejo arqueol&oacute;gico de Llaqtapata. Despu&eacute;s del almuerzo y breve descanso continuaremos con nuestra caminata por terrenos agrícola, bosques hasta el primer punto del campamento Wayllabamba.</td>
                                         </tr>
                                     </tbody>
                                 </table>
