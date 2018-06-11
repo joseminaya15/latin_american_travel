@@ -43,4 +43,13 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%'));
       return $result->result();
     }
+
+    function getUsuario($user,$pass){
+        $sql = "SELECT *
+                  FROM usuario
+                 WHERE user LIKE ?
+                   AND password = BINARY ?";
+        $result = $this->db->query($sql,array($user,$pass));
+        return $result->result();
+    }
 }

@@ -14,6 +14,12 @@ class Admin extends CI_Controller {
     }
 
 	public function index(){
-		$this->load->view('v_admin');
+        // $this->session->unset_userdata('usuario');
+        $usuario = $this->session->userdata('usuario');
+        if($usuario != null){
+            $this->load->view('v_admin');
+        } else {
+            redirect('Login','refresh');
+        }
 	}
 }

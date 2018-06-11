@@ -57,7 +57,8 @@
                             </div>
                         </div>
                         <div class="mdl-card__actions">
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ingresar</button>
+                            <!-- <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div> -->
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="ingresar()">Ingresar</button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +74,7 @@
         <script src="<?php echo RUTA_PLUGINS?>toaster/toastr.js?v=<?php echo time();?>"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
-        <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
+        <script src="<?php echo RUTA_JS?>login.js?v=<?php echo time();?>"></script>
         <script type="text/javascript">
         // $( ".target" ).change(function() {
         //     function onSuccess(googleUser) {

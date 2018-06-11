@@ -14,6 +14,29 @@ class Login extends CI_Controller {
     }
 
 	public function index(){
-		$this->load->view('v_login');
-	}
+        $usuario = $this->session->userdata('usuario');
+        if($usuario != null){
+            redirect('Admin','refresh');
+        } else {
+            $this->load->view('v_login');
+        }
+    }
+    
+    function ingresar(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $user     = $this->input->post('user');
+            $password = $this->input->post('pass');
+            $datos = $this->M_datos->getUsuario($user,$password);
+            if($datos != null){
+                $this->session->set_userdata(array('usuario' => $user));
+                $data['error'] = EXIT_SUCCESS;
+            }
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
 }
