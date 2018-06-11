@@ -217,6 +217,21 @@ label
 		font-size 38px
 		text-align center
 		max-width 650px
+.js-card--login
+	width 100%
+	max-width 360px
+	.mdl-card__title
+		h2
+			font-family $medium
+			font-size 32px
+	.mdl-card__supporting-text
+		.mdl-textfield__label
+			color $color
+			&:AFTER
+				bottom 15px
+				background $color
+		.mdl-textfield__input
+			border-bottom 1px solid $color
 .cont-redes
 	flexCenter()
 	justify-content center
@@ -453,7 +468,7 @@ footer
 .mdl-textfield
 	width 100%
 .mdl-textfield__label
-	color #FFFFFF !important
+	color #FFFFFF
 	font-weight 100
 	&:AFTER
 		bottom 15px

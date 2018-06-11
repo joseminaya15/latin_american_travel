@@ -38,11 +38,26 @@
             <section id="principal" class="js-fondo--login">
                 <div class="fondo-responsive"></div>
                 <div class="cont-carousel">
-                    <div class="cont-carousel__contenido">
-                        <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
-                        <div class="js-search">
-                            <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
+                    <div class="mdl-card js-card--login">
+                        <div class="mdl-card__title p-b-0">
+                            <h2>Ingrese sus datos</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            <div class="col-xs-12 js-input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="usuario">
+                                    <label class="mdl-textfield__label" for="usuario">Usuario</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 js-input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="password">
+                                    <label class="mdl-textfield__label" for="password">Contrase&ntilde;a</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Ingresar</button>
                         </div>
                     </div>
                 </div>
