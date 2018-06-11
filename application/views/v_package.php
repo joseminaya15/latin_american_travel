@@ -449,13 +449,13 @@
                                     <thead>
                                         <tr>
                                             <th>DIA 2</th>
-                                            <th>MONTAÑA DE SIETE COLORES "VINICUNCA"</th>
+                                            <th>HUAYLLABAMBA – WARMIWANUSCA (4200 M.S.N.M) - PACAYMAYO (3,600 M.S.N.M)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td>DLa aventura empieza muy temprano, a las 03:00 am recogemos de su hotel para luego dirigirnos al pintoresco pueblo de Pitumarca al sur de la ciudad de Cusco. Lugar donde tendremos el Desayuno. Luego de esta corta parada, continuaremos nuestro viaje donde observaremos los paisajes multicolores y cultivos que se mezclan entre las misteriosas montañas y nevados, animales andinos como la llama, alpaca, ovejas y los profundos valles. Llegaremos a (Chiripampa) punto de inicio de nuestra caminata por 02 horas montaña arriba por un sendero que poco a poco ira cambiando el panorama entre montañas de colores intensos y pequeños arroyos de agua helada que alimentan y dan vida a este valle, a medida vayamos caminando observaremos cómo los colores de nuestro alrededor irán cambiando, llegaremos a una altura de 5033 msnm. Cima de la misteriosa montaña de 7 colores (Vinicunca). Este será el punto donde tendremos tiempo suficiente para poder realizar la toma de fotos, vídeos, etc. A la vez será el lugar donde disfrutaremos de nuestro refrigerio mientras nuestra vista se deleita con la magia que encierran las montañas tras su velo de nubes y picos nevados, luego de tan exquisita experiencia emprenderemos la caminata de retorno hacia Chiripamba y luego al poblado de Pitumarca lugar donde disfrutaremos del almuerzo y posteriormente retornaremos a Cusco. Llegando alrededor de las 15.00 horas, así culminamos la caminata y aventura a la montaña de 7 colores.</td>
+                                            <td>Luego de un buen desayuno. Este d&iacute;a demanda de vuestro esfuerzo f&iacute;sico, pues se asciende al punto m&aacute;s alto del Camino Inca, el abra de Warmihua&ntilde;usca (mujer muerta) 4,200 m.s.n.m., de donde se aprecia la vista panor&aacute;mica de las monta&ntilde;as y nevados aleda&ntilde;os, luego se desciende hacia el valle del Pacaymayo (3500 m.s.n.m.) donde se acampa y cena. Durante el recorrido se toma el almuerzo, lonche y la Cena. Tiempo de Caminata: 8 horas aproximadamente.</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -465,13 +465,13 @@
                                     <thead>
                                         <tr>
                                             <th>DIA 3</th>
-                                            <th>CUSCO – VALLE SAGRADO DE LOS INCAS</th>
+                                            <th>PACAYMAYO – PHUYUPATAMRCA (3,600 M.S.N.M) - WINAYHUAYNA (2,700 M.S.N.M)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td>Desayuno en el Hotel ,Full Day al Valle Sagrado de los Incas, en cuyo trayecto se visitaran los poblados Calca, Lamay, el mercado Indio de Pisaq, almuerzo Buffet incluido en Restaurante Hotel Sonesta Yucay de Urubamba, por la tarde se visita la fortaleza Ollantaytambo, en retorno a Cusco visita al poblado Indio de Chincheros.</td>
+                                            <td>Este es el d&iacute;a que m&aacute;s se disfruta del Camino Inca. Luego del desayuno se inicia la caminata, en este d&iacute;a se asciende otro peque&ntilde;o abra, el de Sayacmarca (3900 m.s.n.m.). Ese visita día visitaremos el complejo arqueológico de Runkarakay y la ciudadela de Sayaqmarka y luego continuamos al lugar denominado Chaquikocha donde disfrutaremos de un delicioso almuerzo despu&eacute;s continuamos con la caminata hacia el complejo arqueol&oacute;gico de Phuyupatamarca (ciudad sobre la nubes) otro monumento arqueol&oacute;gico y descender hacia Winayhuayna (por siempre joven) lugar del campamento cerca al complejo arqueol&oacute;gico donde degustaremos de una deliciosa cena. Tiempo de Caminata: 8 horas aprox.</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -481,29 +481,13 @@
                                     <thead>
                                         <tr>
                                             <th>DIA 4</th>
-                                            <th>CUSCO – MACHU PICCHU: UNA DE LAS 7 MARAVILLAS MODERNAS DEL MUNDO</th>
+                                            <th>WI&Ntilde;AYWAYNA - MACHUPICCHU (2500 M.S.N.M) – CUSCO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td>Desayuno en el hotel, Salida a la estación de trenes allí abordaremos el Tren que nos conducirá a Aguas Calientes, pueblo más cercano a la Ciudadela de Machupicchu, que se encuentra rodeado de montañas y que hacen al lugar simplemente hermoso. Tour a Machupicchu, abordaremos el bus de Aguas Calientes hasta el santuario de Machupicchu, que tomara aproximadamente 30 minutos de viaje. Machu Picchu fue edificado antes del siglo XV en el promontorio rocoso que enlaza las montañas Machu Picchu y Huayna Picchu en la vertiente oriental de la cordillera Central a 2490msnm, altitud de su plaza principal. Es considerado al mismo tiempo una obra maestra de la arquitectura y la ingeniería. Tendremos una visita guiada por 2 horas aproximadamente en una de las Maravillas del Mundo apreciando toda la magia de la Ciudadela Inca: la Plaza Principal donde todas las evidencias indican que el lugar estuvo destinado a diferentes rituales, la Torre Circular, el Sagrado Reloj Solar y los Cuartos Reales, tendrá tiempo para un paseo libre por la ciudadela, retornaremos en bus hasta el pueblo de Aguas Calientes, almuerzo buffet. Por la tarde a la hora indicada tomaremos el tren de  retorno, luego traslado al hotel. Pernocte.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>DIA 5</th>
-                                            <th>CUSCO – LIMA</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td>Desayuno, tiempo libre para hacer sus compras, a una hora apropiada traslado al aeropuerto</td>
+                                            <td>Muy temprano despu&eacute;s de disfrutar un delicioso desayuno empezamos a caminar hacia la ciudadela Inca, a trav&eacute;s de un bosque nuboso, antes de arribar al a Puerta del Sol (Inti Punku) tendremos la primera vista de Machupicchu. Al ingresar a la ciudadela tendremos una explicación de 2 horas aprox. Luego tiempo libre para que pueda disfrutar y explorar. Por la tarde abordaremos el bus hacia el poblado de Aguas Calientes para tomar el tren de retorno a Ollantaytambo – Cusco. Traslado a su hotel. Tiempo de Caminata: 3 horas aproximadamente.</td>
                                         </tr>
                                     </tbody>
                                 </table>
