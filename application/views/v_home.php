@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </nav>
-            <section id="principal">
+            <section id="principal" class="js-fondo--principal">
                 <div class="fondo-responsive"></div>
                 <div class="cont-carousel">
                     <div class="cont-carousel__contenido">

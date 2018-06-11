@@ -163,32 +163,13 @@ label
 .js-header--fixed
 	box-shadow 1px 2px 3px rgba(0,0,0,0.2)
 #principal
-	height 550px
 	overflow hidden
 	padding 0
 	position relative
-#principal
-	.owl-carousel
-		position relative
-		bottom 0
-		top 0
-		left 0
-		right 0
-		width 100%
-		z-index 1
-		max-width 100%
-#principal
-	.owl-stage-outer
-	.owl-stage
-		height 550px
-	.owl-carousel
-		.owl-item
-			height 550px
-			.item
-				height 550px
-				img
-					height 550px
-#principal
+	&.js-fondo--principal
+		height calc( 100vh - 86px)
+	&.js-fondo--login
+		height calc( 100vh - 50px)
 	.fondo-responsive
 		position absolute
 		top 0
