@@ -215,17 +215,17 @@ function eliminarCard(){
 	var texto = $('#texto').val();
 	$.ajax({
 		data: { texto: texto },
-		url: 'Home/buscarOferta',
+		url: 'Admin/eliminarCard',
 		type: 'POST'
 	}).done(function (data) {
 		try {
 			data = JSON.parse(data);
 			if (data.error == 0) {
-				$('#texto').val("");
+				/*$('#texto').val("");
 				$('.ofertas-insert').html('');
 				$('.ofertas-insert').append(data.ofertas);
 				$('.paquetes-insert').html('');
-				$('.paquetes-insert').append(data.paquetes);
+				$('.paquetes-insert').append(data.paquetes);*/
 			} else {
 				return;
 			}

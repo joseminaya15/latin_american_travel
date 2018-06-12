@@ -21,6 +21,11 @@ class M_datos extends  CI_Model{
       }
       return array('error' => EXIT_SUCCESS,'msj' => MSJ_UPT);
     }
+    function deleteDatos($id_dato, $tabla, $id){
+      $sql = "DELETE FROM ".$tabla." WHERE ".$id." = ?";
+      $result = $this->db->query($sql, array($id_dato));
+      return $result;
+    }
     function getPaquetesByBusqueda($texto = null){
       $sql = "SELECT b.* FROM buscador b WHERE b.lugar LIKE ?";
       $result = $this->db->query($sql,array('%'.$texto.'%'));

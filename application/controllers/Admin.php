@@ -29,4 +29,17 @@ class Admin extends CI_Controller
             redirect('Login', 'refresh');
         }
     }
+
+    function eliminarCard(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $id_row = $this->input->post('id_row');
+            $datos = $this->M_datos->deleteDatos();
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
 }
