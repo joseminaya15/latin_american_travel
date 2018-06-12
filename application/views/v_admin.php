@@ -43,10 +43,46 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="oferta">
-                        
+                        <h2 class="js-title">Mejores Ofertas</h2>
+                        <div class="js-flex ofertas-insert">
+                            <div class="mdl-card mdl-paquetes">
+                                <div class="mdl-card__title p-0">
+                                    <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
+                                    <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
+                                    <div class="js-paquete-name">
+                                        <p>3 partidos</p>   
+                                    </div>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    <div class="js-paquetes location">
+                                        <i class="mdi mdi-location_on"></i>
+                                        <span>Moscú - Saransk - Kazan</span>
+                                    </div>
+                                    <div class="js-paquetes">
+                                        <i class="mdi mdi-date_range"></i>
+                                        <span>14 Días y 13 Noches</span>
+                                    </div>
+                                    <div class="js-contenido">
+                                        <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
-                        
+                        <h2 class="js-title">Nuestros paquetes</h2>
+                        <div class="js-flex paquetes-insert">
+                            <div class="mdl-card mdl-ofertas">
+                                <div class="mdl-card__title p-0">
+                                    <div class="fondo-oferta oferta1">
+                                        <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
+                                    </div>
+                                    <div class="js-paquete-name">
+                                        <p>Machu Picchu</p>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="experiencia">
                         
