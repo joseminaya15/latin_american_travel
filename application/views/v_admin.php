@@ -45,7 +45,7 @@
                     <div role="tabpanel" class="tab-pane fade in active" id="oferta">
                         <h2 class="js-title">Mejores Ofertas</h2>
                         <div class="js-flex ofertas-insert">
-                            <div class="mdl-card mdl-paquetes">
+                            <div class="mdl-card mdl-ofertas">
                                 <div class="mdl-card__title p-0">
                                     <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                                     <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
@@ -72,7 +72,7 @@
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
                         <h2 class="js-title">Nuestros paquetes</h2>
                         <div class="js-flex paquetes-insert">
-                            <div class="mdl-card mdl-ofertas">
+                            <div class="mdl-card mdl-paquetes">
                                 <div class="mdl-card__title p-0">
                                     <div class="fondo-oferta oferta1">
                                         <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
