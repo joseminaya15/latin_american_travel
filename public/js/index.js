@@ -203,3 +203,9 @@ function goToMenu(id){
 	idSection.addClass('animated fadeIn');
 	idLink.addClass('active');
 }
+function modalEliminar(){
+	modal('ModalConfirmar');
+}
+function eliminarCard(){
+	
+}

@@ -60,6 +60,25 @@
                 </div>
             </div>
         </section>
+        <div class="modal fade" id="ModalConfirmar" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="mdl-card" >
+                        <div class="mdl-card__title p-b-0">
+                            <h2>¿Está seguro de eliminar este contenido?</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text p-t-0">
+                            <h2></h2>
+                            <small>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</small>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="eliminarCard();">Confirmar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
