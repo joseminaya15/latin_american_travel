@@ -33,7 +33,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                                             </button>
                                             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right'.$cont.'">
                                                 <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
-                                                <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                                <li class="mdl-menu__item" onclick="modalEliminar(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                             </ul>
                                         </div>').'
                 </div>';
