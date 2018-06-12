@@ -19,11 +19,11 @@ class Admin extends CI_Controller
         // $this->session->unset_userdata('usuario');
         $usuario = $this->session->userdata('usuario');
         if ($usuario != null) {
-            $paquetes = $this->M_datos->getOfertas();
             // log_message('error', print_r($paquetes, true));
-            $cont = 1;
             $htmlPaq = __buildCardsPaquetes(1);
+            $htmlOfer  = __buildCardsOfertas(1);
             $data['paquetes'] = $htmlPaq;
+            $data['ofertas'] = $htmlOfer;
             $this->load->view('v_admin', $data);
         } else {
             redirect('Login', 'refresh');

@@ -45,9 +45,11 @@ class Home extends CI_Controller {
         $cont++;
       }
     }
-    $htmlPaq = __buildCardsPaquetes(null,1);
+    $htmlPaq = __buildCardsPaquetes(null, 1);
+    $htmlOfer  = __buildCardsOfertas(null, 1);
     $data['comentarios'] = $html;
     $data['paquetes'] = $htmlPaq;
+    $data['ofertas'] = $htmlOfer;
 		$this->load->view('v_home', $data);
 	}
 	function enviarDatos(){
@@ -104,37 +106,14 @@ class Home extends CI_Controller {
       $img   = '';
       $texto = $this->input->post('texto');
       // $datos    = $this->M_datos->getOfertas($texto);
-      $html = __buildCardsPaquetes(null,1,$texto);//CAMBIAR NOMBRES
-      
-      $paquetes = $this->M_datos->getPaquetesByBusqueda($texto);
-      if(count($paquetes) != 0){
-        foreach ($paquetes as $key) {
-          $htmlPaq.= '<div class="mdl-card mdl-paquetes">
-                        <div class="mdl-card__title p-0">
-                            <img src="'.RUTA_IMG.'paquetes/'.$key->img.'" alt="">
-                            <div class="js-paquete-name">
-                                <p>'.$key->nombre.'</p>   
-                            </div>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-location_on"></i>
-                                <span>'.$key->lugar.'</span>
-                            </div>
-                            <div class="js-paquetes">
-                                <i class="mdi mdi-date_range"></i>
-                                <span>'.$key->dias.'</span>
-                            </div>
-                            <div class="js-contenido">
-                                <p>'.$key->detalle.'</p>
-                            </div>
-                        </div>
-                    </div>';
-        }
-      }
 
-      $data['html']  = $html;
-      $data['htmlPaq']  = $htmlPaq;
+
+
+      $htmlPaq  = __buildCardsPaquetes(null, 1, $texto);//CAMBIAR NOMBRES
+      $htmlOfer = __buildCardsOfertas(null, 1, $texto);
+
+      $data['paquetes']  = $htmlPaq;
+      $data['ofertas']  = $htmlOfer;
       $data['error'] = EXIT_SUCCESS;
     }catch(Exception $e){
       $data['msj'] = $e->getMessage();

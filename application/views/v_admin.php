@@ -45,37 +45,7 @@
                     <div role="tabpanel" class="tab-pane fade in active" id="oferta">
                         <h2 class="js-title">Mejores Ofertas</h2>
                         <div class="js-flex ofertas-insert">
-                            <div class="mdl-card mdl-ofertas">
-                                <div class="mdl-card__title p-0">
-                                    <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
-                                    <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
-                                    <div class="js-paquete-name">
-                                        <p>3 partidos</p>   
-                                    </div>
-                                </div>
-                                <div class="mdl-card__supporting-text">
-                                    <div class="js-paquetes location">
-                                        <i class="mdi mdi-location_on"></i>
-                                        <span>Moscú - Saransk - Kazan</span>
-                                    </div>
-                                    <div class="js-paquetes">
-                                        <i class="mdi mdi-date_range"></i>
-                                        <span>14 Días y 13 Noches</span>
-                                    </div>
-                                    <div class="js-contenido">
-                                        <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú. La historia de esta ciudad está relacionada con todos los acontecimientos importantes de la historia país, Rusia desde la dinastía Riúrik hasta el día de hoy. Con sus más de 13 Millones de habitantes; es una gran mezcla de razas; escandinavos, orientales, rusos, mongoles, tártaros y más. Con esta diversa población y sus diferentes religiones y culturales existen por tanto diversos templos, Catedrales, Mezquitas, Sinagogas además de diferentes rasgos, costumbres, gastronomía y mucho más. Plaza Roja, Catedral San Basilios, mausoleo de lenin y kremlin son los simbolos emblematicos de Moscu y toda Rusia para el mundo.</p>
-                                    </div>
-                                </div>
-                                <div class="mdl-card__menu">
-                                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-                                        <i class="mdi mdi-more_vert"></i>
-                                    </button>
-                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                                        <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
-                                        <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <?php echo $ofertas ?>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
