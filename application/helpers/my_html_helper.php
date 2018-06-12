@@ -18,7 +18,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                     <div class="mdl-card__title p-0">
                         <div class="fondo-oferta oferta'.$cont.'">
                             '.($verMas == null ? ''
-                                               : '<button id="button'.$cont.'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" 
+                                               : '<button id="paquete'.$cont.'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" 
                                                      onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
                                                   ').'    
                         </div>

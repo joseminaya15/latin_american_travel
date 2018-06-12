@@ -22,7 +22,7 @@ class Package extends CI_Controller {
         $opacity = "";
         foreach($paquetes as $key){
             $array_dias_det = array();
-            $nav.= '<a id="paquete'.$cont.'" class="mdl-navigation__link" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
+            $nav.= '<a id="menu-paquete'.$cont.'" class="mdl-navigation__link" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
             $table = "";
             if($key->detalle_dias != null){
                 $array_dias = explode('|',$key->detalle_dias);
@@ -48,7 +48,7 @@ class Package extends CI_Controller {
                 }
             }
             $section.= '
-                <section id="section-paquete'.$cont.'" class="section js-paquete js-section--menu '.$opacity.'">
+                <section id="section-menu-paquete'.$cont.'" class="section js-paquete js-section--menu '.$opacity.'">
                     <div class="js-container">
                         <h2 class="js-title">'.$key->lugar.'</h2>
                         <p>'.$key->ciudades.'</p>

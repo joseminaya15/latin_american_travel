@@ -186,12 +186,17 @@ function verificarDatos(e) {
 		buscarOferta();
 	}
 }
+function goPaquete(){
+	location.href = 'Package';
+	$('.mdl-navigation__link').addClass('active');
+}
 function goToOferta(id){
 	var idButton   = $('#'+id);
 	location.href = 'Offer';
 }
 function goToPaquete(id){
-	var idButton   = $('#'+id);
+	sessionStorage.setItem('BUTTON_PAQUETE', id);
+	$('.mdl-navigation__link').addClass('active');
 	location.href = 'Package';
 }
 function goToMenu(id){
@@ -229,3 +234,6 @@ function eliminarCard(){
 		}
 	});
 }
+// $(document).ready(function(){
+// 	$('#paquete1').addClass('active');
+// })
