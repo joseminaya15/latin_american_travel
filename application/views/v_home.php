@@ -82,7 +82,7 @@
             <div class="js-container">
                 <h2 class="js-title">Mejores Ofertas</h2>
                 <div class="js-flex ofertas-insert">
-                    <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <button id="button10" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <button id="button11" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete2.jpg" alt="">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-paquetes">
+                    <div class="mdl-card mdl-ofertas">
                         <div class="mdl-card__title p-0">
                             <button id="button12" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>
                             <img src="<?php echo RUTA_IMG?>paquetes/paquete1.jpeg" alt="">
@@ -155,7 +155,7 @@
             <div class="js-container">
                 <h2 class="js-title">Nuestros paquetes</h2>
                 <div class="js-flex paquetes-insert">
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta1">
                                 <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta2">
                                 <button id="button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -175,7 +175,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta3">
                                 <button id="button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta4">
                                 <button id="button4" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -195,7 +195,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta5">
                                 <button id="button5" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta6">
                                 <button id="button6" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -215,7 +215,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta7">
                                 <button id="button7" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta8">
                                 <button id="button8" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -235,7 +235,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-card mdl-ofertas">
+                    <div class="mdl-card mdl-paquetes">
                         <div class="mdl-card__title p-0">
                             <div class="fondo-oferta oferta9">
                                 <button id="button9" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
