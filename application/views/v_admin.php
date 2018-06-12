@@ -63,8 +63,17 @@
                                         <span>14 Días y 13 Noches</span>
                                     </div>
                                     <div class="js-contenido">
-                                        <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                        <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú. La historia de esta ciudad está relacionada con todos los acontecimientos importantes de la historia país, Rusia desde la dinastía Riúrik hasta el día de hoy. Con sus más de 13 Millones de habitantes; es una gran mezcla de razas; escandinavos, orientales, rusos, mongoles, tártaros y más. Con esta diversa población y sus diferentes religiones y culturales existen por tanto diversos templos, Catedrales, Mezquitas, Sinagogas además de diferentes rasgos, costumbres, gastronomía y mucho más. Plaza Roja, Catedral San Basilios, mausoleo de lenin y kremlin son los simbolos emblematicos de Moscu y toda Rusia para el mundo.</p>
                                     </div>
+                                </div>
+                                <div class="mdl-card__menu">
+                                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="mdi mdi-more_vert"></i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                                        <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
+                                        <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
