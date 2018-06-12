@@ -81,6 +81,15 @@
                                         <p>Machu Picchu</p>   
                                     </div>
                                 </div>
+                                <div class="mdl-card__menu">
+                                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                                        <i class="mdi mdi-more_vert"></i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                                        <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
+                                        <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
