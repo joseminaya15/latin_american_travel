@@ -72,25 +72,7 @@
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
                         <h2 class="js-title">Nuestros paquetes</h2>
                         <div class="js-flex paquetes-insert">
-                            <div class="mdl-card mdl-paquetes">
-                                <div class="mdl-card__title p-0">
-                                    <div class="fondo-oferta oferta1">
-                                        <button id="button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
-                                    </div>
-                                    <div class="js-paquete-name">
-                                        <p>Machu Picchu</p>   
-                                    </div>
-                                </div>
-                                <div class="mdl-card__menu">
-                                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-                                        <i class="mdi mdi-more_vert"></i>
-                                    </button>
-                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                                        <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
-                                        <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <?php echo $paquetes ?>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="experiencia">

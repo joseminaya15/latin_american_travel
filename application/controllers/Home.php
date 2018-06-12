@@ -45,7 +45,9 @@ class Home extends CI_Controller {
         $cont++;
       }
     }
+    $htmlPaq = __buildCardsPaquetes(null,1);
     $data['comentarios'] = $html;
+    $data['paquetes'] = $htmlPaq;
 		$this->load->view('v_home', $data);
 	}
 	function enviarDatos(){
@@ -101,27 +103,10 @@ class Home extends CI_Controller {
       $cont  = 1;
       $img   = '';
       $texto = $this->input->post('texto');
-      $datos    = $this->M_datos->getOfertas($texto);
-      $paquetes = $this->M_datos->getPaquetesByBusqueda($texto);
+      // $datos    = $this->M_datos->getOfertas($texto);
+      $html = __buildCardsPaquetes(null,1,$texto);//CAMBIAR NOMBRES
       
-      if(count($datos) != 0){
-        foreach ($datos as $key) {
-          if($key->lugar == 'Puno' || $key->lugar == 'Paracas'){
-            $img = '.jpeg';
-          }else {
-            $img = '.jpg';
-          }
-          $html .= '<div class="mdl-card mdl-ofertas">
-                        <div class="mdl-card__title p-0">
-                            <div class="fondo-oferta oferta'.$cont.'" style="background: url('.RUTA_IMG.'ofertas/'.$key->imagen.''.$img.')"></div>
-                            <div class="js-paquete-name">
-                                <p>'.$key->lugar.'</p>   
-                            </div>
-                        </div>
-                    </div>';
-          $cont++;
-        }
-      }
+      $paquetes = $this->M_datos->getPaquetesByBusqueda($texto);
       if(count($paquetes) != 0){
         foreach ($paquetes as $key) {
           $htmlPaq.= '<div class="mdl-card mdl-paquetes">

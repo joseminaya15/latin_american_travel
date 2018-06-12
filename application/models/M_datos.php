@@ -21,7 +21,7 @@ class M_datos extends  CI_Model{
       }
       return array('error' => EXIT_SUCCESS,'msj' => MSJ_UPT);
     }
-    function getOfertas($texto){
+    function getOfertas($texto = null){
       $sql = "SELECT b.* FROM buscador b WHERE b.lugar LIKE ?";
       $result = $this->db->query($sql,array('%'.$texto.'%'));
       // log_message('error',$this->db->last_query());
@@ -34,7 +34,7 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql);
       return $result->result();
     }
-    function getPaquetesByBusqueda($texto){
+    function getPaquetesByBusqueda($texto = null){
       $sql = "SELECT p.* 
                 FROM paquetes p 
                WHERE p.nombre  LIKE ?
