@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" id="password">
+                                    <input class="mdl-textfield__input" type="password" id="password">
                                     <label class="mdl-textfield__label" for="password">Contrase&ntilde;a</label>
                                 </div>
                             </div>
