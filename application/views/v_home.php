@@ -91,16 +91,16 @@
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text">
-                            <div class="js-paquetes location">
+                            <div class="js-paquetes">
                                 <i class="mdi mdi-location_on"></i>
-                                <span>Moscú - Saransk - Kazan</span>
+                                <span>Mosc&uacute; - Ekaterimburgo - Sochi</span>
                             </div>
                             <div class="js-paquetes">
                                 <i class="mdi mdi-date_range"></i>
-                                <span>14 Días y 13 Noches</span>
+                                <span>9 D&iacute;as y 8 Noches</span>
                             </div>
                             <div class="js-contenido">
-                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú.</p>
+                                <p>Es una ciudad que lleva acumulando historia desde su fundación en el siglo XII, estos periodos históricos forman parte de la excurisión del centro histórico de Moscú. La historia de esta ciudad está relacionada con todos los acontecimientos importantes de la historia país, Rusia desde la dinastía Riúrik hasta el día de hoy. Con sus más de 13 Millones de habitantes; es una gran mezcla de razas; escandinavos, orientales, rusos, mongoles, tártaros y más. Con esta diversa población y sus diferentes religiones y culturales existen por tanto diversos templos, Catedrales, Mezquitas, Sinagogas además de diferentes rasgos, costumbres, gastronomía y mucho más. Plaza Roja, Catedral San Basilios, mausoleo de lenin y kremlin son los simbolos emblematicos de Moscu y toda Rusia para el mundo.</p>
                             </div>
                         </div>
                     </div>

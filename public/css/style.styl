@@ -370,10 +370,21 @@ label
 		.js-paquete-name
 			background-color #00CC44
 	.js-paquetes
-		&.location
-			height 60px
+		flexCenter()
+		i
+			margin-right 5px
+		span
+			font-size 16px
+			overflow hidden
+			text-overflow ellipsis
+			white-space nowrap
 	.js-contenido
 		height 100px
+		p
+			overflow hidden
+			display -webkit-box
+			-webkit-line-clamp 4
+			-webkit-box-orient vertical
 .mdl-paquetes
 	box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 	width 100%
