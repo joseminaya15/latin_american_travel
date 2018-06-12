@@ -27,20 +27,33 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <div id="home">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-brand logo link" href="#principal"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
+        <nav class="navbar navbar-default js-header--fixed">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand logo link" href="#principal"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
+                </div>
+            </div>
+        </nav>
+        <section id="principal">
+            <div class="js-container">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#oferta" aria-controls="oferta" role="tab" data-toggle="tab">Ofertas</a></li>
+                    <li><a href="#paquete" aria-controls="paquete" role="tab" data-toggle="tab">Paquetes</a></li>
+                    <li><a href="#experiencia" aria-controls="experiencia" role="tab" data-toggle="tab">Experiencias</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="oferta">
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="paquete">
+                        
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="experiencia">
+                        
                     </div>
                 </div>
-            </nav>
-            <section id="principal" class="js-fondo--login">
-                <div class="fondo-responsive"></div>
-                <div class="cont-carousel">
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
