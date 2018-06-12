@@ -234,6 +234,3 @@ function eliminarCard(){
 		}
 	});
 }
-// $(document).ready(function(){
-// 	$('#paquete1').addClass('active');
-// })
