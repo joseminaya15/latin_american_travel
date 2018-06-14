@@ -52,7 +52,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="offer" class="link">Ofertas</a></li>
-                            <li><a onclick="goPaquete()" class="link">Paquetes</a></li>
+                            <li><a href="Package" class="link">Paquetes</a></li>
                             <li><a href="Nosotros" class="link">Nosotros</a></li>
                             <li><a href="#experiencia" class="link">Experiencias</a></li>
                             <li><a href="#contactanos" class="link">Escr&iacute;benos</a></li>

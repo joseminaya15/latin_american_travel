@@ -18,7 +18,7 @@ class Login extends CI_Controller {
         if($usuario != null){
             redirect('Admin','refresh');
         } else {
-            $this->load->view('v_login');
+            $this->load->view('ru/v_login');
         }
     }
     

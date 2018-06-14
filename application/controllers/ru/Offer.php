@@ -14,6 +14,6 @@ class Offer extends CI_Controller {
     }
 
 	public function index(){
-		$this->load->view('v_offer');
+		$this->load->view('ru/v_offer');
 	}
 }

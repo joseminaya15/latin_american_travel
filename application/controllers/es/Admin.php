@@ -24,7 +24,7 @@ class Admin extends CI_Controller
             $htmlOfer  = __buildCardsOfertas(1);
             $data['paquetes'] = $htmlPaq;
             $data['ofertas'] = $htmlOfer;
-            $this->load->view('v_admin', $data);
+            $this->load->view('es/v_admin', $data);
         } else {
             redirect('Login', 'refresh');
         }

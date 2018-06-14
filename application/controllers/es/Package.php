@@ -145,6 +145,6 @@ class Package extends CI_Controller {
         }
         $data['nav'] = $nav;
         $data['section'] = $section;
-		$this->load->view('v_package', $data);
+		$this->load->view('es/v_package', $data);
     }
 }

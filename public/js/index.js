@@ -186,10 +186,6 @@ function verificarDatos(e) {
 		buscarOferta();
 	}
 }
-function goPaquete(){
-	location.href = 'Package';
-	$('.mdl-navigation__link').addClass('active');
-}
 function goToOferta(id){
 	var idButton   = $('#'+id);
 	location.href = 'Offer';

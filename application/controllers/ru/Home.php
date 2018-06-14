@@ -50,7 +50,7 @@ class Home extends CI_Controller {
     $data['comentarios'] = $html;
     $data['paquetes'] = $htmlPaq;
     $data['ofertas'] = $htmlOfer;
-		$this->load->view('v_home', $data);
+		$this->load->view('ru/v_home', $data);
 	}
 	function enviarDatos(){
 	  $data['error'] = EXIT_ERROR;
