@@ -11,7 +11,7 @@
         <meta name="language"               content="es">
         <meta name="theme-color"            content="#000000">
         <meta name="google-signin-client_id" content="307501810241-9hfg73k6vir6u6v498cdrj920gb68qf4.apps.googleusercontent.com">
-        <title>Paquetes | Latin American Travel</title>
+        <title>Latin American Travel</title>
         <link rel="shortcut icon" href="<?php echo RUTA_IMG?>logo/favicon.ico">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>toaster/toastr.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>mdl/material.min.css?v=<?php echo time();?>">
@@ -52,37 +52,51 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="offer" class="link">Ofertas</a></li>
                         <li><a href="Package" class="link">Paquetes</a></li>
-                        <li><a href="Home#nosotros" class="link">Nosotros</a></li>
-                        <li><a href="Home#experiencia" class="link">Experiencias</a></li>
-                        <li><a href="Home#contactanos" class="link">Escr&iacute;benos</a></li>
+                        <li><a href="About" class="link">Nosotros</a></li>
+                        <li><a href="Experience" class="link">Experiencias</a></li>
+                        <li><a href="Contact" class="link">Escr&iacute;benos</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <section id="nosotros" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nosotros</h2>
-                <div class="js-flex">
-                    <div class="js-nosotros--imagen"></div>
-                    <div class="js-nosotros--contenido">
-                        <h2>Latin American Travel, Nos encargamos de conectar los continentes e intercambiar viajes, culturas y m&aacute;s</h2>
-                        <p>Latin American Travel es una agencia especializada en viajes a PERU y todo SUDAM&Eacute;RICA, cuenta con una larga trayectoria y experiencia en la organizaci&oacute;n de viajes en Per&uacute; desde hace m&aacute;s de 10 a&ntilde;os. Hemos sabido dirigir nuestra experiencia con energ&iacute;a y capacidad de renovaci&oacute;n, disponiendo de los medios necesarios para que su viaje sea perfecto y lo m&aacute;s importante, amamos nuestro trabajo y nos sentimos orgullosos de mostrar este fant&aacute;stico pa&iacute;s llamado Per&uacute; al resto del Mundo. Nuestra misi&oacute;n es hacer sencillo cualquier viaje dentro del territorio de Peruano con un estudiado programa que le ayudar&aacute; a conocer lo m&aacute;s interesante de nuestro pa&iacute;s, su gente, su cultura, su naturaleza y... mucho m&aacute;s!</p>
-                        <h2>Objetivos de nuestra empresa</h2>
-                        <ul>
-                            <li>Brindar el mejor servicio con la más alta calidad.</li>
-                            <li>Satisfacción del cliente al proponer un viaje agradable y/o placentero o de negocios
-                            <li>Ser una agencia de Turismo Receptivo líder en el Perú.</li>
-                            <li>Dar a conocer los diferentes atractivos turísticos (naturales, culturales, históricos, tradiciones, entre otros) de Perú, con el objetivo que nuestros clientes reciban información amena, actualizada y confiable para que conozcan las innumerables y magníficas alternativas para viajar, y tener una experiencia diferente y abierta a explorar nuevos destinos.</li>
-                            <li>Promover el turismo en el Perú</li>
-                        </ul>
-                        <h2>Misi&oacute;n</h2>
-                        <p>Generar experiencias de viaje innovadoras, únicas y memorables.</p>
-                        <h2>Visi&oacute;n</h2>
-                        <p>Liderar el mercado de Turismo Receptivo manteniendo nuestro servicio de óptima calidad y nuestro permanente trabajo eficiente de equipo.</p>
+        <section id="principal" class="js-fondo--principal">
+            <div class="fondo-responsive"></div>
+            <div class="cont-carousel">
+                <div class="cont-carousel__contenido">
+                    <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                    <div class="js-search">
+                        <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
                     </div>
                 </div>
             </div>
+            <div class="cont-redes">
+                <p>S&iacute;guenos</p>
+                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+            </div>
         </section>
+        <section id="experiencia" class="section">
+            <div class="js-container">
+                <h2 class="js-title">Mira las Experiencias</h2>
+                <div class="owl-carousel owl-theme comentarios">
+                    <?php echo $comentarios ?>
+                </div>
+                <div class="mdl-comentar">
+                    <div class="form-group">
+                        <label for="comment">Y tú qué opinas?</label>
+                        <textarea class="form-control" rows="5" id="tacomentario" maxlength="250"></textarea>
+                    </div>
+                </div>
+                <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effec js-button" onclick="comentar()">Comentar</button>
+            </div>
+        </section>
+        <footer>
+            <div class="js-container">
+                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
+            </div>
+        </footer>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>

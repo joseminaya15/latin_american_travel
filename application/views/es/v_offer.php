@@ -27,40 +27,38 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <div id="home">
-            <div class="js-header">
-                <div class="container text-right">
-                    <div class="redes-header">
-                        <ul>
-                            <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
-                            <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
-                        </ul>
-                    </div>
+        <div class="js-header">
+            <div class="container text-right">
+                <div class="redes-header">
+                    <ul>
+                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
+                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
+                    </ul>
                 </div>
             </div>
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="offer" class="link">Ofertas</a></li>
-                            <li><a href="Package" class="link">Paquetes</a></li>
-                            <li><a href="Home#nosotros" class="link">Nosotros</a></li>
-                            <li><a href="Home#experiencia" class="link">Experiencias</a></li>
-                            <li><a href="Home#contactanos" class="link">Escr&iacute;benos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
         </div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="offer" class="link">Ofertas</a></li>
+                        <li><a href="Package" class="link">Paquetes</a></li>
+                        <li><a href="About" class="link">Nosotros</a></li>
+                        <li><a href="Experience" class="link">Experiencias</a></li>
+                        <li><a href="Contact" class="link">Escr&iacute;benos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Mejores Ofertas</span>

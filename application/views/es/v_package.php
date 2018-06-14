@@ -42,9 +42,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="offer" class="link">Ofertas</a></li>
                         <li><a href="Package" class="link">Paquetes</a></li>
-                        <li><a href="Home#nosotros" class="link">Nosotros</a></li>
-                        <li><a href="Home#experiencia" class="link">Experiencias</a></li>
-                        <li><a href="Home#contactanos" class="link">Escr&iacute;benos</a></li>
+                        <li><a href="About" class="link">Nosotros</a></li>
+                        <li><a href="Experience" class="link">Experiencias</a></li>
+                        <li><a href="Contact" class="link">Escr&iacute;benos</a></li>
                     </ul>
                 </div>
             </div>
