@@ -35,6 +35,12 @@
                         <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
                     </ul>
                 </div>
+                <div class="js-idioma">
+                    <select class="selectpicker" id="IdiomaHome"  name="Idioma" onchange="cambiarIdiomaHome()">
+                        <option value="Español">Espa&ntilde;ol</option>
+                        <option value="Ruso">Ruso</option>
+                    </select>
+                </div>
             </div>
         </div>
         <nav class="navbar navbar-default">
