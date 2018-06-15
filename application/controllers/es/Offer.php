@@ -14,7 +14,7 @@ class Offer extends CI_Controller {
     }
 
 	public function index(){
-        
+
         $ofertas = $this->M_datos->getOfertasByBusqueda();
         
         $cont = 1;
@@ -23,11 +23,11 @@ class Offer extends CI_Controller {
         $opacity = "";
         $navActive = "active";
         foreach ($ofertas as $key) {
-            $nav.= '<a id="oferta'.$key->id.'" class="mdl-navigation__link" onclick="goToMenu(this.id)">
+            $nav.= '<a id="menu-oferta'.$key->id.'" class="mdl-navigation__link '.$navActive.'" onclick="goToMenu(this.id)">
                         '.$key->nombre.'
                     </a>';
             $navActive = "";
-            $section.= '<section id="section-oferta'.$key->id.'" class="section js-paquete js-section--menu '.$opacity.'">
+            $section.= '<section id="section-menu-oferta'.$key->id.'" class="section js-paquete js-section--menu '.$opacity.'">
                             <div class="js-container">
                                 <h2 class="js-title">'.$key->nombre.'</h2>
                                 <div class="js-paquete--contenido">

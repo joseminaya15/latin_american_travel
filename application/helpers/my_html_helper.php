@@ -57,7 +57,7 @@ if(!function_exists('__buildCardsOfertas')) {
             $htmlOfer.= '<div class="mdl-card mdl-ofertas">
                             <div class="mdl-card__title p-0">
                                 '.($verMas == null ? ''
-                                                   : '<button id="button'.$cont.'" class="mdl-button mdl-js-button mdl-button--raised
+                                                   : '<button id="oferta'.$cont.'" class="mdl-button mdl-js-button mdl-button--raised
                                                         mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>').'
                                 <img src="'.RUTA_IMG.'paquetes/'.$key->img.'" alt="">
                                 <div class="js-paquete-name">

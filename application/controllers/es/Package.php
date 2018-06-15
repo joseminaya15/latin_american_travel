@@ -23,10 +23,10 @@ class Package extends CI_Controller {
         $navActive = "active";
         foreach($paquetes as $key){
             $array_dias_det = array();
-            $nav.= '<a id="menu-paquete'.$cont.'" class="mdl-navigation__link" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
+            $nav.= '<a id="menu-paquete'.$cont.'" class="mdl-navigation__link '.$navActive.'" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
             $table = "";
             $navActive = "";
-            if($key->detalle_dias != null){ 
+            if($key->detalle_dias != null){
                 $array_dias = explode('|',$key->detalle_dias);
                 foreach($array_dias as $det){
                     $desc = explode('*',$det);

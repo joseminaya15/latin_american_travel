@@ -187,17 +187,20 @@ function verificarDatos(e) {
 	}
 }
 function goToOferta(id){
-	var idButton   = $('#'+id);
+	console.log(id);
+	sessionStorage.setItem('BUTTON_OFERTA', id);
+	$('.mdl-navigation__link').addClass('active');
 	location.href = 'Offer';
 }
 function goToPaquete(id){
+	console.log(id);
 	sessionStorage.setItem('BUTTON_PAQUETE', id);
 	$('.mdl-navigation__link').addClass('active');
 	location.href = 'Package';
 }
 function goToMenu(id){
 	var idLink    = $('#'+id);
-	var idSection = $('#section-'+id)
+	var idSection = $('#section-'+id);
 	$('.mdl-navigation__link').removeClass('active');
 	$('.js-section--menu').addClass('animated fadeOut');
 	idSection.removeClass('animated fadeOut');

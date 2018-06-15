@@ -74,10 +74,13 @@
         <script type="text/javascript">
             $(window).load(function() {
                 let buttonPaquete  = sessionStorage.getItem('BUTTON_PAQUETE');
-                $('.js-section--menu').addClass('animated fadeOut');
-                $('#menu-'+buttonPaquete).addClass('active');
-                $('#section-menu-'+buttonPaquete).removeClass('animated fadeOut');
-                $('#section-menu-'+buttonPaquete).addClass('animated fadeIn');
+                if(buttonPaquete != null){
+                    $('.mdl-navigation__link').removeClass('active');
+                    $('.js-section--menu').addClass('animated fadeOut');
+                    $('#menu-'+buttonPaquete).addClass('active');
+                    $('#section-menu-'+buttonPaquete).removeClass('animated fadeOut');
+                    $('#section-menu-'+buttonPaquete).addClass('animated fadeIn');
+                }
             });
         </script>
     </body>
