@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default js-header--fixed">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand logo link" href="#principal"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
+                    <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
                 </div>
             </div>
         </nav>
