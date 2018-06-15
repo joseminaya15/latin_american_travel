@@ -280,6 +280,22 @@ function eliminarCardPaquete(){
 		}
 	});
 }
+
+var arrayTableAtractivos = [];
+function modalCrearPaquete(){
+	arrayTableAtractivos = [];
+	modal('ModalCrearPaquete');
+}
+
+function agregarAtractivo(){
+	varLugar = $('#lugarAtractivo').val().trim();
+	varDesc  = $('#descripcionAtractivo').val().trim();
+	if (varLugar.length == 0 || varDesc.length == 0) {
+		return;
+	}
+	arrayTableAtractivos.push({lugar:varLugar,desc:varDesc} );
+	console.log(arrayTableAtractivos);
+}
 function eliminarComentarios(id_comentario){
 	$.ajax({
 		data: { id_comentario: id_comentario },

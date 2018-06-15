@@ -51,6 +51,7 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
+                        <button id="btnCrearPaquete" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="modalCrearPaquete()">Agregar paquete</button>
                         <h2 class="js-title">Nuestros paquetes</h2>
                         <div class="js-flex paquetes-insert">
                             <?php echo $paquetes ?>
@@ -112,6 +113,48 @@
                         <div class="mdl-card__actions">
                             <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalCrearPaquete" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="mdl-card" >
+                        <div class="mdl-card__title p-b-0">
+                            <h2>Registrar paquete</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text p-t-0">
+                            Lugar:<input type="text" name="lugar" id="lugarAtractivo"><br>
+                            Descripcion:<input type="text" name="descripcion" id="descripcionAtractivo"><br>
+                            <button id="btnAgregarAtractivo" onclick="agregarAtractivo()"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                Agregar
+                            </button>
+                            <table style="width:100%">
+                                <tr>
+                                    <th>Lugar</th>
+                                    <th>Descripción</th> 
+                                    <th>Acción</th>
+                                </tr>
+                                <tr>
+                                    <td>Jill</td>
+                                    <td>Smith</td> 
+                                    <td><i class="mdi mdi-delete"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Eve</td>
+                                    <td>Jackson</td>
+                                    <td><i class="mdi mdi-delete"></i></td>
+                                </tr>
+                            </table>
+                            <h2></h2>
+                            <small></small>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Confirmar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
