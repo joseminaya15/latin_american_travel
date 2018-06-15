@@ -36,7 +36,7 @@
                 </div>
             </div>
         </nav>
-        <section id="principal">
+        <section id="admin" class="section">
             <div class="js-container">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="#oferta" aria-controls="oferta" role="tab" data-toggle="tab">Ofertas</a></li>
