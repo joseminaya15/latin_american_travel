@@ -49,6 +49,7 @@ class M_datos extends  CI_Model{
                 FROM paquetes b,
                      atractivos a
                WHERE b.lugar LIKE ?
+                 AND a.flg_paquet_ofert = 2
                  AND a.id_paquetes = b.id";
       $result = $this->db->query($sql,array('%'.$texto.'%'));
       return $result->result();
@@ -61,6 +62,7 @@ class M_datos extends  CI_Model{
                 FROM ofertas p,
                      atractivos a
                WHERE a.id_paquetes = p.Id
+                 AND a.flg_paquet_ofert = 1
                  AND (p.nombre  LIKE ?
                   OR a.descripcion LIKE ?
                   OR a.lugar   LIKE ?)";
