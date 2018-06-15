@@ -35,7 +35,7 @@ class Admin extends CI_Controller
         $data['msj']   = null;
         try {
             $idOferta = $this->input->post('idOferta');
-            $datos = $this->M_datos->deleteDatos($idOferta,'paquetes','id');
+            $datos = $this->M_datos->deleteDatos($idOferta,'ofertas','id');
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
@@ -48,7 +48,7 @@ class Admin extends CI_Controller
         $data['msj']   = null;
         try {
             $idPaquete = $this->input->post('idPaquete');
-            $datos = $this->M_datos->deleteDatos($idPaquete,'buscador','Id');
+            $datos = $this->M_datos->deleteDatos($idPaquete,'paquetes','Id');
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
