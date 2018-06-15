@@ -64,10 +64,6 @@
             <div class="cont-carousel">
                 <div class="cont-carousel__contenido">
                     <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
-                    <div class="js-search">
-                        <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
-                    </div>
                 </div>
             </div>
             <div class="cont-redes">

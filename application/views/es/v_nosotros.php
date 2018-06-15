@@ -59,6 +59,19 @@
                 </div>
             </div>
         </nav>
+        <section id="principal" class="js-fondo--principal">
+            <div class="fondo-responsive"></div>
+            <div class="cont-carousel">
+                <div class="cont-carousel__contenido">
+                    <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                </div>
+            </div>
+            <div class="cont-redes">
+                <p>S&iacute;guenos</p>
+                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+            </div>
+        </section>
         <section id="nosotros" class="section">
             <div class="js-container">
                 <h2 class="js-title">Nosotros</h2>
