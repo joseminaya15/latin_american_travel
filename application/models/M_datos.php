@@ -28,7 +28,7 @@ class M_datos extends  CI_Model{
       return $result;
     }
     function getPaquetesByBusqueda($texto = null){
-      $sql = "SELECT b.* FROM buscador b WHERE b.lugar LIKE ?";
+      $sql = "SELECT b.* FROM paquetes b WHERE b.lugar LIKE ?";
       $result = $this->db->query($sql,array('%'.$texto.'%'));
       return $result->result();
     }
@@ -40,11 +40,16 @@ class M_datos extends  CI_Model{
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null){
-      $sql = "SELECT p.* 
-                FROM paquetes p 
-               WHERE p.nombre  LIKE ?
-                  OR p.detalle LIKE ?
-                  OR p.lugar   LIKE ?";
+      $sql = "SELECT p.*,
+                     a.lugar,
+                     a.descripcion AS detalle,
+                     a.dias
+                FROM ofertas p,
+                     atractivos a
+               WHERE a.id_paquetes = p.Id
+                 AND p.nombre  LIKE ?
+                  OR a.descripcion LIKE ?
+                  OR a.lugar   LIKE ?";
       $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%'));
       return $result->result();
     }
