@@ -27,17 +27,7 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <div class="js-header">
-            <div class="container text-right">
-                <div class="redes-header">
-                    <ul>
-                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
-                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default js-header--fixed">
             <div class="container">
                 <div class="navbar-header">
                     <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -70,11 +60,6 @@
                 <?php echo $section ?>
             </main>
         </div>
-        <footer>
-            <div class="js-container">
-                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
-            </div>
-        </footer>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
