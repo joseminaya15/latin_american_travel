@@ -80,6 +80,7 @@
                     $('#menu-'+buttonPaquete).addClass('active');
                     $('#section-menu-'+buttonPaquete).removeClass('animated fadeOut');
                     $('#section-menu-'+buttonPaquete).addClass('animated fadeIn');
+                    sessionStorage.removeItem('BUTTON_PAQUETE');
                 }
             });
         </script>

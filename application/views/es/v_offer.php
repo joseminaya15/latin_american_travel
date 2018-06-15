@@ -80,6 +80,7 @@
                     $('#menu-'+buttonOferta).addClass('active');
                     $('#section-menu-'+buttonOferta).removeClass('animated fadeOut');
                     $('#section-menu-'+buttonOferta).addClass('animated fadeIn');
+                    sessionStorage.removeItem('BUTTON_OFERTA');
                 }
             });
         </script>
