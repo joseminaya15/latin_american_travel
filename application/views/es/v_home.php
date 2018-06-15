@@ -72,7 +72,7 @@
             </div>
             <div class="cont-redes">
                 <p>S&iacute;guenos</p>
-                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab" href="https://web.facebook.com/Latin-American-Travel-1991867910865245/"><i class="fa fa-facebook"></i></a>
                 <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
             </div>
         </section>
