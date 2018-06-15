@@ -52,7 +52,7 @@
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Nuestros Paquetes</span>
-                <nav class="mdl-navigation">
+                <nav class="mdl-navigation"> 
                     <?php echo $nav ?>
                 </nav>
             </div>
