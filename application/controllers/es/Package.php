@@ -15,48 +15,49 @@ class Package extends CI_Controller {
 
 	public function index(){
         $paquetes = $this->M_datos->getPaquetesByBusqueda();
+
         // log_message('error',print_r($paquetes,true));
-        $cont = 1;
+        // $cont = 1;
         $nav = "";
         $section = "";
         $opacity = "";
         $navActive = "active";
         foreach($paquetes as $key){
             $array_dias_det = array();
-            $nav.= '<a id="menu-paquete'.$cont.'" class="mdl-navigation__link '.$navActive.'" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
+            $nav.= '<a id="menu-paquete'.$key->Id.'" class="mdl-navigation__link '.$navActive.'" onclick="goToMenu(this.id)">'.$key->titulo.'</a>';
             $table = "";
             $navActive = "";
-            if($key->detalle_dias != null){
-                $array_dias = explode('|',$key->detalle_dias);
-                foreach($array_dias as $det){
-                    $desc = explode('*',$det);
-                    $table.= '
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>DIA '.$desc[0].'</th>
-                                        <th>'.$desc[1].'</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td>'.$desc[2].'</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>';
-                }
-            }
+            // if($key->detalle_dias != null){
+            //     $array_dias = explode('|',$key->detalle_dias);
+            //     foreach($array_dias as $det){
+            //         $desc = explode('*',$det);
+            //         $table.= '
+            //             <div class="table-responsive">
+            //                 <table class="table">
+            //                     <thead>
+            //                         <tr>
+            //                             <th>DIA '.$desc[0].'</th>
+            //                             <th>'.$desc[1].'</th>
+            //                         </tr>
+            //                     </thead>
+            //                     <tbody>
+            //                         <tr>
+            //                             <td></td>
+            //                             <td>'.$desc[2].'</td>
+            //                         </tr>
+            //                     </tbody>
+            //                 </table>
+            //             </div>';
+            //     }
+            // }
             $section.= '
-                <section id="section-menu-paquete'.$cont.'" class="section js-paquete js-section--menu '.$opacity.'">
+                <section id="section-menu-paquete'.$key->Id.'" class="section js-paquete js-section--menu '.$opacity.'">
                     <div class="js-container">
-                        <h2 class="js-title">'.$key->lugar.'</h2>
-                        <p>'.$key->ciudades.'</p>
+                        <h2 class="js-title">'.$key->titulo.'</h2>
+                        <p>'.$key->lugar.'</p>
                         <p>'.$key->dias.'</p>
                         <div class="js-paquete--contenido">
-                            '.$key->descripcion.'
+                            '.$key->detalle.'
                             '.$table.'
                             <h2>Hoteles sugeridos</h2>
                             <div class="js-hoteles">
@@ -145,7 +146,7 @@ class Package extends CI_Controller {
                     </div>                    
                 </section>';
             $opacity = "js-opacity-done";
-            $cont++;
+            // $cont++;
         }
         $data['nav'] = $nav;
         $data['section'] = $section;

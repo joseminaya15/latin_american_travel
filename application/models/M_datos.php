@@ -33,16 +33,24 @@ class M_datos extends  CI_Model{
       // log_message('error',$this->db->last_query());
       return $result;
     }
-    function getPaquetesByBusqueda($texto = null){
-      $sql = "SELECT b.* FROM paquetes b WHERE b.lugar LIKE ?";
-      $result = $this->db->query($sql,array('%'.$texto.'%'));
-      return $result->result();
-    }
     function getComentarios(){
       $sql = "SELECT o.*,
                      DATE_FORMAT(o.fecha, '%M %d, %Y') AS fecha_coment
                FROM opiniones o ORDER BY o.Id DESC LIMIT 5";
       $result = $this->db->query($sql);
+      return $result->result();
+    }
+    function getPaquetesByBusqueda($texto = null){
+      $sql = "SELECT b.*,
+                     b.lugar titulo,
+                     a.lugar,
+                     a.descripcion AS detalle,
+                     a.dias
+                FROM paquetes b,
+                     atractivos a
+               WHERE b.lugar LIKE ?
+                 AND a.id_paquetes = b.id";
+      $result = $this->db->query($sql,array('%'.$texto.'%'));
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null){

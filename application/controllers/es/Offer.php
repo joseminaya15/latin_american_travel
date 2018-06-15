@@ -17,7 +17,7 @@ class Offer extends CI_Controller {
 
         $ofertas = $this->M_datos->getOfertasByBusqueda();
         
-        $cont = 1;
+        // $cont = 1;
         $nav = "";
         $section = "";
         $opacity = "";
