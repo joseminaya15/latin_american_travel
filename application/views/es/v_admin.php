@@ -88,8 +88,7 @@
                             <h2>¿Está seguro de eliminar este contenido?</h2>
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
-                            <h2></h2>
-                            <small>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</small>
+                            <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
                             <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
@@ -107,8 +106,7 @@
                             <h2>¿Está seguro de eliminar este contenido?</h2>
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
-                            <h2></h2>
-                            <small>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</small>
+                            <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
                             <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
