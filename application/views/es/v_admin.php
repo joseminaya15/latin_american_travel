@@ -108,26 +108,26 @@
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="tituloAtractivo">
                                     <label class="mdl-textfield__label" for="tituloAtractivo">T&iacute;tulo</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="diasAtractivo">
                                     <label class="mdl-textfield__label" for="diasAtractivo">D&iacute;as y noches</label>
                                 </div>
                             </div>
                             <h2>Atractivos</h2>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="lugarAtractivo">
                                     <label class="mdl-textfield__label" for="lugarAtractivo">Lugar</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="descripcionAtractivo">
                                     <label class="mdl-textfield__label" for="descripcionAtractivo">Descripcion</label>
                                 </div>
@@ -168,32 +168,32 @@
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="tituloAtractivoOff">
                                     <label class="mdl-textfield__label" for="tituloAtractivoOff">T&iacute;tulo</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="diasAtractivoOff">
                                     <label class="mdl-textfield__label" for="diasAtractivoOff">D&iacute;as y noches</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="descAtractivoOff">
                                     <label class="mdl-textfield__label" for="descAtractivoOff">Descripci&oacute;n general</label>
                                 </div>
                             </div>
                             <h2>Atractivos</h2>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="lugarAtractivoOff">
                                     <label class="mdl-textfield__label" for="lugarAtractivoOff">Lugar</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="descripcionAtractivoOff">
                                     <label class="mdl-textfield__label" for="descripcionAtractivoOff">Descripcion</label>
                                 </div>

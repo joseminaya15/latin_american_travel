@@ -495,12 +495,20 @@ footer
 /*MATERIAL*/
 .mdl-textfield
 	width 100%
+	&.js-color
+		.mdl-textfield__label
+			color $color
+			&:AFTER
+				bottom 15px
+				background $color
+		.mdl-textfield__input
+			border-bottom 1px solid $color
 .mdl-textfield__label
 	color #FFFFFF
 	font-weight 100
 	&:AFTER
 		bottom 15px
-		background #FFFFFF
+		background #FFFFFF		
 .mdl-textfield__input
 	border-bottom 1px solid #FFFFFF
 .mdl-card
