@@ -43,15 +43,16 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="oferta">
+                        <button id="btnCrearOferta" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="modalCrearOferta()">Agregar oferta</button>
                         <h2 class="js-title">Mejores Ofertas</h2>
-                        <div class="js-flex ofertas-insert">
+                        <div class="js-flex ofertas-insert" id="cont_ofertas">
                             <?php echo $ofertas ?>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
                         <button id="btnCrearPaquete" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="modalCrearPaquete()">Agregar paquete</button>
                         <h2 class="js-title">Nuestros paquetes</h2>
-                        <div class="js-flex paquetes-insert">
+                        <div class="js-flex paquetes-insert" id="cont_paquetes">
                             <?php echo $paquetes ?>
                         </div>
                     </div>
@@ -97,25 +98,6 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalInsertar" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="mdl-card" >
-                        <div class="mdl-card__title p-b-0">
-                            <h2>¿Está seguro de eliminar este contenido?</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text p-t-0">
-                            <h2></h2>
-                            <small>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</small>
-                        </div>
-                        <div class="mdl-card__actions">
-                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="modal fade" id="ModalCrearPaquete" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -124,34 +106,73 @@
                             <h2>Registrar paquete</h2>
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
-                            Lugar:<input type="text" name="lugar" id="lugarAtractivo"><br>
-                            Descripcion:<input type="text" name="descripcion" id="descripcionAtractivo"><br>
+                            Título:<input type="text" id="tituloAtractivo"><br>
+                            Días y noches:<input type="text" id="diasAtractivo"><br>
+                            
+                            <h2>Atractivos</h2>
+                            Lugar:<input type="text" id="lugarAtractivo"><br>
+                            Descripcion:<input type="text" id="descripcionAtractivo"><br>
                             <button id="btnAgregarAtractivo" onclick="agregarAtractivo()"
                                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                                 Agregar
                             </button>
-                            <table style="width:100%">
-                                <tr>
-                                    <th>Lugar</th>
-                                    <th>Descripción</th> 
-                                    <th>Acción</th>
-                                </tr>
-                                <tr>
-                                    <td>Jill</td>
-                                    <td>Smith</td> 
-                                    <td><i class="mdi mdi-delete"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Eve</td>
-                                    <td>Jackson</td>
-                                    <td><i class="mdi mdi-delete"></i></td>
-                                </tr>
+                            <table id="example" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="tr-header-reporte">
+                                        <th class="text-left" style="color: black !important;">Lugar</th>
+                                        <th class="text-left" style="color: black !important;">Descripcion</th>
+                                        <th class="text-left" style="color: black !important;">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cont_tabla_paquetes">
+                                </tbody>
                             </table>
                             <h2></h2>
                             <small></small>
                         </div>
                         <div class="mdl-card__actions">
-                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Confirmar</button>
+                            <button id="btnConfirmarRegistrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="registrarPaquete()">Confirmar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalCrearOferta" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="mdl-card" >
+                        <div class="mdl-card__title p-b-0">
+                            <h2>Registrar oferta</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text p-t-0">
+                            Título:<input type="text" id="tituloAtractivoOff"><br>
+                            Días y noches:<input type="text" id="diasAtractivoOff"><br>
+                            Descripción general:<input type="text" id="descAtractivoOff"><br>
+                            
+                            <h2>Atractivos</h2>
+                            Lugar:<input type="text" id="lugarAtractivoOff"><br>
+                            Descripcion:<input type="text" id="descripcionAtractivoOff"><br>
+                            <button id="btnAgregarAtractivoOff" onclick="agregarAtractivoOff()"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                Agregar
+                            </button>
+                            <table id="example" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="tr-header-reporte">
+                                        <th class="text-left" style="color: black !important;">Lugar</th>
+                                        <th class="text-left" style="color: black !important;">Descripción</th>
+                                        <th class="text-left" style="color: black !important;">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cont_tabla_ofertas">
+                                </tbody>
+                            </table>
+                            <h2></h2>
+                            <small></small>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button id="btnConfirmarRegistrarOff" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="registrarOferta()">Confirmar</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
@@ -170,18 +191,6 @@
         <script type="text/javascript" src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
         <script type="text/javascript">
-        // $( ".target" ).change(function() {
-        //     function onSuccess(googleUser) {
-        //       console.log('Signed in as: ' + googleUser.getBasicProfile().getName());
-        //     }
-        //     function onSignIn(googleUser) {
-        //       var profile = googleUser.getBasicProfile();
-        //       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        //       console.log('Name: ' + profile.getName());
-        //       console.log('Image URL: ' + profile.getImageUrl());
-        //       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        //     }
-        // });
         </script>
     </body>
 </html>

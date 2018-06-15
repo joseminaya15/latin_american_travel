@@ -80,7 +80,7 @@ class Admin extends CI_Controller
         try {
             $idPaquete = $this->input->post('idPaquete');
             $datos = $this->M_datos->deleteDatos($idPaquete,'paquetes','Id');
-            $elim  = $this->M_datos->deleteAtractivos($idOferta,'atractivos','id_paquetes', 0);
+            $elim  = $this->M_datos->deleteAtractivos($idPaquete,'atractivos','id_paquetes', 2);
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
@@ -128,4 +128,67 @@ class Admin extends CI_Controller
         }
         echo json_encode($data);
     }
+
+    function registrarPaquete(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $titulo     = $this->input->post('titulo');
+            $dias       = $this->input->post('dias');
+            $atractivos = $this->input->post('atractivos');
+            
+            $insert = $this->M_datos->insertarDatos(array('lugar'  => $titulo,
+                                                          'dias'   => $dias,
+                                                          'imagen' => ''),
+                                                    'paquetes');
+            // $insert['Id'];
+            // log_message('error', print_r($insert, true));
+            // log_message('error', print_r($atractivos, true));
+            foreach($atractivos as $key){
+                $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
+                                                    'descripcion'      => $key['desc'],
+                                                    'flg_paquet_ofert' => 2,
+                                                    'id_paquetes'      => $insert['Id']),
+                                              'atractivos');
+            }
+
+            $data['htmlPaq'] = __buildCardsPaquetes(1);
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function registrarOferta(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $titulo     = $this->input->post('titulo');
+            $dias       = $this->input->post('dias');
+            $desc       = $this->input->post('desc');
+            $atractivos = $this->input->post('atractivos');
+            
+            $insert = $this->M_datos->insertarDatos(array('nombre'        => $titulo,
+                                                          'dias'         => $dias,
+                                                          'desc_general' => $desc,
+                                                          'img'          => ''),
+                                                    'ofertas');
+            foreach($atractivos as $key){
+                $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
+                                                    'descripcion'      => $key['desc'],
+                                                    'flg_paquet_ofert' => 1,
+                                                    'id_paquetes'      => $insert['Id']),
+                                              'atractivos');
+            }
+
+            $data['htmlOff'] = __buildCardsOfertas(1);
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    
 }

@@ -7,8 +7,9 @@ if(!function_exists('__buildCardsPaquetes')) {
         $htmlPaq = null;
         $cont = 1;
         $paquetes = $CI->M_datos->getPaquetesByBusqueda($text);
+        
         foreach ($paquetes as $key) {
-            if ($key->lugar == 'Puno' || $key->lugar == 'Paracas') {
+            if ($key->titulo == 'Puno' || $key->titulo == 'Paracas') {
                 $img = '.jpeg';
             } else {
                 $img = '.jpg';
@@ -23,7 +24,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                                                   ').'    
                         </div>
                         <div class="js-paquete-name">
-                            <p>'.$key->lugar.'</p>
+                            <p>'.$key->titulo.'</p>
                         </div>
                     </div>
                     '.($menu == null ? ''
@@ -52,8 +53,8 @@ if(!function_exists('__buildCardsOfertas')) {
         $htmlOfer = null;
         $cont = 1;
         $ofertas = $CI->M_datos->getOfertasByBusqueda($text);
-
         foreach($ofertas as $key){
+            $lugares = str_replace(",","-",$key->atractivos);
             $htmlOfer.= '<div class="mdl-card mdl-ofertas">
                             <div class="mdl-card__title p-0">
                                 '.($verMas == null ? ''
@@ -61,20 +62,20 @@ if(!function_exists('__buildCardsOfertas')) {
                                                         mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>').'
                                 <img src="'.RUTA_IMG.'paquetes/'.$key->img.'" alt="">
                                 <div class="js-paquete-name">
-                                    <p>'.$key->nombre.'</p>
+                                    <p>'.$key->titulo.'</p>
                                 </div>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="js-paquetes location">
                                     <i class="mdi mdi-location_on"></i>
-                                    <span>'.$key->lugar.'</span>
+                                    <span>'.$lugares.'</span>
                                 </div>
                                 <div class="js-paquetes">
                                     <i class="mdi mdi-date_range"></i>
                                     <span>'.$key->dias.'</span>
                                 </div>
                                 <div class="js-contenido">
-                                    <p>'.$key->detalle.'</p>
+                                    <p>'.$key->desc_general.'</p>
                                 </div>
                             </div>
                             '.($menu == null ? ''

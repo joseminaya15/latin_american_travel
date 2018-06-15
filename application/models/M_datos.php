@@ -48,31 +48,37 @@ class M_datos extends  CI_Model{
       return $result->result();
     }
     function getPaquetesByBusqueda($texto = null){
-      $sql = "SELECT b.*,
+      $sql = "SELECT b.Id,
                      b.lugar titulo,
-                     a.lugar,
-                     a.descripcion AS detalle,
-                     b.dias
+                     b.dias,
+                     b.imagen,
+                     group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion) SEPARATOR '|') lugar_detalle
                 FROM paquetes b,
                      atractivos a
                WHERE b.lugar LIKE ?
                  AND a.flg_paquet_ofert = 2
-                 AND a.id_paquetes = b.id";
+                 AND a.id_paquetes = b.id
+            GROUP BY b.Id";
       $result = $this->db->query($sql,array('%'.$texto.'%'));
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null){
-      $sql = "SELECT p.*,
-                     a.lugar,
-                     a.descripcion AS detalle,
-                     p.dias
-                FROM ofertas p,
+      $sql = "SELECT o.id,
+                     o.nombre titulo,
+                     o.dias,
+                     o.img,
+                     o.desc_general,
+                     group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion) SEPARATOR '|') lugar_detalle
+                FROM ofertas o,
                      atractivos a
-               WHERE a.id_paquetes = p.Id
+               WHERE a.id_paquetes = o.Id
                  AND a.flg_paquet_ofert = 1
-                 AND (p.nombre  LIKE ?
+                 AND (o.nombre  LIKE ?
                   OR a.descripcion LIKE ?
-                  OR a.lugar   LIKE ?)";
+                  OR a.lugar   LIKE ?)
+            GROUP BY id";
       $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%'));
       return $result->result();
     }

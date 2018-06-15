@@ -50,14 +50,22 @@ class Package extends CI_Controller {
             //             </div>';
             //     }
             // }
+            
+            $lugares = str_replace(",","-",$key->atractivos);
+            $array_lugares = explode('|',$key->lugar_detalle);
+            $htmlLugares = "";
+            foreach($array_lugares as $lug) {
+                $array_lug = explode('*', $lug);
+                $htmlLugares.= "<h2>".$array_lug[0]."</h2><p>".$array_lug[1]."</p>";
+            }
             $section.= '
                 <section id="section-menu-paquete'.$key->Id.'" class="section js-paquete js-section--menu '.$opacity.'">
                     <div class="js-container">
                         <h2 class="js-title">'.$key->titulo.'</h2>
-                        <p>'.$key->lugar.'</p>
+                        <p>'.$lugares.'</p>
                         <p>'.$key->dias.'</p>
                         <div class="js-paquete--contenido">
-                            '.$key->detalle.'
+                            '.$htmlLugares.'
                             '.$table.'
                             <h2>Hoteles sugeridos</h2>
                             <div class="js-hoteles">

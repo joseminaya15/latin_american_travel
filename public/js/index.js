@@ -186,21 +186,19 @@ function verificarDatos(e) {
 		buscarOferta();
 	}
 }
-function goToOferta(id){
-	console.log(id);
+function goToOferta(id) {
 	sessionStorage.setItem('BUTTON_OFERTA', id);
 	$('.mdl-navigation__link').addClass('active');
 	location.href = 'Offer';
 }
-function goToPaquete(id){
-	console.log(id);
+function goToPaquete(id) {
 	sessionStorage.setItem('BUTTON_PAQUETE', id);
 	$('.mdl-navigation__link').addClass('active');
 	location.href = 'Package';
 }
-function goToMenu(id){
-	var idLink    = $('#'+id);
-	var idSection = $('#section-'+id);
+function goToMenu(id) {
+	var idLink = $('#' + id);
+	var idSection = $('#section-' + id);
 	$('.mdl-navigation__link').removeClass('active');
 	$('.js-section--menu').addClass('animated fadeOut');
 	idSection.removeClass('animated fadeOut');
@@ -212,22 +210,22 @@ var idOferta = null;
 var card_oferta = null;
 var idPaquete = null;
 var card_paquete = null;
-function resetDatos(){
-	idOferta    = null;
+function resetDatos() {
+	idOferta = null;
 	card_oferta = null;
-	idPaquete    = null;
+	idPaquete = null;
 	card_paquete = null;
 }
 
-function modalEliminarOferta(element){
+function modalEliminarOferta(element) {
 	idOferta = $(element).parent().attr("data-oferta");
 	card_oferta = $(element).parent().parent().parent().parent();
-	$('#btnConfirmarEliminar').attr('onclick','eliminarCardOferta()');
+	$('#btnConfirmarEliminar').attr('onclick', 'eliminarCardOferta()');
 	modal('ModalConfirmar');
 }
 
-function eliminarCardOferta(){
-	if(card_oferta == null || idOferta == null){
+function eliminarCardOferta() {
+	if (card_oferta == null || idOferta == null) {
 		return
 	}
 	$.ajax({
@@ -250,15 +248,15 @@ function eliminarCardOferta(){
 	});
 }
 
-function modalEliminarPaquete(element){
+function modalEliminarPaquete(element) {
 	idPaquete = $(element).parent().attr("data-paquete");
 	card_paquete = $(element).parent().parent().parent().parent();
-	$('#btnConfirmarEliminar').attr('onclick','eliminarCardPaquete()');
+	$('#btnConfirmarEliminar').attr('onclick', 'eliminarCardPaquete()');
 	modal('ModalConfirmar');
 }
 
-function eliminarCardPaquete(){
-	if(card_paquete == null || idPaquete == null){
+function eliminarCardPaquete() {
+	if (card_paquete == null || idPaquete == null) {
 		return
 	}
 	$.ajax({
@@ -280,23 +278,146 @@ function eliminarCardPaquete(){
 		}
 	});
 }
+var arrayTableAtractivosOff = [];
+function modalCrearOferta() {
+	$('#tituloAtractivoOff').val(null);
+	$('#diasAtractivoOff').val(null);
+	$('#descAtractivoOff').val(null);
+	$('#lugarAtractivoOff').val(null);
+	$('#descripcionAtractivoOff').val(null);
+	$('#cont_tabla_ofertas').html(null);
+	arrayTableAtractivosOff = [];
+	modal('ModalCrearOferta');
+}
+
+function agregarAtractivoOff() {
+	varLugar = $('#lugarAtractivoOff').val().trim();
+	varDesc = $('#descripcionAtractivoOff').val().trim();
+	if (varLugar.length == 0 || varDesc.length == 0) {
+		return;
+	}
+	arrayTableAtractivosOff.push({ lugar: varLugar, desc: varDesc });
+	cont_html = "";
+	$.each(arrayTableAtractivosOff, function (index, value) {
+		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_ofertas').html(cont_html);
+	$('#lugarAtractivoOff').val(null);
+	$('#descripcionAtractivoOff').val(null);
+}
+
+function registrarOferta() {
+	varTitulo = $('#tituloAtractivoOff').val().trim();
+	varDias = $('#diasAtractivoOff').val().trim();
+	varDesc = $('#descAtractivoOff').val().trim();
+	if (varTitulo.length == 0 || varDias.length == 0 || varDesc.length == 0 || arrayTableAtractivosOff.length == 0) {
+		return;
+	}
+
+	$.ajax({
+		data: {
+			titulo: varTitulo,
+			dias: varDias,
+			desc: varDesc,
+			atractivos: arrayTableAtractivosOff
+		},
+		url: 'Admin/registrarOferta',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				arrayTableAtractivosOff = []
+				$('#cont_ofertas').html(data.htmlOff);
+				componentHandler.upgradeAllRegistered();
+				modal('ModalCrearOferta');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function deleteAtractivoOff(index) {
+	arrayTableAtractivosOff.splice(index, 1);
+	cont_html = "";
+	$.each(arrayTableAtractivosOff, function (index, value) {
+		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_ofertas').html(cont_html);
+}
 
 var arrayTableAtractivos = [];
-function modalCrearPaquete(){
+function modalCrearPaquete() {
+	$('#tituloAtractivo').val(null);
+	$('#diasAtractivo').val(null);
+	$('#lugarAtractivo').val(null);
+	$('#descripcionAtractivo').val(null);
+	$('#cont_tabla_paquetes').html(null);
 	arrayTableAtractivos = [];
 	modal('ModalCrearPaquete');
 }
 
-function agregarAtractivo(){
+function agregarAtractivo() {
 	varLugar = $('#lugarAtractivo').val().trim();
-	varDesc  = $('#descripcionAtractivo').val().trim();
+	varDesc = $('#descripcionAtractivo').val().trim();
 	if (varLugar.length == 0 || varDesc.length == 0) {
 		return;
 	}
-	arrayTableAtractivos.push({lugar:varLugar,desc:varDesc} );
-	console.log(arrayTableAtractivos);
+	arrayTableAtractivos.push({ lugar: varLugar, desc: varDesc });
+	cont_html = "";
+	$.each(arrayTableAtractivos, function (index, value) {
+		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_paquetes').html(cont_html);
+	$('#lugarAtractivo').val(null);
+	$('#descripcionAtractivo').val(null);
 }
-function eliminarComentarios(id_comentario){
+
+function registrarPaquete() {
+	varTitulo = $('#tituloAtractivo').val().trim();
+	varDias = $('#diasAtractivo').val().trim();
+	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
+		return;
+	}
+
+	$.ajax({
+		data: {
+			titulo: varTitulo,
+			dias: varDias,
+			atractivos: arrayTableAtractivos
+		},
+		url: 'Admin/registrarPaquete',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				arrayTableAtractivos = []
+				$('#cont_paquetes').html(data.htmlPaq);
+				componentHandler.upgradeAllRegistered();
+				modal('ModalCrearPaquete');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function deleteAtractivo(indice) {
+	arrayTableAtractivos.splice(indice, 1);
+	cont_html = "";
+	$.each(arrayTableAtractivos, function (index, value) {
+		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +')"></i></td></tr>';
+	});
+	$('#cont_tabla_paquetes').html(cont_html);
+}
+
+function eliminarComentarios(id_comentario) {
 	$.ajax({
 		data: { id_comentario: id_comentario },
 		url: 'Admin/eliminarComentarios',
