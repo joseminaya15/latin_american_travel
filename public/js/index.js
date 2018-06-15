@@ -280,3 +280,22 @@ function eliminarCardPaquete(){
 		}
 	});
 }
+function eliminarComentarios(id_comentario){
+	$.ajax({
+		data: { id_comentario: id_comentario },
+		url: 'Admin/eliminarComentarios',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				$('#cont_tabla').html();
+				$('#cont_tabla').append(data.html);
+			} else {
+				return;
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}

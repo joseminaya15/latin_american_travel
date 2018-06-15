@@ -40,12 +40,19 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql);
       return $result->result();
     }
+    function getComentarios2(){
+      $sql = "SELECT o.*,
+                     DATE_FORMAT(o.fecha, '%M %d, %Y') AS fecha_coment
+               FROM opiniones o ORDER BY o.Id DESC";
+      $result = $this->db->query($sql);
+      return $result->result();
+    }
     function getPaquetesByBusqueda($texto = null){
       $sql = "SELECT b.*,
                      b.lugar titulo,
                      a.lugar,
                      a.descripcion AS detalle,
-                     a.dias
+                     b.dias
                 FROM paquetes b,
                      atractivos a
                WHERE b.lugar LIKE ?
@@ -58,7 +65,7 @@ class M_datos extends  CI_Model{
       $sql = "SELECT p.*,
                      a.lugar,
                      a.descripcion AS detalle,
-                     a.dias
+                     p.dias
                 FROM ofertas p,
                      atractivos a
                WHERE a.id_paquetes = p.Id

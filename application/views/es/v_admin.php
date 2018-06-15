@@ -55,7 +55,24 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="experiencia">
-                        
+                        <div class="mdl-card mdl-card-table contenido-admin">
+                            <div class="table-responsive">
+                                <table id="example" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr class="tr-header-reporte">
+                                            <th class="text-left" style="color: black !important;">Imagen</th>
+                                            <th class="text-left" style="color: black !important;">Nombre</th>
+                                            <th class="text-left" style="color: black !important;">Comentario</th>
+                                            <th class="text-left" style="color: black !important;">Fecha</th>
+                                            <th class="text-left" style="color: black !important;">Acción</th>
+                                        </tr>
+                                    </thead>
+                                  <tbody id="cont_tabla">
+                                      <?php echo $html ?>
+                                  </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
