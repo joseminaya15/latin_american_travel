@@ -14,6 +14,34 @@ class Offer extends CI_Controller {
     }
 
 	public function index(){
-		$this->load->view('es/v_offer');
+        
+        $ofertas = $this->M_datos->getOfertasByBusqueda();
+        
+        $cont = 1;
+        $nav = "";
+        $section = "";
+        $opacity = "";
+        $navActive = "active";
+        foreach ($ofertas as $key) {
+            $nav.= '<a id="oferta'.$key->id.'" class="mdl-navigation__link" onclick="goToOferta(this.id)">
+                        '.$key->nombre.'
+                    </a>';
+            $navActive = "";
+            $section.= '<section id="section'.$key->id.'" class="section js-paquete '.$opacity.'">
+                            <div class="js-container">
+                                <h2 class="js-title">'.$key->nombre.'</h2>
+                                <div class="js-paquete--contenido">
+                                    <p>'.$key->detalle.'</p>
+                                </div>
+                            </div>                    
+                        </section>';
+            $opacity = "js-opacity-done";
+        }
+        $data['nav'] = $nav;
+        $data['section'] = $section;
+        // 
+
+        
+		$this->load->view('es/v_offer',$data);
 	}
 }

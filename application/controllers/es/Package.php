@@ -20,11 +20,13 @@ class Package extends CI_Controller {
         $nav = "";
         $section = "";
         $opacity = "";
+        $navActive = "active";
         foreach($paquetes as $key){
             $array_dias_det = array();
             $nav.= '<a id="menu-paquete'.$cont.'" class="mdl-navigation__link" onclick="goToMenu(this.id)">'.$key->lugar.'</a>';
             $table = "";
-            if($key->detalle_dias != null){
+            $navActive = "";
+            if($key->detalle_dias != null){ 
                 $array_dias = explode('|',$key->detalle_dias);
                 foreach($array_dias as $det){
                     $desc = explode('*',$det);
@@ -136,6 +138,8 @@ class Package extends CI_Controller {
                                     </table>   
                                 </div>
                                 <small>* Tarifas sujetos a disponibilidad de espacio.</small>
+                                <h3>RECOMENDACIONES E INDICACIONES:</h3>
+                                <p>Traer crema bloqueadora para el sol, gorra, lentes de sol, c&aacute;mara fotogr&aacute;fica, impermeable para la lluvia y abrigo para las tardes.</p>
                             </div>
                         </div>
                     </div>                    

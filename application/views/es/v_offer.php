@@ -63,19 +63,11 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Mejores Ofertas</span>
                 <nav class="mdl-navigation">
-                    <a id="oferta1" class="mdl-navigation__link" onclick="goToOferta(this.id)">Mundial Rusia 2018</a>
+                    <?php echo $nav ?>
                 </nav>
             </div>
             <main class="mdl-layout__content">
-                <section id="" class="section js-paquete">
-                    <div class="js-container">
-                        <h2 class="js-title">Mundial Rusia 2018</h2>
-                        <div class="js-paquete--contenido">
-                            <h2>Mosc&uacute;</h2>
-                            <p>Antigua capital del imperio incaico, fue declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1983 y es sin duda uno de los destinos m&aacute;s importantes del Per&uacute;. Entre sus calles empedradas se descubren edificios de construcci&oacute;n inca, como el Koricancha y el Palacio de Inca Roca, junto a construcciones coloniales de estilo barroco andino, como la Catedral y la iglesia de la Compa&ntilde;ia; adem&aacute;s se puede visitar el pintoresco barrio de San Blas, donde se encuentran los talleres de los mejores artesanos del departamento. Esta m&aacute;gica ciudad cuenta adem&aacute;s con una excitante vida nocturna y con caf&eacute;s, restaurantes y bares para todos los gustos. A diez minutos de la ciudad se levantan las gigantescas murallas de la fortaleza de Sacsayhuamán. Unos kilómetros más lejos, se encuentran los sitios arqueológicos de Qenko, Pukapukara y Tambomachay, construcciones incas edificadas totalmente en piedra.</p>
-                        </div>
-                    </div>                    
-                </section>
+                <?php echo $section ?>
             </main>
         </div>
         <footer>

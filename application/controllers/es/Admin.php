@@ -30,12 +30,25 @@ class Admin extends CI_Controller
         }
     }
 
-    function eliminarCard(){
+    function eliminarCardOferta(){
         $data['error'] = EXIT_ERROR;
         $data['msj']   = null;
         try {
-            $id_row = $this->input->post('id_row');
-            $datos = $this->M_datos->deleteDatos();
+            $idOferta = $this->input->post('idOferta');
+            $datos = $this->M_datos->deleteDatos($idOferta,'paquetes','id');
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function eliminarCardPaquete(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $idPaquete = $this->input->post('idPaquete');
+            $datos = $this->M_datos->deleteDatos($idPaquete,'buscador','Id');
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();

@@ -204,24 +204,71 @@ function goToMenu(id){
 	idSection.addClass('animated fadeIn');
 	idLink.addClass('active');
 }
-function modalEliminar(){
+
+var idOferta = null;
+var card_oferta = null;
+var idPaquete = null;
+var card_paquete = null;
+function resetDatos(){
+	idOferta    = null;
+	card_oferta = null;
+	idPaquete    = null;
+	card_paquete = null;
+}
+
+function modalEliminarOferta(element){
+	idOferta = $(element).parent().attr("data-oferta");
+	card_oferta = $(element).parent().parent().parent().parent();
+	$('#btnConfirmarEliminar').attr('onclick','eliminarCardOferta()');
 	modal('ModalConfirmar');
 }
-function eliminarCard(){
-	var texto = $('#texto').val();
+
+function eliminarCardOferta(){
+	if(card_oferta == null || idOferta == null){
+		return
+	}
 	$.ajax({
-		data: { texto: texto },
-		url: 'Admin/eliminarCard',
+		data: { idOferta: idOferta },
+		url: 'Admin/eliminarCardOferta',
 		type: 'POST'
 	}).done(function (data) {
 		try {
 			data = JSON.parse(data);
 			if (data.error == 0) {
-				/*$('#texto').val("");
-				$('.ofertas-insert').html('');
-				$('.ofertas-insert').append(data.ofertas);
-				$('.paquetes-insert').html('');
-				$('.paquetes-insert').append(data.paquetes);*/
+				card_oferta.remove();
+				modal('ModalConfirmar');
+				resetDatos();
+			} else {
+				return;
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function modalEliminarPaquete(element){
+	idPaquete = $(element).parent().attr("data-paquete");
+	card_paquete = $(element).parent().parent().parent().parent();
+	$('#btnConfirmarEliminar').attr('onclick','eliminarCardPaquete()');
+	modal('ModalConfirmar');
+}
+
+function eliminarCardPaquete(){
+	if(card_paquete == null || idPaquete == null){
+		return
+	}
+	$.ajax({
+		data: { idPaquete: idPaquete },
+		url: 'Admin/eliminarCardPaquete',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				card_paquete.remove();
+				modal('ModalConfirmar');
+				resetDatos();
 			} else {
 				return;
 			}

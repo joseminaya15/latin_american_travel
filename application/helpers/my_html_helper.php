@@ -28,12 +28,13 @@ if(!function_exists('__buildCardsPaquetes')) {
                     </div>
                     '.($menu == null ? ''
                                      : '<div class="mdl-card__menu">
-                                            <button id="demo-menu-lower-right'.$cont.'" class="mdl-button mdl-js-button mdl-button--icon">
+                                            <button id="demo-menu-lower-right-paq'.$cont.'" class="mdl-button mdl-js-button mdl-button--icon">
                                                 <i class="mdi mdi-more_vert"></i>
                                             </button>
-                                            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right'.$cont.'">
+                                            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" 
+                                            for="demo-menu-lower-right-paq'.$cont.'" data-paquete="'.$key->Id.'">
                                                 <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
-                                                <li class="mdl-menu__item" onclick="modalEliminar(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                                <li class="mdl-menu__item" onclick="modalEliminarPaquete(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                             </ul>
                                         </div>').'
                 </div>';
@@ -51,6 +52,7 @@ if(!function_exists('__buildCardsOfertas')) {
         $htmlOfer = null;
         $cont = 1;
         $ofertas = $CI->M_datos->getOfertasByBusqueda($text);
+
         foreach($ofertas as $key){
             $htmlOfer.= '<div class="mdl-card mdl-ofertas">
                             <div class="mdl-card__title p-0">
@@ -77,12 +79,13 @@ if(!function_exists('__buildCardsOfertas')) {
                             </div>
                             '.($menu == null ? ''
                                              : '<div class="mdl-card__menu">
-                                                    <button id="demo-menu-lower-right'.$cont.'" class="mdl-button mdl-js-button mdl-button--icon">
+                                                    <button id="demo-menu-lower-right-ofe'.$cont.'" class="mdl-button mdl-js-button mdl-button--icon">
                                                         <i class="mdi mdi-more_vert"></i>
                                                     </button>
-                                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right'.$cont.'">
+                                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" 
+                                                        for="demo-menu-lower-right-ofe'.$cont.'" data-oferta="'.$key->id.'">
                                                         <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
-                                                        <li class="mdl-menu__item"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                                        <li class="mdl-menu__item" onclick="modalEliminarOferta(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                                     </ul>
                                                 </div>').'
                         </div>';
