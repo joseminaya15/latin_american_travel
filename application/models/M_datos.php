@@ -27,6 +27,12 @@ class M_datos extends  CI_Model{
       // log_message('error',$this->db->last_query());
       return $result;
     }
+    function deleteAtractivos($id_dato, $tabla, $id, $flg){
+      $sql = "DELETE FROM ".$tabla." WHERE ".$id." = ? AND flg_paquet_ofert = ?";
+      $result = $this->db->query($sql, array($id_dato, $flg));
+      // log_message('error',$this->db->last_query());
+      return $result;
+    }
     function getPaquetesByBusqueda($texto = null){
       $sql = "SELECT b.* FROM paquetes b WHERE b.lugar LIKE ?";
       $result = $this->db->query($sql,array('%'.$texto.'%'));
