@@ -21,6 +21,8 @@
         <link rel="stylesheet"    href="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>font-awesome.min.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>material-icons.css?v=<?php echo time();?>">
+        <link rel="stylesheet"    href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet"    href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css">
         <link rel="stylesheet"    href="<?php echo RUTA_FONTS?>rubik.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>animate.css?v=<?php echo time();?>">
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>m-p.min.css?v=<?php echo time();?>">
@@ -123,6 +125,12 @@
         <script src="<?php echo RUTA_PLUGINS?>mdl/material.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>owl-carousel/owl.carousel.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>toaster/toastr.js?v=<?php echo time();?>"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
@@ -139,6 +147,33 @@
         //       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         //     }
         // });
+        $(document).ready(function() {
+          $('#example').DataTable( {
+                searching : false,
+                dom: 'Bfrtip',
+                language:{
+                    "emptyTable":     "Aucune donnée disponible",
+                    "info" : "Mostrando _END_ de _TOTAL_ resultados"
+                },
+                lengthMenu: [
+                    [ 10, 25, 50, -1 ],
+                    [ '10 resultados', '25 resultados', '50 resultados']
+                ],
+                buttons: [{
+                        text: 'Mostrar 10 resultados',
+                        extend: 'pageLength'
+                    }/*,
+                    {
+                        extend:'excel',
+                        text: 'Exportar a Excel'
+                    }*/
+                ]
+            });
+          $('.buttons-excel').empty();
+          $('.buttons-print').empty();
+          //$('.buttons-excel').append('<i class="fa fa-download"></i>');
+          $('.buttons-print').append('<i class="fa fa-print"></i>');
+      });
         </script>
     </body>
 </html>
