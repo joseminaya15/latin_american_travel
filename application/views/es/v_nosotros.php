@@ -62,11 +62,15 @@
         <section id="nosotros" class="section">
             <div class="js-container">
                 <h2 class="js-title">Nosotros</h2>
-                <div class="js-flex">
-                    <div class="js-nosotros--imagen"></div>
+                <div class="js-flex js-nosotros">
+                    <div class="js-nosotros--imagen imagen1"></div>
                     <div class="js-nosotros--contenido">
                         <h2>Latin American Travel, Nos encargamos de conectar los continentes e intercambiar viajes, culturas y m&aacute;s</h2>
                         <p>Latin American Travel es una agencia especializada en viajes a PERU y todo SUDAM&Eacute;RICA, cuenta con una larga trayectoria y experiencia en la organizaci&oacute;n de viajes en Per&uacute; desde hace m&aacute;s de 10 a&ntilde;os. Hemos sabido dirigir nuestra experiencia con energ&iacute;a y capacidad de renovaci&oacute;n, disponiendo de los medios necesarios para que su viaje sea perfecto y lo m&aacute;s importante, amamos nuestro trabajo y nos sentimos orgullosos de mostrar este fant&aacute;stico pa&iacute;s llamado Per&uacute; al resto del Mundo. Nuestra misi&oacute;n es hacer sencillo cualquier viaje dentro del territorio de Peruano con un estudiado programa que le ayudar&aacute; a conocer lo m&aacute;s interesante de nuestro pa&iacute;s, su gente, su cultura, su naturaleza y... mucho m&aacute;s!</p>
+                    </div>
+                </div>
+                <div class="js-flex js-nosotros">
+                    <div class="js-nosotros--contenido">
                         <h2>Objetivos de nuestra empresa</h2>
                         <ul>
                             <li>Brindar el mejor servicio con la más alta calidad.</li>
@@ -75,6 +79,12 @@
                             <li>Dar a conocer los diferentes atractivos turísticos (naturales, culturales, históricos, tradiciones, entre otros) de Perú, con el objetivo que nuestros clientes reciban información amena, actualizada y confiable para que conozcan las innumerables y magníficas alternativas para viajar, y tener una experiencia diferente y abierta a explorar nuevos destinos.</li>
                             <li>Promover el turismo en el Perú</li>
                         </ul>
+                    </div>
+                    <div class="js-nosotros--imagen imagen2"></div>
+                </div>
+                <div class="js-flex js-nosotros">
+                    <div class="js-nosotros--imagen imagen3"></div>
+                    <div class="js-nosotros--contenido">
                         <h2>Misi&oacute;n</h2>
                         <p>Generar experiencias de viaje innovadoras, únicas y memorables.</p>
                         <h2>Visi&oacute;n</h2>
@@ -83,6 +93,11 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <div class="js-container">
+                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
+            </div>
+        </footer>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
