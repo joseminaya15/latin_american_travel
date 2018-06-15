@@ -96,8 +96,8 @@
                             <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
-                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
+                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color">Confirmar</button>
                         </div>
                     </div>
                 </div>
