@@ -46,14 +46,18 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="oferta">
-                        <button id="btnCrearOferta" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="modalCrearOferta()">Agregar oferta</button>
+                        <div class="js-button--admin">
+                            <button id="btnCrearOferta" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color" onclick="modalCrearOferta()">Agregar oferta</button>
+                        </div>
                         <h2 class="js-title">Mejores Ofertas</h2>
                         <div class="js-flex ofertas-insert" id="cont_ofertas">
                             <?php echo $ofertas ?>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="paquete">
-                        <button id="btnCrearPaquete" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="modalCrearPaquete()">Agregar paquete</button>
+                        <div class="js-button--admin">
+                            <button id="btnCrearPaquete" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color" onclick="modalCrearPaquete()">Agregar paquete</button>
+                        </div>
                         <h2 class="js-title">Nuestros paquetes</h2>
                         <div class="js-flex paquetes-insert" id="cont_paquetes">
                             <?php echo $paquetes ?>
@@ -93,8 +97,8 @@
                             <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
-                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" >Confirmar</button>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" onclick="resetDatos()" data-dismiss="modal">Cancelar</button>
+                            <button id="btnConfirmarEliminar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color">Confirmar</button>
                         </div>
                     </div>
                 </div>
@@ -153,8 +157,8 @@
                             <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
-                            <button id="btnConfirmarRegistrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="registrarPaquete()">Confirmar</button>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" data-dismiss="modal">Cancelar</button>
+                            <button id="btnConfirmarRegistrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color" onclick="registrarPaquete()">Confirmar</button>
                         </div>
                     </div>
                 </div>
@@ -219,8 +223,8 @@
                             <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
-                            <button id="btnConfirmarRegistrarOff" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="registrarOferta()">Confirmar</button>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-dismiss="modal">Cancelar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" data-dismiss="modal">Cancelar</button>
+                            <button id="btnConfirmarRegistrarOff" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--color" onclick="registrarOferta()">Confirmar</button>
                         </div>
                     </div>
                 </div>

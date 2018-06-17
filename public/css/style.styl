@@ -119,13 +119,6 @@ label
 .js-opacity-done
 	opacity 0
 	z-index -5
-.js-button
-	width 100%
-	max-width 150px
-	background-color #F0933C !important
-	color #FFFFFF
-	border-radius 20px
-	font-family $medium
 .js-search
 	flexCenter()
 	margin-top 20px
@@ -140,13 +133,45 @@ label
 		font-family $medium
 		width 100%
 		max-width 120px
+.js-idioma
+	position absolute
+	top 0
+	right 0
+	margin-right 5px
+	.bootstrap-select
+		width 100% !important
+		max-width 100px !important
+		button
+			background-color transparent !important
+			border none !important
+			outline 0 !important
+			box-shadow none !important
+.js-button--admin
+	flexCenter()
+	justify-content flex-end
+	padding 20px
 .js-button
 	width 100%
-	max-width 150px
-	background-color #F0933C
+	max-width 180px
+	background-color #F0933C !important
 	color #FFFFFF
 	border-radius 20px
 	font-family $medium
+	&.js-button--color
+		background-color $color !important
+		border-radius 5px !important
+		text-transform initial
+		font-size 16px
+		font-family $regular !important
+		width initial !important
+	&.js-button--default
+		background-color #FFFFFF !important
+		border-radius 5px !important
+		color $color
+		text-transform initial
+		font-size 16px
+		font-family $regular !important
+		width initial !important
 .js-container
 	transitionMaxWidth()
 	max-width 1150px
