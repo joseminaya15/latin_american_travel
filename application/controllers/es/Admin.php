@@ -46,7 +46,6 @@ class Admin extends CI_Controller
           }
         }
         $data['html'] = $html;
-        // $this->session->unset_userdata('usuario');
         $usuario = $this->session->userdata('usuario');
         if ($usuario != null) {
             // log_message('error', print_r($paquetes, true));
@@ -139,11 +138,8 @@ class Admin extends CI_Controller
             
             $insert = $this->M_datos->insertarDatos(array('lugar'  => $titulo,
                                                           'dias'   => $dias,
-                                                          'imagen' => ''),
+                                                          'imagen' => 'paquete1.jpeg'),
                                                     'paquetes');
-            // $insert['Id'];
-            // log_message('error', print_r($insert, true));
-            // log_message('error', print_r($atractivos, true));
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
                                                     'descripcion'      => $key['desc'],
@@ -172,7 +168,7 @@ class Admin extends CI_Controller
             $insert = $this->M_datos->insertarDatos(array('nombre'        => $titulo,
                                                           'dias'         => $dias,
                                                           'desc_general' => $desc,
-                                                          'img'          => ''),
+                                                          'img'          => 'Arequipa.jpg'),
                                                     'ofertas');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -190,5 +186,34 @@ class Admin extends CI_Controller
         echo json_encode($data);
     }
 
-    
+    function cerrarSesion(){
+        $this->session->unset_userdata('usuario');
+    }
+
+    function modalEditarPaquete(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            
+            $idPaquete = $this->input->post('idPaquete');
+            $paquetes = $this->M_datos->getPaquetesByBusqueda(null,$idPaquete)[0];
+            
+            $array_lugares = explode('|',$paquetes->lugar_detalle);
+            $lugares = array();
+            foreach($array_lugares as $lug) {
+                $array_lug = explode('*', $lug);
+                array_push($lugares,array('lugar' =>$array_lug[0],'desc'=>$array_lug[1]));
+            }
+            // log_message('error', print_r($lugares, true));
+            
+            $data['titulo'] = $paquetes->titulo;
+            $data['dias']   = $paquetes->dias;
+            $data['array_lugares']   = $lugares;
+
+            
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
 }

@@ -265,13 +265,8 @@ function eliminarCardPaquete() {
 }
 var arrayTableAtractivosOff = [];
 function modalCrearOferta() {
-	$('#tituloAtractivoOff').val(null);
-	$('#diasAtractivoOff').val(null);
-	$('#descAtractivoOff').val(null);
-	$('#lugarAtractivoOff').val(null);
-	$('#descripcionAtractivoOff').val(null);
-	$('#cont_tabla_ofertas').html(null);
-	arrayTableAtractivosOff = [];
+	$('#titleOferta').html('Registrar oferta');
+	limpiarModalOferta();
 	modal('ModalCrearOferta');
 }
 
@@ -336,12 +331,8 @@ function deleteAtractivoOff(index) {
 
 var arrayTableAtractivos = [];
 function modalCrearPaquete() {
-	$('#tituloAtractivo').val(null);
-	$('#diasAtractivo').val(null);
-	$('#lugarAtractivo').val(null);
-	$('#descripcionAtractivo').val(null);
-	$('#cont_tabla_paquetes').html(null);
-	arrayTableAtractivos = [];
+	$('#titlePaquete').html('Registrar paquete');
+	limpiarModalPaquete();
 	modal('ModalCrearPaquete');
 }
 
@@ -428,3 +419,71 @@ $( window ).load(function(){
 		$('.mdl-layout__drawer-button i').addClass('mdi mdi-menu');
 	}, 250);
 });
+
+function cerrarSesion(){
+	$.ajax({
+		data: {},
+		url: 'Admin/cerrarSesion',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			location.href = 'Login';
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function modalEditarPaquete(element){
+	$('#titlePaquete').html('Editar paquete');
+	
+	idPaquete = $(element).parent().attr("data-paquete");
+	card_paquete = $(element).parent().parent().parent().parent();
+	limpiarModalPaquete();
+	$.ajax({
+		data: {idPaquete : idPaquete},
+		url: 'Admin/modalEditarPaquete',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);			
+			$('#tituloAtractivo').val(data.titulo);
+			$('#diasAtractivo').val(data.dias);
+			cont_html = "";
+			arrayTableAtractivos = data.array_lugares;
+			$.each(arrayTableAtractivos, function (index, value) {
+				cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ')"></i></td></tr>';
+			});
+			$('#cont_tabla_paquetes').html(cont_html);
+			
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+	modal('ModalCrearPaquete');
+}
+
+function modalEditarOferta(){
+	$('#titleOferta').html('Editar oferta');
+	limpiarModalOferta();
+	modal('ModalCrearOferta');
+}
+
+function limpiarModalOferta(){
+	$('#tituloAtractivoOff').val(null);
+	$('#diasAtractivoOff').val(null);
+	$('#descAtractivoOff').val(null);
+	$('#lugarAtractivoOff').val(null);
+	$('#descripcionAtractivoOff').val(null);
+	$('#cont_tabla_ofertas').html(null);
+	arrayTableAtractivosOff = [];
+}
+function limpiarModalPaquete(){
+	$('#tituloAtractivo').val(null);
+	$('#diasAtractivo').val(null);
+	$('#lugarAtractivo').val(null);
+	$('#descripcionAtractivo').val(null);
+	$('#cont_tabla_paquetes').html(null);
+	arrayTableAtractivos = [];
+}

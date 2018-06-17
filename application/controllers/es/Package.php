@@ -15,9 +15,7 @@ class Package extends CI_Controller {
 
 	public function index(){
         $paquetes = $this->M_datos->getPaquetesByBusqueda();
-
         // log_message('error',print_r($paquetes,true));
-        // $cont = 1;
         $nav = "";
         $section = "";
         $opacity = "";

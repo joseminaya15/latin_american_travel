@@ -47,7 +47,7 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql);
       return $result->result();
     }
-    function getPaquetesByBusqueda($texto = null){
+    function getPaquetesByBusqueda($texto = null,$id = null){
       $sql = "SELECT b.Id,
                      b.lugar titulo,
                      b.dias,
@@ -56,11 +56,16 @@ class M_datos extends  CI_Model{
                      group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion) SEPARATOR '|') lugar_detalle
                 FROM paquetes b,
                      atractivos a
-               WHERE b.lugar LIKE ?
-                 AND a.flg_paquet_ofert = 2
+               WHERE a.flg_paquet_ofert = 2
                  AND a.id_paquetes = b.id
+                 AND b.lugar LIKE ?
+                 AND CASE
+                          WHEN ? IS NOT NULL THEN b.Id = ?
+                          ELSE 1 = 1
+                    END
             GROUP BY b.Id";
-      $result = $this->db->query($sql,array('%'.$texto.'%'));
+      $result = $this->db->query($sql,array('%'.$texto.'%',$id,$id));
+      // log_message('error',$this->db->last_query());
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null){

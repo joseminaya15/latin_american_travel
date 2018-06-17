@@ -9,11 +9,6 @@ if(!function_exists('__buildCardsPaquetes')) {
         $paquetes = $CI->M_datos->getPaquetesByBusqueda($text);
         
         foreach ($paquetes as $key) {
-            if ($key->titulo == 'Puno' || $key->titulo == 'Paracas') {
-                $img = '.jpeg';
-            } else {
-                $img = '.jpg';
-            }
             $htmlPaq.= '
                 <div class="mdl-card mdl-paquetes">
                     <div class="mdl-card__title p-0">
@@ -34,7 +29,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                                             </button>
                                             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" 
                                             for="demo-menu-lower-right-paq'.$key->Id.'" data-paquete="'.$key->Id.'">
-                                                <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
+                                                <li class="mdl-menu__item" onclick="modalEditarPaquete(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                 <li class="mdl-menu__item" onclick="modalEliminarPaquete(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                             </ul>
                                         </div>').'
@@ -60,7 +55,7 @@ if(!function_exists('__buildCardsOfertas')) {
                                 '.($verMas == null ? ''
                                                    : '<button id="oferta'.$key->id.'" class="mdl-button mdl-js-button mdl-button--raised
                                                         mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>').'
-                                <img src="'.RUTA_IMG.'paquetes/'.$key->img.'" alt="">
+                                <img src="'.RUTA_IMG.'ofertas/'.$key->img.'" alt="">
                                 <div class="js-paquete-name">
                                     <p>'.$key->titulo.'</p>
                                 </div>
@@ -85,7 +80,7 @@ if(!function_exists('__buildCardsOfertas')) {
                                                     </button>
                                                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" 
                                                         for="demo-menu-lower-right-ofe'.$key->id.'" data-oferta="'.$key->id.'">
-                                                        <li class="mdl-menu__item"><i class="mdi mdi-edit"></i>Editar</li>
+                                                        <li class="mdl-menu__item" onclick="modalEditarOferta(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                         <li class="mdl-menu__item" onclick="modalEliminarOferta(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                                     </ul>
                                                 </div>').'

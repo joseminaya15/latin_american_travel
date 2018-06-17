@@ -37,6 +37,7 @@
             </div>
         </nav>
         <section id="admin" class="section">
+        <button id="btnCrearOferta" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="cerrarSesion()">Cerrar sesion</button>
             <div class="js-container">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="#oferta" aria-controls="oferta" role="tab" data-toggle="tab">Ofertas</a></li>
@@ -104,7 +105,7 @@
                 <div class="modal-content">
                     <div class="mdl-card" >
                         <div class="mdl-card__title p-b-0">
-                            <h2>Registrar paquete</h2>
+                            <h2 id="titlePaquete">Registrar paquete</h2>
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
                             <div class="col-xs-12 js-input">
@@ -128,7 +129,7 @@
                             </div>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
-                                    <input class="mdl-textfield__input" type="text" id="descripcionAtractivo">
+                                    <textarea rows="3" class="mdl-textfield__input" type="text" id="descripcionAtractivo"></textarea>
                                     <label class="mdl-textfield__label" for="descripcionAtractivo">Descripcion</label>
                                 </div>
                             </div>
@@ -164,7 +165,7 @@
                 <div class="modal-content">
                     <div class="mdl-card" >
                         <div class="mdl-card__title p-b-0">
-                            <h2>Registrar oferta</h2>
+                            <h2 id="titleOferta">Registrar oferta</h2>
                         </div>
                         <div class="mdl-card__supporting-text p-t-0">
                             <div class="col-xs-12 js-input">
@@ -185,7 +186,7 @@
                                     <label class="mdl-textfield__label" for="descAtractivoOff">Descripci&oacute;n general</label>
                                 </div>
                             </div>
-                            <h2>Atractivos</h2>
+                            <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="lugarAtractivoOff">
@@ -194,7 +195,7 @@
                             </div>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
-                                    <input class="mdl-textfield__input" type="text" id="descripcionAtractivoOff">
+                                    <textarea rows="3" class="mdl-textfield__input" type="text" id="descripcionAtractivoOff"></textarea>
                                     <label class="mdl-textfield__label" for="descripcionAtractivoOff">Descripcion</label>
                                 </div>
                             </div>
@@ -215,6 +216,7 @@
                             </table>
                             <h2></h2>
                             <small></small>
+                            <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
                         </div>
                         <div class="mdl-card__actions">
                             <button id="btnConfirmarRegistrarOff" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="registrarOferta()">Confirmar</button>
