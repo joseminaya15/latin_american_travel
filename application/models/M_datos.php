@@ -53,7 +53,7 @@ class M_datos extends  CI_Model{
                      b.dias,
                      b.imagen,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
-                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion) SEPARATOR '|') lugar_detalle
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle
                 FROM paquetes b,
                      atractivos a
                WHERE a.flg_paquet_ofert = 2
@@ -65,7 +65,6 @@ class M_datos extends  CI_Model{
                     END
             GROUP BY b.Id";
       $result = $this->db->query($sql,array('%'.$texto.'%',$id,$id));
-      // log_message('error',$this->db->last_query());
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null){
@@ -95,5 +94,18 @@ class M_datos extends  CI_Model{
                    AND password = BINARY ?";
         $result = $this->db->query($sql,array($user,$pass));
         return $result->result();
+    }
+
+    function countById($id_dato, $tabla, $id){
+      $sql = "SELECT COUNT(1) cant
+                FROM ".$tabla."
+               WHERE ".$id." = ?";
+      $result = $this->db->query($sql,array($id_dato));
+      // log_message('error',$this->db->last_query());
+      if($result->num_rows() > 0){
+        return $result->row()->cant;
+      } else {
+          return 0;
+      }
     }
 }

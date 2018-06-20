@@ -12,7 +12,7 @@ if(!function_exists('__buildCardsPaquetes')) {
             $htmlPaq.= '
                 <div class="mdl-card mdl-paquetes">
                     <div class="mdl-card__title p-0">
-                        <div class="fondo-oferta oferta'.$key->Id.'">
+                        <div class="fondo-oferta" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen.')">
                             '.($verMas == null ? ''
                                                : '<button id="paquete'.$key->Id.'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" 
                                                      onclick="goToPaquete(this.id)">Ver m&aacute;s</button>

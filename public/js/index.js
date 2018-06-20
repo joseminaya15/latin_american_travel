@@ -331,6 +331,7 @@ function deleteAtractivoOff(index) {
 
 var arrayTableAtractivos = [];
 function modalCrearPaquete() {
+	flgRegistrarAtractivo = null;
 	$('#titlePaquete').html('Registrar paquete');
 	limpiarModalPaquete();
 	$('#tituloAtractivo').removeAttr('onchange');
@@ -338,22 +339,53 @@ function modalCrearPaquete() {
 	$('#btnConfirmarRegistrar').show();
 	modal('ModalCrearPaquete');
 }
-
+var flgRegistrarAtractivo = null;//1 = insertar en bd - null agregar al array
 function agregarAtractivo() {
 	varLugar = $('#lugarAtractivo').val().trim();
 	varDesc = $('#descripcionAtractivo').val().trim();
 	if (varLugar.length == 0 || varDesc.length == 0) {
 		return;
 	}
-	arrayTableAtractivos.push({ lugar: varLugar, desc: varDesc });
-	cont_html = "";
-	$.each(arrayTableAtractivos, function (index, value) {
-		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-			'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ')"></i></td></tr>';
-	});
-	$('#cont_tabla_paquetes').html(cont_html);
-	$('#lugarAtractivo').val(null);
-	$('#descripcionAtractivo').val(null);
+
+	if(flgRegistrarAtractivo != null && idPaquete != null) {
+		$.ajax({
+			data: {
+				lugar     : varLugar, 
+				desc      :  varDesc,
+				idPaquete : idPaquete
+			},
+			url: 'Admin/registrarAtractivo',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if (data.error == 0) {
+					arrayTableAtractivos.push({ lugar: varLugar, desc: varDesc, id: data.id});
+					cont_html = "";
+					$.each(arrayTableAtractivos, function (index, value) {
+						cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ', '+value.id+')"></i></td></tr>';
+					});
+					$('#cont_tabla_paquetes').html(cont_html);
+					$('#lugarAtractivo').val(null);
+					$('#descripcionAtractivo').val(null);
+					msj('error', 'Se agregó correctamente.');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+	} else {
+		arrayTableAtractivos.push({ lugar: varLugar, desc: varDesc, id: null});
+		cont_html = "";
+		$.each(arrayTableAtractivos, function (index, value) {
+			cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+				'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ', '+value.id+')"></i></td></tr>';
+		});
+		$('#cont_tabla_paquetes').html(cont_html);
+		$('#lugarAtractivo').val(null);
+		$('#descripcionAtractivo').val(null);
+	}
 }
 
 function registrarPaquete() {
@@ -375,7 +407,7 @@ function registrarPaquete() {
 		try {
 			data = JSON.parse(data);
 			if (data.error == 0) {
-				arrayTableAtractivos = []
+				arrayTableAtractivos = [];
 				$('#cont_paquetes').html(data.htmlPaq);
 				componentHandler.upgradeAllRegistered();
 				modal('ModalCrearPaquete');
@@ -386,14 +418,41 @@ function registrarPaquete() {
 	});
 }
 
-function deleteAtractivo(indice) {
-	arrayTableAtractivos.splice(indice, 1);
-	cont_html = "";
-	$.each(arrayTableAtractivos, function (index, value) {
-		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-			'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +')"></i></td></tr>';
-	});
-	$('#cont_tabla_paquetes').html(cont_html);
+function deleteAtractivo(indice,id) {
+	if(flgRegistrarAtractivo != null && idPaquete != null) {
+		$.ajax({
+			data: { id        : id, 
+				    idPaquete : idPaquete},
+			url: 'Admin/eliminarAtractivo',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if(data.error == 0){
+					arrayTableAtractivos.splice(indice, 1);
+					cont_html = "";
+					$.each(arrayTableAtractivos, function (index, value) {
+						cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+					});
+					$('#cont_tabla_paquetes').html(cont_html);
+					msj('error', 'Se editó correctamente.');
+				} else {
+					msj('error', 'El paquete debe tener al menos un atractivo.');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+	} else {
+		arrayTableAtractivos.splice(indice, 1);
+		cont_html = "";
+		$.each(arrayTableAtractivos, function (index, value) {
+			cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+				'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+		});
+		$('#cont_tabla_paquetes').html(cont_html);
+	}
 }
 
 function eliminarComentarios(id_comentario) {
@@ -443,6 +502,7 @@ function modalEditarPaquete(element){
 	idPaquete = $(element).parent().attr("data-paquete");
 	card_paquete = $(element).parent().parent().parent().parent();
 	limpiarModalPaquete();
+	flgRegistrarAtractivo = 1;
 	$.ajax({
 		data: {idPaquete : idPaquete},
 		url: 'Admin/modalEditarPaquete',
@@ -451,14 +511,17 @@ function modalEditarPaquete(element){
 		try {
 			data = JSON.parse(data);
 			$('#tituloAtractivo').val(data.titulo);
-			$('#diasAtractivo').val(data.dias);
+			$('#tituloAtractivo').parent().addClass('is-dirty');
 			$('#tituloAtractivo').attr('onchange', 'editarTitulo()');
+			
+			$('#diasAtractivo').val(data.dias);
+			$('#diasAtractivo').parent().addClass('is-dirty');
 			$('#diasAtractivo').attr('onchange', 'editarDias()');
 			cont_html = "";
 			arrayTableAtractivos = data.array_lugares;
 			$.each(arrayTableAtractivos, function (index, value) {
 				cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-					'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ')"></i></td></tr>';
+					'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ','+value.id+')"></i></td></tr>';
 			});
 			$('#cont_tabla_paquetes').html(cont_html);
 			$('#btnConfirmarRegistrar').hide();
@@ -470,11 +533,48 @@ function modalEditarPaquete(element){
 }
 
 function editarTitulo(){
-	console.log('editarTitulo');
+	varTitulo = $('#tituloAtractivo').val().trim();
+	if (varTitulo.length == 0) {
+		return;
+	}
+	$.ajax({
+		data: { titulo : varTitulo,
+			 idPaquete : idPaquete },
+		url: 'Admin/editarTitulo',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if(data.error == 0){
+				msj('error', 'Se editó correctamente.');
+				card_paquete.find('.js-paquete-name').html('<p>'+varTitulo+'</p>');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
 }
 
 function editarDias(){
-	console.log('editarDias');
+	varDias = $('#diasAtractivo').val().trim();
+	if (varDias.length == 0) {
+		return;
+	}
+	$.ajax({
+		data: {  dias : varDias,
+			idPaquete : idPaquete },
+		url: 'Admin/editarDias',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if(data.error == 0){
+				msj('error', 'Se editó correctamente.');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
 }
 
 

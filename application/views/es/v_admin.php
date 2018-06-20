@@ -124,7 +124,7 @@
                                     <label class="mdl-textfield__label" for="diasAtractivo">D&iacute;as y noches</label>
                                 </div>
                             </div>
-                            <h2>Atractivos</h2>
+                            <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
                                     <input class="mdl-textfield__input" type="text" id="lugarAtractivo">
@@ -154,7 +154,7 @@
                             </table>
                             <h2></h2>
                             <small></small>
-                            <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
+                            <!-- <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p> -->
                         </div>
                         <div class="mdl-card__actions">
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" data-dismiss="modal">Cancelar</button>
@@ -220,7 +220,7 @@
                             </table>
                             <h2></h2>
                             <small></small>
-                            <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p>
+                            <!-- <p>Recuerda: Al confirmar no podr&aacute;s modificar tu elecci&oacute;n.</p> -->
                         </div>
                         <div class="mdl-card__actions">
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" data-dismiss="modal">Cancelar</button>

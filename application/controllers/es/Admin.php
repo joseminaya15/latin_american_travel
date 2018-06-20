@@ -104,12 +104,6 @@ class Admin extends CI_Controller
                         </tr>';
             }else {
               foreach ($datos as $key) {
-                /*$img     = '';
-                if($key->imagen == null || $key->imagen == ''){
-                    $img = 'nouser.png';
-                }else {
-                    $img = $key->imagen;
-                }*/
                 $foto = ($key->Foto == 'nouser') ? RUTA_IMG.'logo/nouser.jpg' : $key->Foto;
                 $html .= '<tr>
                             <td><img src="'.$foto.'" style="width:  100%;max-width: 80px;"></td>
@@ -138,7 +132,7 @@ class Admin extends CI_Controller
             
             $insert = $this->M_datos->insertarDatos(array('lugar'  => $titulo,
                                                           'dias'   => $dias,
-                                                          'imagen' => 'paquete1.jpeg'),
+                                                          'imagen' => 'Arequipa.jpg'),
                                                     'paquetes');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -168,7 +162,7 @@ class Admin extends CI_Controller
             $insert = $this->M_datos->insertarDatos(array('nombre'        => $titulo,
                                                           'dias'         => $dias,
                                                           'desc_general' => $desc,
-                                                          'img'          => 'Arequipa.jpg'),
+                                                          'img'          => 'oferta1.jpg'),
                                                     'ofertas');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -202,7 +196,9 @@ class Admin extends CI_Controller
             $lugares = array();
             foreach($array_lugares as $lug) {
                 $array_lug = explode('*', $lug);
-                array_push($lugares,array('lugar' =>$array_lug[0],'desc'=>$array_lug[1]));
+                array_push($lugares,array( 'lugar' => $array_lug[0],
+                                           'desc'  => $array_lug[1],
+                                           'id'    => $array_lug[2] ));
             }
             // log_message('error', print_r($lugares, true));
             
@@ -211,6 +207,74 @@ class Admin extends CI_Controller
             $data['array_lugares']   = $lugares;
 
             
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarTitulo(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $titulo = $this->input->post('titulo');
+            $id     = $this->input->post('idPaquete');
+            $this->M_datos->updateDatos(array('lugar'=>$titulo), $id , 'paquetes');
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarDias(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $dias = $this->input->post('dias');
+            $id   = $this->input->post('idPaquete');
+            $this->M_datos->updateDatos(array('dias'=>$dias), $id , 'paquetes');
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function registrarAtractivo(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $lugar = $this->input->post('lugar');
+            $desc  = $this->input->post('desc');
+            $id    = $this->input->post('idPaquete');
+            $insert = $this->M_datos->insertarDatos(
+                                           array('lugar'            => $lugar,
+                                                 'descripcion'      => $desc,
+                                                 'flg_paquet_ofert' => 2,
+                                                 'id_paquetes'      => $id),
+                                           'atractivos' );
+            $data['id'] = $insert['Id'];
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function eliminarAtractivo(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $id        = $this->input->post('id');
+            $idPaquete = $this->input->post('idPaquete');
+            $cant = $this->M_datos->countById($idPaquete, 'atractivos', 'id_paquetes');
+            
+            // log_message('error', print_r($cant, true));
+            if($cant > 1){
+                $datos = $this->M_datos->deleteDatos($id,'atractivos','Id');
+                $data['error'] = EXIT_SUCCESS;
+            }
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
         }
