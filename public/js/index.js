@@ -333,6 +333,9 @@ var arrayTableAtractivos = [];
 function modalCrearPaquete() {
 	$('#titlePaquete').html('Registrar paquete');
 	limpiarModalPaquete();
+	$('#tituloAtractivo').removeAttr('onchange');
+	$('#diasAtractivo').removeAttr('onchange');
+	$('#btnConfirmarRegistrar').show();
 	modal('ModalCrearPaquete');
 }
 
@@ -446,9 +449,11 @@ function modalEditarPaquete(element){
 		type: 'POST'
 	}).done(function (data) {
 		try {
-			data = JSON.parse(data);			
+			data = JSON.parse(data);
 			$('#tituloAtractivo').val(data.titulo);
 			$('#diasAtractivo').val(data.dias);
+			$('#tituloAtractivo').attr('onchange', 'editarTitulo()');
+			$('#diasAtractivo').attr('onchange', 'editarDias()');
 			cont_html = "";
 			arrayTableAtractivos = data.array_lugares;
 			$.each(arrayTableAtractivos, function (index, value) {
@@ -456,13 +461,46 @@ function modalEditarPaquete(element){
 					'<td><i class="mdi mdi-delete" onclick="deleteAtractivo(' + index + ')"></i></td></tr>';
 			});
 			$('#cont_tabla_paquetes').html(cont_html);
-			
+			$('#btnConfirmarRegistrar').hide();
+			modal('ModalCrearPaquete');
 		} catch (err) {
 			msj('error', err.message);
 		}
 	});
-	modal('ModalCrearPaquete');
 }
+
+function editarTitulo(){
+	console.log('editarTitulo');
+}
+
+function editarDias(){
+	console.log('editarDias');
+}
+
+
+// function editarPaquete(){
+// 	varTitulo = $('#tituloAtractivo').val().trim();
+// 	varDias = $('#diasAtractivo').val().trim();
+// 	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
+// 		return;
+// 	}
+// 	$.ajax({
+// 		data: { titulo: varTitulo,
+// 				dias: varDias,
+// 				atractivos: arrayTableAtractivos},
+// 		url: 'Admin/editarPaquete',
+// 		type: 'POST'
+// 	}).done(function (data) {
+// 		try {
+// 			data = JSON.parse(data);
+// 			arrayTableAtractivos = [];
+// 			$('#btnConfirmarRegistrar').attr('onclick', '');
+// 			modal('ModalCrearPaquete');
+// 		} catch (err) {
+// 			msj('error', err.message);
+// 		}
+// 	});
+// }
 
 function modalEditarOferta(){
 	$('#titleOferta').html('Editar oferta');
