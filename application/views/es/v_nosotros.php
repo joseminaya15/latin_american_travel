@@ -53,7 +53,6 @@
                         <li><a href="offer" class="link">Ofertas</a></li>
                         <li><a href="Package" class="link">Paquetes</a></li>
                         <li><a href="About" class="link">Nosotros</a></li>
-                        <li><a href="Experience" class="link">Experiencias</a></li>
                         <li><a href="Contact" class="link">Escr&iacute;benos</a></li>
                     </ul>
                 </div>
@@ -104,6 +103,22 @@
                         <p>Liderar el mercado de Turismo Receptivo manteniendo nuestro servicio de óptima calidad y nuestro permanente trabajo eficiente de equipo.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section id="experiencia" class="section">
+            <div class="js-container">
+                <h2 class="js-title">Mira las Experiencias</h2>
+                <div class="owl-carousel owl-theme comentarios">
+                    <?php echo $comentarios ?>
+                </div>
+                <div class="mdl-comentar">
+                    <div class="form-group">
+                        <label for="comment">Y tú qué opinas?</label>
+                        <textarea class="form-control" rows="5" id="tacomentario" maxlength="250"></textarea>
+                    </div>
+                </div>
+                <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effec js-button" onclick="comentar()">Comentar</button>
             </div>
         </section>
         <footer>

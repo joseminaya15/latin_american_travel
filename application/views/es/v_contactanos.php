@@ -53,7 +53,6 @@
                         <li><a href="offer" class="link">Ofertas</a></li>
                         <li><a href="Package" class="link">Paquetes</a></li>
                         <li><a href="About" class="link">Nosotros</a></li>
-                        <li><a href="Experience" class="link">Experiencias</a></li>
                         <li><a href="Contact" class="link">Escr&iacute;benos</a></li>
                     </ul>
                 </div>
