@@ -97,34 +97,6 @@
                 </div>
             </div>
         </section>
-        <section id="nosotros" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nosotros</h2>
-                <div class="js-flex js-nosotros">
-                    <div class="js-nosotros--imagen imagen1"></div>
-                    <div class="js-nosotros--contenido">
-                        <h2>Latin American Travel, Nos encargamos de conectar los continentes e intercambiar viajes, culturas y m&aacute;s</h2>
-                        <p>Latin American Travel es una agencia especializada en viajes a PERU y todo SUDAM&Eacute;RICA, cuenta con una larga trayectoria y experiencia en la organizaci&oacute;n de viajes en Per&uacute; desde hace m&aacute;s de 10 a&ntilde;os. Hemos sabido dirigir nuestra experiencia con energ&iacute;a y capacidad de renovaci&oacute;n, disponiendo de los medios necesarios para que su viaje sea perfecto y lo m&aacute;s importante, amamos nuestro trabajo y nos sentimos orgullosos de mostrar este fant&aacute;stico pa&iacute;s llamado Per&uacute; al resto del Mundo. Nuestra misi&oacute;n es hacer sencillo cualquier viaje dentro del territorio de Peruano con un estudiado programa que le ayudar&aacute; a conocer lo m&aacute;s interesante de nuestro pa&iacute;s, su gente, su cultura, su naturaleza y... mucho m&aacute;s!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="experiencia" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Mira las Experiencias</h2>
-                <div class="owl-carousel owl-theme comentarios">
-                    <?php echo $comentarios ?>
-                </div>
-                <div class="mdl-comentar">
-                    <div class="form-group">
-                        <label for="comment">Y tú qué opinas?</label>
-                        <textarea class="form-control" rows="5" id="tacomentario" maxlength="250"></textarea>
-                    </div>
-                </div>
-                <div class="g-signin2" data-onsuccess="onSignIn" style="display: none"></div>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effec js-button" onclick="comentar()">Comentar</button>
-            </div>
-        </section>
         <section id="contactanos" class="section">
             <div class="fondo-imagen"></div>
             <div class="container js-container">
