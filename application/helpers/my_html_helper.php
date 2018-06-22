@@ -83,6 +83,7 @@ if(!function_exists('__buildCardsOfertas')) {
                                                         for="demo-menu-lower-right-ofe'.$key->id.'" data-oferta="'.$key->id.'">
                                                         <li class="mdl-menu__item" onclick="modalEditarOferta(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                         <li class="mdl-menu__item" onclick="modalEliminarOferta(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                                        <li class="mdl-menu__item" onclick="modalConfigurarDiasOff(this)"><i class="mdi mdi-edit"></i>Días</li>
                                                     </ul>
                                                 </div>').'
                         </div>';

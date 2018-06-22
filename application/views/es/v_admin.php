@@ -238,8 +238,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="ModalDiasPaq" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-sm">
+        <div class="modal fade" id="ModalDias" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="mdl-card" >
                         <div class="mdl-card__title p-b-0">
@@ -248,21 +248,21 @@
                         <div class="mdl-card__supporting-text p-t-0">
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
-                                    <input class="mdl-textfield__input" type="text" id="titulo_dia_paq">
-                                    <label class="mdl-textfield__label" for="titulo_dia_paq">T&iacute;tulo</label>
+                                    <input class="mdl-textfield__input" type="text" id="titulo_dia">
+                                    <label class="mdl-textfield__label" for="titulo_dia">T&iacute;tulo</label>
                                 </div>
                             </div>
                             <div class="col-xs-12 js-input">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
-                                    <textarea rows="3" class="mdl-textfield__input" type="text" id="desc_dia_paq"></textarea>
-                                    <label class="mdl-textfield__label" for="desc_dia_paq">Descripcion</label>
+                                    <textarea rows="3" class="mdl-textfield__input" type="text" id="desc_dia"></textarea>
+                                    <label class="mdl-textfield__label" for="desc_dia">Descripcion</label>
                                 </div>
                             </div>
-                            <button id="btnAgregarDiaPaq" onclick="agregarDiaPaq()"
+                            <button id="btnAgregarDia" onclick="agregarDia()"
                                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                                 Agregar
                             </button>
-                            <table id="config_dias_paq" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
+                            <table id="config_dias" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
                                 <thead>
                                     <tr class="tr-header-reporte">
                                         <th class="text-left" style="color: black !important;">Dia</th>

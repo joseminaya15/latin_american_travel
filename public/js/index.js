@@ -385,14 +385,13 @@ function agregarAtractivo() {
 	if (varLugar.length == 0 || varDesc.length == 0) {
 		return;
 	}
-
 	if(flgRegistrarAtractivo != null && idPaquete != null) {
 		$.ajax({
 			data: {
 				lugar     : varLugar, 
-				desc      :  varDesc,
+				desc      : varDesc,
 				id        : idPaquete,
-				flg       : 1
+				flg       : 2
 			},
 			url: 'Admin/registrarAtractivo',
 			type: 'POST'
@@ -434,8 +433,6 @@ function agregarAtractivoOff() {
 	if (varLugar.length == 0 || varDesc.length == 0) {
 		return;
 	}
-	console.log(flgRegistrarAtractivoOff);
-	console.log(idOferta);
 	if(flgRegistrarAtractivoOff != null && idOferta != null) {
 		$.ajax({
 			data: {
@@ -903,91 +900,134 @@ function editImg(name,idPaquete,flg){
 		}
 	});
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////
+var varFlg = null;
 function modalConfigurarDiasPaq(element){
+	varFlg = 2;
 	idPaquete = $(element).parent().attr("data-paquete");
 	card_paquete = $(element).parent().parent().parent().parent();
-	$('#desc_dia_paq').val(null);
-	$('#titulo_dia_paq').val(null);
+	$('#desc_dia').val(null);
+	$('#titulo_dia').val(null);
 
 	// OBTENER DIAS CONFIGURADOS DE BD
 	$.ajax({
-		data: {idPaquete : idPaquete},
-		url: 'Admin/getDiasByPaquete',
+		data: {idGrupo : idPaquete,
+				flg : varFlg},
+		url: 'Admin/getDiasByGrupo',
 		type: 'POST'
 	}).done(function (data) {
 		try {
 			data = JSON.parse(data);
 			cont_html = "";
 			count = 0;
-			arrayDiasPaq = data.dias == null ? [] : data.dias;
+			arrayDias = data.dias == null ? [] : data.dias;
 			
-			$.each(arrayDiasPaq, function (index, value) {
+			$.each(arrayDias, function (index, value) {
 				count++;
 				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
-					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
+					'<td><i class="mdi mdi-delete" onclick="quitarDia(' + index + ','+value.id+')"></i></td></tr>';
 			});
 			$('#cont_tabla_dias').html(cont_html);
-			modal('ModalDiasPaq');
-		} catch (err) {
-			msj('error', err.message);
-		}
-	});
-}
-var arrayDiasPaq = [];
-function agregarDiaPaq(){
-	var varDesc = $('#desc_dia_paq').val().trim();
-	if (varDesc.length == 0) {
-		return;
-	}
-	var varTitulo = $('#titulo_dia_paq').val().trim();
-	if (varTitulo.length == 0) {
-		return;
-	}
-	
-	// INSERTART DIA EN BD   idPaquete   RETORNAR ID DEL DIA
-	$.ajax({
-		data: { idPaquete : idPaquete,
-			varTitulo : varTitulo,
-			varDesc : varDesc
-			},
-		url: 'Admin/agregarDiaPaq',
-		type: 'POST'
-	}).done(function (data) {
-		try {
-			arrayDiasPaq.push({ desc_lugar: varTitulo , desc_viaje: varDesc, id : 1});
-			cont_html = "";
-			count = 0;
-			$.each(arrayDiasPaq, function (index, value) {
-				count++;
-				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
-					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
-			});
-			$('#cont_tabla_dias').html(cont_html);
-			$('#desc_dia_paq').val(null);
-			$('#titulo_dia_paq').val(null);
+			modal('ModalDias');
 		} catch (err) {
 			msj('error', err.message);
 		}
 	});
 }
 
-function quitarDiaPaq(index,id){
-	// ELIMINAR DE BD EL DIA
+function modalConfigurarDiasOff(element){
+	varFlg = 1;
+	idOferta = $(element).parent().attr("data-oferta");
+	card_oferta = $(element).parent().parent().parent().parent();
+	$('#desc_dia').val(null);
+	$('#titulo_dia').val(null);
+
+	// OBTENER DIAS CONFIGURADOS DE BD
 	$.ajax({
-		data: { idPaquete : idPaquete,
-				id : id},
-		url: 'Admin/quitarDiaPaq',
+		data: {idGrupo : idOferta,
+				flg    : varFlg},
+		url: 'Admin/getDiasByGrupo',
 		type: 'POST'
 	}).done(function (data) {
 		try {
-			arrayDiasPaq.splice(index, 1);
+			data = JSON.parse(data);
 			cont_html = "";
 			count = 0;
-			$.each(arrayDiasPaq, function (index, value) {
+			arrayDias = data.dias == null ? [] : data.dias;
+			
+			$.each(arrayDias, function (index, value) {
 				count++;
 				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
-					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
+					'<td><i class="mdi mdi-delete" onclick="quitarDia(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_dias').html(cont_html);
+			modal('ModalDias');
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+////////////////////////////////////////////////////////////////////////////
+var arrayDias = [];
+
+function agregarDia(){
+	var varDesc = $('#desc_dia').val().trim();
+	if (varDesc.length == 0) {
+		return;
+	}
+	var varTitulo = $('#titulo_dia').val().trim();
+	if (varTitulo.length == 0) {
+		return;
+	}
+	
+	// INSERTART DIA EN BD   idPaquete   RETORNAR ID DEL DIA
+	idGrupo = (varFlg == 1) ? idOferta : idPaquete;
+	$.ajax({
+		data: { idGrupo   : idGrupo,
+				varTitulo : varTitulo,
+				varDesc   : varDesc,
+				flg       : varFlg
+			},
+		url: 'Admin/agregarDia',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			arrayDias.push({ desc_lugar: varTitulo , desc_viaje: varDesc, id : data.id});
+			console.log(arrayDias);
+			cont_html = "";
+			count = 0;
+			$.each(arrayDias, function (index, value) {
+				count++;
+				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="quitarDia(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_dias').html(cont_html);
+			$('#desc_dia').val(null);
+			$('#titulo_dia').val(null);
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function quitarDia(indice,id){
+	// ELIMINAR DE BD EL DIA
+	idGrupo = (varFlg == 1) ? idOferta : idPaquete;
+	$.ajax({
+		data: { idGrupo : idGrupo,
+				id        : id},
+		url: 'Admin/quitarDia',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			arrayDias.splice(indice, 1);
+			cont_html = "";
+			count = 0;
+			$.each(arrayDias, function (index, value) {
+				count++;
+				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="quitarDia(' + index + ','+value.id+')"></i></td></tr>';
 			});
 			$('#cont_tabla_dias').html(cont_html);
 		} catch (err) {

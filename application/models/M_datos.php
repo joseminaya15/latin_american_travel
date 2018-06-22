@@ -79,7 +79,12 @@ class M_datos extends  CI_Model{
                      o.img,
                      o.desc_general,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
-                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
+                     ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
+                         FROM dias_x_atractivos dxa
+                        WHERE dxa.id_paquete = o.Id
+                          AND dxa.flg_paquet_ofert = 1
+                    ORDER BY id_dia) desc_dias
                 FROM ofertas o,
                      atractivos a
                WHERE a.id_paquetes = o.Id

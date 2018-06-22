@@ -441,13 +441,14 @@ class Admin extends CI_Controller
         echo json_encode($data);
     }
 
-    function getDiasByPaquete(){
+    function getDiasByGrupo(){
         $data['error'] = EXIT_ERROR;
         $data['msj']   = null;  
         try {
-            $idPaquete    = $this->input->post('idPaquete');
-            $arrayPaquete = $this->M_datos->getDiasById($idPaquete,2);
-            $data['dias'] = $arrayPaquete;
+            $id    = $this->input->post('idGrupo');
+            $flg   = $this->input->post('flg');
+            $arrayDias = $this->M_datos->getDiasById($id, $flg);
+            $data['dias'] = $arrayDias;
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
@@ -455,22 +456,24 @@ class Admin extends CI_Controller
         echo json_encode($data);
     }
 
-    function agregarDiaPaq(){
+    function agregarDia(){
         $data['error'] = EXIT_ERROR;
         $data['msj']   = null;  
         try {
-            $idPaquete    = $this->input->post('idPaquete');
-            $varTitulo    = $this->input->post('varTitulo');
-            $varDesc      = $this->input->post('varDesc');
+            $idGrupo    = $this->input->post('idGrupo');
+            $varTitulo  = $this->input->post('varTitulo');
+            $varDesc    = $this->input->post('varDesc');
+            $flg        = $this->input->post('flg');
 
-            $nextDia = $this->M_datos->getNextDia($idPaquete,2);
-            $insert = $this->M_datos->insertarDatos(array('desc_lugar'  => $varTitulo,
-                                                          'desc_viaje' => $varDesc,
-                                                          'id_dia'   => $nextDia,
-                                                          'id_paquete' => $idPaquete,
-                                                          'flg_paquet_ofert' => 2),
-                                                    'dias_x_atractivos');
-
+            $nextDia  = $this->M_datos->getNextDia($idGrupo,$flg);
+            $insert   = $this->M_datos->insertarDatos(array('desc_lugar'       => $varTitulo,
+                                                            'desc_viaje'       => $varDesc,
+                                                            'id_dia'           => $nextDia,
+                                                            'id_paquete'       => $idGrupo,
+                                                            'flg_paquet_ofert' => $flg),
+                                                        'dias_x_atractivos');
+            // log_message('error', print_r($insert, true));
+            $data['id'] = $insert['Id'];
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
@@ -478,12 +481,12 @@ class Admin extends CI_Controller
         echo json_encode($data);
     }
 
-    function quitarDiaPaq(){
+    function quitarDia(){
         $data['error'] = EXIT_ERROR;
         $data['msj']   = null;  
         try {
-            $idPaquete    = $this->input->post('idPaquete');
-            $id      = $this->input->post('id');
+            $idGrupo    = $this->input->post('idGrupo');
+            $id           = $this->input->post('id');
 
             $datos = $this->M_datos->deleteDatos($id,'dias_x_atractivos','Id');
 

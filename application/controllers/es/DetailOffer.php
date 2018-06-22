@@ -26,7 +26,33 @@ class DetailOffer extends CI_Controller {
                         '.$key->titulo.'
                     </a>';
             $navActive = "";
-            $lugares = str_replace(",","-",$key->atractivos);
+            $table = "";
+            if($key->desc_dias != null){
+                $array_dias = explode('|',$key->desc_dias);
+                $count = 0;
+                foreach($array_dias as $det){
+                    $count++;
+                    $desc = explode('*',$det);
+                    $table.= '
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>DIA '.$count.'</th>
+                                        <th>'.$desc[0].'</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>'.$desc[1].'</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>';
+                }
+            }
+            $lugares = str_replace(","," - ",$key->atractivos);
             $array_lugares = explode('|',$key->lugar_detalle);
             $htmlLugares = "";
             // log_message('error',print_r($array_lugares,true));
@@ -40,7 +66,13 @@ class DetailOffer extends CI_Controller {
                                 <p>'.$lugares.'</p>
                                 <p>'.$key->dias.'</p>
                                 <div class="js-paquete--contenido">
-                                    '.$htmlLugares.'
+                                    '.$htmlLugares.'<br>
+                                    '.$table.'<br>
+                                    <div class="js-costo">
+                                        <h3>RECOMENDACIONES E INDICACIONES:</h3>
+                                        <p>Traer crema bloqueadora para el sol, gorra, lentes de sol, c&aacute;mara fotogr&aacute;fica, impermeable para la lluvia y abrigo para las tardes.</p>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
                         </section>';
