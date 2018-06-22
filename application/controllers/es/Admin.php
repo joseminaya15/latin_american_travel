@@ -48,7 +48,6 @@ class Admin extends CI_Controller
         $data['html'] = $html;
         $usuario = $this->session->userdata('usuario');
         if ($usuario != null) {
-            // log_message('error', print_r($paquetes, true));
             $htmlPaq = __buildCardsPaquetes(1);
             $htmlOfer  = __buildCardsOfertas(1);
             $data['paquetes'] = $htmlPaq;
@@ -65,6 +64,7 @@ class Admin extends CI_Controller
         try {
             $idOferta = $this->input->post('idOferta');
             $datos = $this->M_datos->deleteDatos($idOferta,'ofertas','id');
+            $datos = $this->M_datos->deleteDias($idOferta,1);
             $elim  = $this->M_datos->deleteAtractivos($idOferta,'atractivos','id_paquetes', 1);
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
@@ -79,6 +79,7 @@ class Admin extends CI_Controller
         try {
             $idPaquete = $this->input->post('idPaquete');
             $datos = $this->M_datos->deleteDatos($idPaquete,'paquetes','Id');
+            $datos = $this->M_datos->deleteDias($idPaquete,2);
             $elim  = $this->M_datos->deleteAtractivos($idPaquete,'atractivos','id_paquetes', 2);
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
@@ -129,10 +130,11 @@ class Admin extends CI_Controller
             $titulo     = $this->input->post('titulo');
             $dias       = $this->input->post('dias');
             $atractivos = $this->input->post('atractivos');
-            
+            $img        = $this->input->post('img');
+            // log_message('error', print_r($titulo, true));
             $insert = $this->M_datos->insertarDatos(array('lugar'  => $titulo,
                                                           'dias'   => $dias,
-                                                          'imagen' => 'Arequipa.jpg'),
+                                                          'imagen' => $img),
                                                     'paquetes');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -158,11 +160,12 @@ class Admin extends CI_Controller
             $dias       = $this->input->post('dias');
             $desc       = $this->input->post('desc');
             $atractivos = $this->input->post('atractivos');
+            $img        = $this->input->post('img');
             
-            $insert = $this->M_datos->insertarDatos(array('nombre'        => $titulo,
+            $insert = $this->M_datos->insertarDatos(array('nombre'       => $titulo,
                                                           'dias'         => $dias,
                                                           'desc_general' => $desc,
-                                                          'img'          => 'oferta1.jpg'),
+                                                          'img'          => $img),
                                                     'ofertas');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -200,13 +203,79 @@ class Admin extends CI_Controller
                                            'desc'  => $array_lug[1],
                                            'id'    => $array_lug[2] ));
             }
-            // log_message('error', print_r($lugares, true));
             
             $data['titulo'] = $paquetes->titulo;
             $data['dias']   = $paquetes->dias;
             $data['array_lugares']   = $lugares;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
 
+    function modalEditarOferta(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
             
+            $idOferta = $this->input->post('idOferta');
+            $ofertas = $this->M_datos->getOfertasByBusqueda(null,$idOferta)[0];
+            
+            $array_lugares = explode('|',$ofertas->lugar_detalle);
+            $lugares = array();
+            foreach($array_lugares as $lug) {
+                $array_lug = explode('*', $lug);
+                array_push($lugares,array( 'lugar' => $array_lug[0],
+                                           'desc'  => $array_lug[1],
+                                           'id'    => $array_lug[2] ));
+            }
+            
+            $data['titulo']         = $ofertas->titulo;
+            $data['dias']           = $ofertas->dias;
+            $data['desc_general']   = $ofertas->desc_general;
+            $data['array_lugares']  = $lugares;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarTituloOff(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $titulo = $this->input->post('titulo');
+            $id     = $this->input->post('idOferta');
+            $this->M_datos->updateDatos(array('nombre'=>$titulo), $id , 'ofertas','id');
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarDiasOff(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $dias = $this->input->post('dias');
+            $id   = $this->input->post('idOferta');
+            $this->M_datos->updateDatos(array('dias'=>$dias), $id , 'ofertas','id');
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarDescGeneral(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $desc = $this->input->post('desc');
+            $id   = $this->input->post('idOferta');
+            $this->M_datos->updateDatos(array('desc_general'=>$desc), $id , 'ofertas','id');
+            $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
         }
@@ -247,11 +316,12 @@ class Admin extends CI_Controller
         try {
             $lugar = $this->input->post('lugar');
             $desc  = $this->input->post('desc');
-            $id    = $this->input->post('idPaquete');
+            $id    = $this->input->post('id');
+            $flg    = $this->input->post('flg');
             $insert = $this->M_datos->insertarDatos(
                                            array('lugar'            => $lugar,
                                                  'descripcion'      => $desc,
-                                                 'flg_paquet_ofert' => 2,
+                                                 'flg_paquet_ofert' => $flg,
                                                  'id_paquetes'      => $id),
                                            'atractivos' );
             $data['id'] = $insert['Id'];
@@ -264,17 +334,160 @@ class Admin extends CI_Controller
 
     function eliminarAtractivo(){
         $data['error'] = EXIT_ERROR;
-        $data['msj']   = null;
+        $data['msj']   = null;  
         try {
-            $id        = $this->input->post('id');
-            $idPaquete = $this->input->post('idPaquete');
-            $cant = $this->M_datos->countById($idPaquete, 'atractivos', 'id_paquetes');
-            
-            // log_message('error', print_r($cant, true));
+            $idAtractivo  = $this->input->post('idAtractivo');
+            $idEliminar   = $this->input->post('idEliminar');
+            $flg          = $this->input->post('flg');
+
+            $cant = $this->M_datos->countById($idEliminar, 'atractivos', 'id_paquetes',$flg);
             if($cant > 1){
-                $datos = $this->M_datos->deleteDatos($id,'atractivos','Id');
+                $datos = $this->M_datos->deleteDatos($idAtractivo,'atractivos','Id');
                 $data['error'] = EXIT_SUCCESS;
             }
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function cargarImagen(){
+        $respuesta = new stdClass();
+        $respuesta->mensaje = $this->validarImagen($_FILES);
+        if(count($_FILES) != 0 && $respuesta->mensaje == null){
+            $tipo = $_FILES['archivo']['type']; 
+            $tamanio = $_FILES['archivo']['size']; 
+            $archivotmp = $_FILES['archivo']['tmp_name'];
+            $namearch = $_FILES['archivo']['name'];
+            $nuevo = explode(".",$namearch);
+            $target = getcwd().DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'paquetes'.DIRECTORY_SEPARATOR.basename($_FILES['archivo']['name']);
+            if(move_uploaded_file($archivotmp, $target) ){
+                $respuesta->mensaje = 'Su imagen se subió correctamente.';
+                $respuesta->name    = $namearch;
+                $respuesta->ruta    = RUTA_IMG.'paquetes/'.$namearch;
+            } else {
+                $respuesta->mensaje = 'Hubo un problema en la subida de su imagen.';
+            }
+        }
+        echo json_encode($respuesta);
+    }
+
+    function cargarImagenOff(){
+        $respuesta = new stdClass();
+        $respuesta->mensaje = $this->validarImagen($_FILES);
+        if(count($_FILES) != 0 && $respuesta->mensaje == null){
+            $tipo = $_FILES['archivo']['type']; 
+            $tamanio = $_FILES['archivo']['size']; 
+            $archivotmp = $_FILES['archivo']['tmp_name'];
+            $namearch = $_FILES['archivo']['name'];
+            $nuevo = explode(".",$namearch);
+            $target = getcwd().DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'ofertas'.DIRECTORY_SEPARATOR.basename($_FILES['archivo']['name']);
+            if(move_uploaded_file($archivotmp, $target) ){
+                $respuesta->mensaje = 'Su imagen se subió correctamente.';
+                $respuesta->name    = $namearch;
+                $respuesta->ruta    = RUTA_IMG.'ofertas/'.$namearch;
+            } else {
+                $respuesta->mensaje = 'Hubo un problema en la subida de su imagen.';
+            }
+        }
+        echo json_encode($respuesta);
+    }
+
+    function validarImagen($archivo){
+        $msj = null;
+        if(count($archivo) == 0){
+            $msj = 'Seleccione su imagen.';
+        } else {
+            $tipo = $archivo['archivo']['type']; 
+            $tamanio = $archivo['archivo']['size']; 
+            $archivotmp = $archivo['archivo']['tmp_name'];
+            $namearch = $archivo['archivo']['name'];
+            $nuevo = explode(".",$namearch);
+            if($tamanio > '2000000'){
+                $msj = 'El tamaño de su imagen debe ser menor';
+            }else {
+                if($nuevo[1] != 'pdf' && $nuevo[1] != 'jpeg' && $nuevo[1] != 'jpg' && $nuevo[1] != 'png'){
+                    $msj = 'El formato de la imagen es incorrecto.';
+                }
+            }
+        }
+        return $msj;
+    }
+
+    function verificarImg(){
+        $respuesta = new stdClass();
+        $respuesta->mensaje = $this->validarImagen($_FILES);
+        echo json_encode($respuesta);
+    }
+
+    function editImg(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $name       = $this->input->post('name');
+            $idPaquete  = $this->input->post('idPaquete');
+            $flg        = $this->input->post('flg');
+            if($name == null){
+                return;
+            }
+            $table  = ($flg == 1) ? 'ofertas' : 'paquetes';
+            $img    = ($flg == 1) ? 'img' : 'imagen';
+            $col_id = ($flg == 1) ? 'id' : 'Id';
+            $this->M_datos->updateDatos(array($img=>$name), $idPaquete , $table,$col_id);
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function getDiasByPaquete(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $idPaquete    = $this->input->post('idPaquete');
+            $arrayPaquete = $this->M_datos->getDiasById($idPaquete,2);
+            $data['dias'] = $arrayPaquete;
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function agregarDiaPaq(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $idPaquete    = $this->input->post('idPaquete');
+            $varTitulo    = $this->input->post('varTitulo');
+            $varDesc      = $this->input->post('varDesc');
+
+            $nextDia = $this->M_datos->getNextDia($idPaquete,2);
+            $insert = $this->M_datos->insertarDatos(array('desc_lugar'  => $varTitulo,
+                                                          'desc_viaje' => $varDesc,
+                                                          'id_dia'   => $nextDia,
+                                                          'id_paquete' => $idPaquete,
+                                                          'flg_paquet_ofert' => 2),
+                                                    'dias_x_atractivos');
+
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function quitarDiaPaq(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $idPaquete    = $this->input->post('idPaquete');
+            $id      = $this->input->post('id');
+
+            $datos = $this->M_datos->deleteDatos($id,'dias_x_atractivos','Id');
+
+            $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();
         }

@@ -13,8 +13,8 @@ class M_datos extends  CI_Model{
       }
       return array("error" => EXIT_SUCCESS, "msj" => MSJ_INS, "Id" => $sol);
     }
-    function updateDatos($arrayData, $id, $tabla){
-      $this->db->where('Id'  , $id);
+    function updateDatos($arrayData, $id, $tabla, $col = 'Id'){
+      $this->db->where($col  , $id);
       $this->db->update($tabla, $arrayData);
       if ($this->db->trans_status() == false){
           throw new Exception('No se pudo actualizar los datos');
@@ -53,7 +53,12 @@ class M_datos extends  CI_Model{
                      b.dias,
                      b.imagen,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
-                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
+                     ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
+                         FROM dias_x_atractivos dxa
+                        WHERE dxa.id_paquete = b.id
+                          AND dxa.flg_paquet_ofert = 2
+                    ORDER BY id_dia) desc_dias
                 FROM paquetes b,
                      atractivos a
                WHERE a.flg_paquet_ofert = 2
@@ -67,14 +72,14 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql,array('%'.$texto.'%',$id,$id));
       return $result->result();
     }
-    function getOfertasByBusqueda($texto = null){
+    function getOfertasByBusqueda($texto = null,$id = null){
       $sql = "SELECT o.id,
                      o.nombre titulo,
                      o.dias,
                      o.img,
                      o.desc_general,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
-                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion) SEPARATOR '|') lugar_detalle
+                     group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle
                 FROM ofertas o,
                      atractivos a
                WHERE a.id_paquetes = o.Id
@@ -82,8 +87,12 @@ class M_datos extends  CI_Model{
                  AND (o.nombre  LIKE ?
                   OR a.descripcion LIKE ?
                   OR a.lugar   LIKE ?)
+                 AND CASE
+                          WHEN ? IS NOT NULL THEN o.id = ?
+                          ELSE 1 = 1
+                     END
             GROUP BY id";
-      $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%'));
+      $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%',$id,$id));
       return $result->result();
     }
 
@@ -96,16 +105,50 @@ class M_datos extends  CI_Model{
         return $result->result();
     }
 
-    function countById($id_dato, $tabla, $id){
+    function countById($id_dato, $tabla, $id, $flg){
       $sql = "SELECT COUNT(1) cant
                 FROM ".$tabla."
-               WHERE ".$id." = ?";
-      $result = $this->db->query($sql,array($id_dato));
+               WHERE ".$id." = ?
+                 AND flg_paquet_ofert = ? ";
+      $result = $this->db->query($sql,array($id_dato, $flg));
       // log_message('error',$this->db->last_query());
       if($result->num_rows() > 0){
         return $result->row()->cant;
       } else {
           return 0;
       }
+    }
+
+    function getDiasById($idPaquete,$flgPaqOff){
+      $sql =  "SELECT Id id,
+                      desc_lugar,
+                      desc_viaje
+                 FROM dias_x_atractivos
+                WHERE id_paquete = ?
+                  AND flg_paquet_ofert = ?
+             ORDER BY id_dia";
+      $result = $this->db->query($sql,array($idPaquete,$flgPaqOff));
+      return $result->result();
+    }
+
+    function getNextDia($idPaquete,$flgPaqOff){
+      $sql =  "SELECT MAX(id_dia) + 1 dia
+                 FROM dias_x_atractivos
+                WHERE id_paquete = ?
+                  AND flg_paquet_ofert = ?";
+      $result = $this->db->query($sql,array($idPaquete,$flgPaqOff));
+      // log_message('error',$result->num_rows());
+      if($result->num_rows() > 0 && $result->row()->dia != null){
+        return $result->row()->dia;
+      } else {
+        return 1;
+      }
+    }
+
+    function deleteDias($idPaquete,$flgPaqOff){
+      $sql = "DELETE FROM dias_x_atractivos WHERE id_paquete = ?
+                                              AND flg_paquet_ofert = ?";
+      $result = $this->db->query($sql, array($idPaquete,$flgPaqOff));
+      return $result;
     }
 }

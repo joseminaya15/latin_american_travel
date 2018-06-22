@@ -7,7 +7,6 @@ if(!function_exists('__buildCardsPaquetes')) {
         $htmlPaq = null;
         $cont = 1;
         $paquetes = $CI->M_datos->getPaquetesByBusqueda($text);
-        
         foreach ($paquetes as $key) {
             $htmlPaq.= '
                 <div class="mdl-card mdl-paquetes">
@@ -31,6 +30,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                                             for="demo-menu-lower-right-paq'.$key->Id.'" data-paquete="'.$key->Id.'">
                                                 <li class="mdl-menu__item" onclick="modalEditarPaquete(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                 <li class="mdl-menu__item" onclick="modalEliminarPaquete(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
+                                                <li class="mdl-menu__item" onclick="modalConfigurarDiasPaq(this)"><i class="mdi mdi-edit"></i>Días</li>
                                             </ul>
                                         </div>').'
                 </div>';
@@ -48,14 +48,15 @@ if(!function_exists('__buildCardsOfertas')) {
         $htmlOfer = null;
         $cont = 1;
         $ofertas = $CI->M_datos->getOfertasByBusqueda($text);
+        
         foreach($ofertas as $key){
-            $lugares = str_replace(",","-",$key->atractivos);
+            $lugares = str_replace(","," - ",$key->atractivos);
             $htmlOfer.= '<div class="mdl-card mdl-ofertas">
                             <div class="mdl-card__title p-0">
                                 '.($verMas == null ? ''
                                                    : '<button id="oferta'.$key->id.'" class="mdl-button mdl-js-button mdl-button--raised
                                                         mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>').'
-                                <img src="'.RUTA_IMG.'ofertas/'.$key->img.'" alt="">
+                                <img src="'.RUTA_IMG.'ofertas/'.$key->img.'" alt="" class="img-card-oferta">
                                 <div class="js-paquete-name">
                                     <p>'.$key->titulo.'</p>
                                 </div>
@@ -63,11 +64,11 @@ if(!function_exists('__buildCardsOfertas')) {
                             <div class="mdl-card__supporting-text">
                                 <div class="js-paquetes location">
                                     <i class="mdi mdi-location_on"></i>
-                                    <span>'.$lugares.'</span>
+                                    <span class="cont_lugares">'.$lugares.'</span>
                                 </div>
                                 <div class="js-paquetes">
                                     <i class="mdi mdi-date_range"></i>
-                                    <span>'.$key->dias.'</span>
+                                    <span class="cont_dias">'.$key->dias.'</span>
                                 </div>
                                 <div class="js-contenido">
                                     <p>'.$key->desc_general.'</p>

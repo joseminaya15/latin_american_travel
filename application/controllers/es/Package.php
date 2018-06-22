@@ -15,6 +15,7 @@ class Package extends CI_Controller {
 
 	public function index(){
         $paquetes = $this->M_datos->getPaquetesByBusqueda();
+        log_message('error', print_r($paquetes, true));
         // log_message('error',print_r($paquetes,true));
         $nav = "";
         $section = "";
@@ -25,29 +26,31 @@ class Package extends CI_Controller {
             $nav.= '<a id="menu-paquete'.$key->Id.'" class="mdl-navigation__link '.$navActive.'" onclick="goToMenu(this.id)">'.$key->titulo.'</a>';
             $table = "";
             $navActive = "";
-            // if($key->detalle_dias != null){
-            //     $array_dias = explode('|',$key->detalle_dias);
-            //     foreach($array_dias as $det){
-            //         $desc = explode('*',$det);
-            //         $table.= '
-            //             <div class="table-responsive">
-            //                 <table class="table">
-            //                     <thead>
-            //                         <tr>
-            //                             <th>DIA '.$desc[0].'</th>
-            //                             <th>'.$desc[1].'</th>
-            //                         </tr>
-            //                     </thead>
-            //                     <tbody>
-            //                         <tr>
-            //                             <td></td>
-            //                             <td>'.$desc[2].'</td>
-            //                         </tr>
-            //                     </tbody>
-            //                 </table>
-            //             </div>';
-            //     }
-            // }
+            if($key->desc_dias != null){
+                $array_dias = explode('|',$key->desc_dias);
+                $count = 0;
+                foreach($array_dias as $det){
+                    $count++;
+                    $desc = explode('*',$det);
+                    $table.= '
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>DIA '.$count.'</th>
+                                        <th>'.$desc[0].'</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td>'.$desc[1].'</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>';
+                }
+            }
             
             $lugares = str_replace(",","-",$key->atractivos);
             $array_lugares = explode('|',$key->lugar_detalle);
@@ -64,7 +67,8 @@ class Package extends CI_Controller {
                         <p>'.$key->dias.'</p>
                         <div class="js-paquete--contenido">
                             '.$htmlLugares.'
-                            '.$table.'
+                            <br>
+                            '.$table.'<br>
                             <h2>Hoteles sugeridos</h2>
                             <div class="js-hoteles">
                                 <h2>LIMA</h2>

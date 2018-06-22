@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="modal fade" id="ModalCrearPaquete" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="mdl-card" >
                         <div class="mdl-card__title p-b-0">
@@ -123,6 +123,10 @@
                                     <input class="mdl-textfield__input" type="text" id="diasAtractivo">
                                     <label class="mdl-textfield__label" for="diasAtractivo">D&iacute;as y noches</label>
                                 </div>
+                            </div>
+                            <div class="mdl-input factura">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                onclick="subirImagen()" id="btnSubirImagen">Subir imagen</button>
                             </div>
                             <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
@@ -165,7 +169,7 @@
             </div>
         </div>
         <div class="modal fade" id="ModalCrearOferta" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="mdl-card" >
                         <div class="mdl-card__title p-b-0">
@@ -189,6 +193,10 @@
                                     <input class="mdl-textfield__input" type="text" id="descAtractivoOff">
                                     <label class="mdl-textfield__label" for="descAtractivoOff">Descripci&oacute;n general</label>
                                 </div>
+                            </div>
+                            <div class="mdl-input factura">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                onclick="subirImagenOff()" id="btnSubirImagenOff">Subir imagen</button>
                             </div>
                             <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
@@ -230,6 +238,60 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="ModalDiasPaq" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="mdl-card" >
+                        <div class="mdl-card__title p-b-0">
+                            <h2>Descripción por días</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text p-t-0">
+                            <div class="col-xs-12 js-input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
+                                    <input class="mdl-textfield__input" type="text" id="titulo_dia_paq">
+                                    <label class="mdl-textfield__label" for="titulo_dia_paq">T&iacute;tulo</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 js-input">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-color">
+                                    <textarea rows="3" class="mdl-textfield__input" type="text" id="desc_dia_paq"></textarea>
+                                    <label class="mdl-textfield__label" for="desc_dia_paq">Descripcion</label>
+                                </div>
+                            </div>
+                            <button id="btnAgregarDiaPaq" onclick="agregarDiaPaq()"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                Agregar
+                            </button>
+                            <table id="config_dias_paq" class="table table-bordered table-hover dt-responsive" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr class="tr-header-reporte">
+                                        <th class="text-left" style="color: black !important;">Dia</th>
+                                        <th class="text-left" style="color: black !important;">Título</th>
+                                        <th class="text-left" style="color: black !important;">Descripción</th>
+                                        <th class="text-left" style="color: black !important;">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cont_tabla_dias">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-card__actions">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button js-button--default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="frmArchivo" method="post" style="display: none;">
+            <input id="archivo" type="file" name="archivo" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
+        <form id="frmArchivoOff" method="post" style="display: none;">
+            <input id="archivoOff" type="file" name="archivoOff" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>

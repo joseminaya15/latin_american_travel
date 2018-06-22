@@ -263,83 +263,122 @@ function eliminarCardPaquete() {
 		}
 	});
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 var arrayTableAtractivosOff = [];
 function modalCrearOferta() {
+	flgRegistrarAtractivoOff = null;
 	$('#titleOferta').html('Registrar oferta');
+	$('#tituloAtractivoOff').removeAttr('onchange');
+	$('#diasAtractivoOff').removeAttr('onchange');
+	$('#descAtractivoOff').removeAttr('onchange');
+	$('#btnSubirImagenOff').text('Subir imagen');
+	$('#btnSubirImagenOff').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagenOff').css('color','#000');
+	$('#btnConfirmarRegistrarOff').show();
+
+	resetDatos();
 	limpiarModalOferta();
 	modal('ModalCrearOferta');
-}
-
-function agregarAtractivoOff() {
-	varLugar = $('#lugarAtractivoOff').val().trim();
-	varDesc = $('#descripcionAtractivoOff').val().trim();
-	if (varLugar.length == 0 || varDesc.length == 0) {
-		return;
-	}
-	arrayTableAtractivosOff.push({ lugar: varLugar, desc: varDesc });
-	cont_html = "";
-	$.each(arrayTableAtractivosOff, function (index, value) {
-		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-			'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ')"></i></td></tr>';
-	});
-	$('#cont_tabla_ofertas').html(cont_html);
-	$('#lugarAtractivoOff').val(null);
-	$('#descripcionAtractivoOff').val(null);
-}
-
-function registrarOferta() {
-	varTitulo = $('#tituloAtractivoOff').val().trim();
-	varDias = $('#diasAtractivoOff').val().trim();
-	varDesc = $('#descAtractivoOff').val().trim();
-	if (varTitulo.length == 0 || varDias.length == 0 || varDesc.length == 0 || arrayTableAtractivosOff.length == 0) {
-		return;
-	}
-
-	$.ajax({
-		data: {
-			titulo: varTitulo,
-			dias: varDias,
-			desc: varDesc,
-			atractivos: arrayTableAtractivosOff
-		},
-		url: 'Admin/registrarOferta',
-		type: 'POST'
-	}).done(function (data) {
-		try {
-			data = JSON.parse(data);
-			if (data.error == 0) {
-				arrayTableAtractivosOff = []
-				$('#cont_ofertas').html(data.htmlOff);
-				componentHandler.upgradeAllRegistered();
-				modal('ModalCrearOferta');
-			}
-		} catch (err) {
-			msj('error', err.message);
-		}
-	});
-}
-
-function deleteAtractivoOff(index) {
-	arrayTableAtractivosOff.splice(index, 1);
-	cont_html = "";
-	$.each(arrayTableAtractivosOff, function (index, value) {
-		cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-			'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ')"></i></td></tr>';
-	});
-	$('#cont_tabla_ofertas').html(cont_html);
 }
 
 var arrayTableAtractivos = [];
 function modalCrearPaquete() {
 	flgRegistrarAtractivo = null;
 	$('#titlePaquete').html('Registrar paquete');
-	limpiarModalPaquete();
 	$('#tituloAtractivo').removeAttr('onchange');
 	$('#diasAtractivo').removeAttr('onchange');
 	$('#btnConfirmarRegistrar').show();
+	
+	resetDatos();
+	limpiarModalPaquete();
 	modal('ModalCrearPaquete');
 }
-var flgRegistrarAtractivo = null;//1 = insertar en bd - null agregar al array
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function deleteAtractivo(indice,id) {
+	if(flgRegistrarAtractivo != null && idPaquete != null) {
+		$.ajax({
+			data: { idAtractivo : id, 
+					idEliminar  : idPaquete,
+					flg         : 2 },
+			url: 'Admin/eliminarAtractivo',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if(data.error == 0){
+					arrayTableAtractivos.splice(indice, 1);
+					cont_html = "";
+					$.each(arrayTableAtractivos, function (index, value) {
+						cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+					});
+					$('#cont_tabla_paquetes').html(cont_html);
+					msj('error', 'Se editó correctamente.');
+				} else {
+					msj('error', 'Debe tener al menos un atractivo.');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+	} else {
+		arrayTableAtractivos.splice(indice, 1);
+		cont_html = "";
+		$.each(arrayTableAtractivos, function (index, value) {
+			cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+				'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+		});
+		$('#cont_tabla_paquetes').html(cont_html);
+	}
+}
+
+function deleteAtractivoOff(indice,id) {
+	if(flgRegistrarAtractivoOff != null && idOferta != null) {
+		$.ajax({
+			data: { idAtractivo : id, 
+				    idEliminar  : idOferta,
+					flg         : 1 },
+			url: 'Admin/eliminarAtractivo',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if(data.error == 0){
+					arrayTableAtractivosOff.splice(indice, 1);
+					cont_html = "";
+					titulo = "";
+					$.each(arrayTableAtractivosOff, function (index, value) {
+						$text = (index == 0) ? "" : " - ";
+						titulo+= $text+value.lugar;
+						cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ','+value.id+')"></i></td></tr>';
+					});
+					card_oferta.find('.cont_lugares').html(titulo);
+					$('#cont_tabla_ofertas').html(cont_html);
+					msj('error', 'Se editó correctamente.');
+				} else {
+					msj('error', 'Debe tener al menos un atractivo.');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+
+					
+	} else {
+		arrayTableAtractivosOff.splice(indice, 1);
+		cont_html = "";
+		$.each(arrayTableAtractivosOff, function (index, value) {
+			cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+				'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ','+value.id+')"></i></td></tr>';
+		});
+		$('#cont_tabla_ofertas').html(cont_html);
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+var flgRegistrarAtractivo    = null;//1 = insertar en bd - null agregar al array
+var flgRegistrarAtractivoOff = null;//1 = insertar en bd - null agregar al array
 function agregarAtractivo() {
 	varLugar = $('#lugarAtractivo').val().trim();
 	varDesc = $('#descripcionAtractivo').val().trim();
@@ -352,7 +391,8 @@ function agregarAtractivo() {
 			data: {
 				lugar     : varLugar, 
 				desc      :  varDesc,
-				idPaquete : idPaquete
+				id        : idPaquete,
+				flg       : 1
 			},
 			url: 'Admin/registrarAtractivo',
 			type: 'POST'
@@ -388,73 +428,135 @@ function agregarAtractivo() {
 	}
 }
 
-function registrarPaquete() {
-	varTitulo = $('#tituloAtractivo').val().trim();
-	varDias = $('#diasAtractivo').val().trim();
-	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
+function agregarAtractivoOff() {
+	varLugar = $('#lugarAtractivoOff').val().trim();
+	varDesc = $('#descripcionAtractivoOff').val().trim();
+	if (varLugar.length == 0 || varDesc.length == 0) {
 		return;
 	}
-
-	$.ajax({
-		data: {
-			titulo: varTitulo,
-			dias: varDias,
-			atractivos: arrayTableAtractivos
-		},
-		url: 'Admin/registrarPaquete',
-		type: 'POST'
-	}).done(function (data) {
-		try {
-			data = JSON.parse(data);
-			if (data.error == 0) {
-				arrayTableAtractivos = [];
-				$('#cont_paquetes').html(data.htmlPaq);
-				componentHandler.upgradeAllRegistered();
-				modal('ModalCrearPaquete');
-			}
-		} catch (err) {
-			msj('error', err.message);
-		}
-	});
-}
-
-function deleteAtractivo(indice,id) {
-	if(flgRegistrarAtractivo != null && idPaquete != null) {
+	console.log(flgRegistrarAtractivoOff);
+	console.log(idOferta);
+	if(flgRegistrarAtractivoOff != null && idOferta != null) {
 		$.ajax({
-			data: { id        : id, 
-				    idPaquete : idPaquete},
-			url: 'Admin/eliminarAtractivo',
+			data: {
+				lugar     : varLugar, 
+				desc      : varDesc,
+				id        : idOferta,
+				flg       : 1
+			},
+			url: 'Admin/registrarAtractivo',
 			type: 'POST'
 		}).done(function (data) {
 			try {
 				data = JSON.parse(data);
-				if(data.error == 0){
-					arrayTableAtractivos.splice(indice, 1);
+				if (data.error == 0) {
+					arrayTableAtractivosOff.push({ lugar: varLugar, desc: varDesc, id: data.id });
 					cont_html = "";
-					$.each(arrayTableAtractivos, function (index, value) {
+					titulo = "";
+					$.each(arrayTableAtractivosOff, function (index, value) {
+						$text = (index == 0) ? "" : " - ";
+						titulo+= $text+value.lugar;
 						cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-							'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+							'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ','+value.id+')"></i></td></tr>';
 					});
-					$('#cont_tabla_paquetes').html(cont_html);
-					msj('error', 'Se editó correctamente.');
-				} else {
-					msj('error', 'El paquete debe tener al menos un atractivo.');
+					card_oferta.find('.cont_lugares').html(titulo);
+					$('#cont_tabla_ofertas').html(cont_html);
+					$('#lugarAtractivoOff').val(null);
+					$('#descripcionAtractivoOff').val(null);
 				}
 			} catch (err) {
 				msj('error', err.message);
 			}
 		});
 	} else {
-		arrayTableAtractivos.splice(indice, 1);
+		arrayTableAtractivosOff.push({ lugar: varLugar, desc: varDesc });
 		cont_html = "";
-		$.each(arrayTableAtractivos, function (index, value) {
+		$.each(arrayTableAtractivosOff, function (index, value) {
 			cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
-				'<td><i class="mdi mdi-delete" onclick="deleteAtractivo('+ index +','+value.id+')"></i></td></tr>';
+				'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ','+value.id+')"></i></td></tr>';
 		});
-		$('#cont_tabla_paquetes').html(cont_html);
+		$('#cont_tabla_ofertas').html(cont_html);
+		$('#lugarAtractivoOff').val(null);
+		$('#descripcionAtractivoOff').val(null);
 	}
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+function registrarPaquete() {
+	varTitulo = $('#tituloAtractivo').val().trim();
+	varDias = $('#diasAtractivo').val().trim();
+	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
+		return;
+	}
+	var img = cargarImagen();
+	setTimeout(function(){
+		if(nameImgPaquete == null){
+			return;
+		}
+		$.ajax({
+			data: {
+				titulo: varTitulo,
+				dias: varDias,
+				atractivos: arrayTableAtractivos,
+				img : nameImgPaquete
+			},
+			url: 'Admin/registrarPaquete',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if (data.error == 0) {
+					arrayTableAtractivos = [];
+					nameImgPaquete = null;
+					$('#cont_paquetes').html(data.htmlPaq);
+					componentHandler.upgradeAllRegistered();
+					modal('ModalCrearPaquete');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+	}, 1000);
+}
+function registrarOferta() {
+	varTitulo = $('#tituloAtractivoOff').val().trim();
+	varDias = $('#diasAtractivoOff').val().trim();
+	varDesc = $('#descAtractivoOff').val().trim();
+	if (varTitulo.length == 0 || varDias.length == 0 || varDesc.length == 0 || arrayTableAtractivosOff.length == 0) {
+		return;
+	}
 
+	var img = cargarImagenOff();
+	setTimeout(function(){
+		if(nameImgOferta == null){
+			return;
+		}
+		$.ajax({
+			data: {
+				titulo: varTitulo,
+				dias: varDias,
+				desc: varDesc,
+				atractivos: arrayTableAtractivosOff,
+				img : nameImgOferta
+			},
+			url: 'Admin/registrarOferta',
+			type: 'POST'
+		}).done(function (data) {
+			try {
+				data = JSON.parse(data);
+				if (data.error == 0) {
+					arrayTableAtractivosOff = [];
+					nameImgOferta = null;
+					$('#cont_ofertas').html(data.htmlOff);
+					componentHandler.upgradeAllRegistered();
+					modal('ModalCrearOferta');
+				}
+			} catch (err) {
+				msj('error', err.message);
+			}
+		});
+	}, 1000);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
 function eliminarComentarios(id_comentario) {
 	$.ajax({
 		data: { id_comentario: id_comentario },
@@ -495,7 +597,7 @@ function cerrarSesion(){
 		}
 	});
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 function modalEditarPaquete(element){
 	$('#titlePaquete').html('Editar paquete');
 	
@@ -517,6 +619,10 @@ function modalEditarPaquete(element){
 			$('#diasAtractivo').val(data.dias);
 			$('#diasAtractivo').parent().addClass('is-dirty');
 			$('#diasAtractivo').attr('onchange', 'editarDias()');
+
+			$('#btnSubirImagen').text('Cargado');
+			$('#btnSubirImagen').css('background-color','#5CB85C');
+			$('#btnSubirImagen').css('color','#FFFFFF');
 			cont_html = "";
 			arrayTableAtractivos = data.array_lugares;
 			$.each(arrayTableAtractivos, function (index, value) {
@@ -532,6 +638,117 @@ function modalEditarPaquete(element){
 	});
 }
 
+function modalEditarOferta(element){
+	$('#titleOferta').html('Editar oferta');
+	idOferta = $(element).parent().attr("data-oferta");
+	card_oferta = $(element).parent().parent().parent().parent();
+	limpiarModalOferta();
+	flgRegistrarAtractivoOff = 1;
+	$.ajax({
+		data: {idOferta : idOferta},
+		url: 'Admin/modalEditarOferta',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			$('#tituloAtractivoOff').val(data.titulo);
+			$('#tituloAtractivoOff').parent().addClass('is-dirty');
+			$('#tituloAtractivoOff').attr('onchange', 'editarTituloOff()');
+			
+			$('#diasAtractivoOff').val(data.dias);
+			$('#diasAtractivoOff').parent().addClass('is-dirty');
+			$('#diasAtractivoOff').attr('onchange', 'editarDiasOff()');
+
+			$('#descAtractivoOff').val(data.desc_general);
+			$('#descAtractivoOff').parent().addClass('is-dirty');
+			$('#descAtractivoOff').attr('onchange', 'editarDiasDescGeneral()');
+
+			$('#btnSubirImagenOff').text('Cargado');
+			$('#btnSubirImagenOff').css('background-color','#5CB85C');
+			$('#btnSubirImagenOff').css('color','#FFFFFF');
+
+			
+			cont_html = "";
+			arrayTableAtractivosOff = data.array_lugares;
+			$.each(arrayTableAtractivosOff, function (index, value) {
+				cont_html += '<tr><td>' + value.lugar + '</td><td>' + value.desc + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="deleteAtractivoOff(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_ofertas').html(cont_html);
+			$('#btnConfirmarRegistrarOff').hide();
+			modal('ModalCrearOferta');
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+//////////////////////////////////////////////////////////////////////
+function editarTituloOff(){
+	varTitulo = $('#tituloAtractivoOff').val().trim();
+	if (varTitulo.length == 0) {
+		return;
+	}
+	$.ajax({
+		data: { titulo : varTitulo,
+			idOferta : idOferta },
+		url: 'Admin/editarTituloOff',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if(data.error == 0){
+				msj('error', 'Se editó correctamente.');
+				card_oferta.find('.js-paquete-name').html('<p>'+varTitulo+'</p>');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+function editarDiasOff(){
+	varDias = $('#diasAtractivoOff').val().trim();
+	if (varDias.length == 0) {
+		return;
+	}
+	$.ajax({
+		data: {  dias : varDias,
+			idOferta : idOferta },
+		url: 'Admin/editarDiasOff',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if(data.error == 0){
+				card_oferta.find('.cont_dias').html(varDias);
+				msj('error', 'Se editó correctamente.');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+function editarDiasDescGeneral(){
+	varDesc = $('#descAtractivoOff').val().trim();
+	if (varDesc.length == 0) {
+		return;
+	}
+	$.ajax({
+		data: {  desc : varDesc,
+			idOferta : idOferta },
+		url: 'Admin/editarDescGeneral',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if(data.error == 0){
+				card_oferta.find('.js-contenido').html('<p>'+varDesc+'</p>');
+				msj('error', 'Se editó correctamente.');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
 function editarTitulo(){
 	varTitulo = $('#tituloAtractivo').val().trim();
 	if (varTitulo.length == 0) {
@@ -546,8 +763,8 @@ function editarTitulo(){
 		try {
 			data = JSON.parse(data);
 			if(data.error == 0){
-				msj('error', 'Se editó correctamente.');
 				card_paquete.find('.js-paquete-name').html('<p>'+varTitulo+'</p>');
+				msj('error', 'Se editó correctamente.');
 			}
 		} catch (err) {
 			msj('error', err.message);
@@ -576,38 +793,7 @@ function editarDias(){
 		}
 	});
 }
-
-
-// function editarPaquete(){
-// 	varTitulo = $('#tituloAtractivo').val().trim();
-// 	varDias = $('#diasAtractivo').val().trim();
-// 	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
-// 		return;
-// 	}
-// 	$.ajax({
-// 		data: { titulo: varTitulo,
-// 				dias: varDias,
-// 				atractivos: arrayTableAtractivos},
-// 		url: 'Admin/editarPaquete',
-// 		type: 'POST'
-// 	}).done(function (data) {
-// 		try {
-// 			data = JSON.parse(data);
-// 			arrayTableAtractivos = [];
-// 			$('#btnConfirmarRegistrar').attr('onclick', '');
-// 			modal('ModalCrearPaquete');
-// 		} catch (err) {
-// 			msj('error', err.message);
-// 		}
-// 	});
-// }
-
-function modalEditarOferta(){
-	$('#titleOferta').html('Editar oferta');
-	limpiarModalOferta();
-	modal('ModalCrearOferta');
-}
-
+//////////////////////////////////////////////////////////////////////////7
 function limpiarModalOferta(){
 	$('#tituloAtractivoOff').val(null);
 	$('#diasAtractivoOff').val(null);
@@ -615,6 +801,11 @@ function limpiarModalOferta(){
 	$('#lugarAtractivoOff').val(null);
 	$('#descripcionAtractivoOff').val(null);
 	$('#cont_tabla_ofertas').html(null);
+
+	$('#btnSubirImagen').text('Subir imagen');
+	$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagen').css('color','#000');
+	$('#archivoOff').val(null);
 	arrayTableAtractivosOff = [];
 }
 function limpiarModalPaquete(){
@@ -623,5 +814,251 @@ function limpiarModalPaquete(){
 	$('#lugarAtractivo').val(null);
 	$('#descripcionAtractivo').val(null);
 	$('#cont_tabla_paquetes').html(null);
+	
+	$('#btnSubirImagen').text('Subir imagen');
+	$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagen').css('color','#000');
+	$('#archivo').val(null);
 	arrayTableAtractivos = [];
+}
+
+function subirImagen(){
+	$( "#archivo" ).trigger( "click" );
+}
+
+$( "#archivo" ).change(function() {
+	if(flgRegistrarAtractivo == null){
+		var datos = new FormData();
+		imagen = $('#archivo')[0].files[0];
+		if(imagen == undefined){
+			msj('error', 'Seleccione una imagen');
+			return;
+		}
+		datos.append('archivo',$('#archivo')[0].files[0]);
+		$.ajax({
+			type:"post",
+			dataType:"json",
+			url:"Admin/verificarImg",
+			contentType:false,
+			data:datos,
+			processData:false,
+		}).done(function(respuesta){
+			if(respuesta.mensaje == null){
+				$('#btnSubirImagen').text('Cargado');
+				$('#btnSubirImagen').css('background-color','#5CB85C');
+				$('#btnSubirImagen').css('color','#FFFFFF');
+			} else {
+				$('#btnSubirImagen').text('Subir imagen');
+				$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
+				$('#btnSubirImagen').css('color','#000');
+				
+				$('#archivo').val(null);
+				msj('error', respuesta.mensaje);
+			}
+		});
+	} else {
+		cargarImagen();
+	}
+	
+});
+var nameImgPaquete = null;
+function cargarImagen(){
+	nameImgPaquete = null;
+	var datos = new FormData();
+	imagen = $('#archivo')[0].files[0];
+	if(imagen == undefined){
+		msj('error', 'Seleccione una imagen');
+		return;
+	}
+	datos.append('archivo',$('#archivo')[0].files[0]);
+	$.ajax({
+		type:"post",
+		dataType:"json",
+		url:"Admin/cargarImagen",
+		contentType:false,
+		data:datos,
+		processData:false,
+	}).done(function(respuesta){
+		nameImgPaquete = respuesta.name;
+		msj('error', respuesta.mensaje);
+		if(flgRegistrarAtractivo != null && card_paquete != null && respuesta.name != null){
+			card_paquete.find('.fondo-oferta').css("background-image", "url("+respuesta.ruta+")");
+			editImg(respuesta.name,idPaquete,2);
+		}
+		return respuesta.name;
+	});
+}
+
+function editImg(name,idPaquete,flg){
+	$.ajax({
+		data: {idPaquete : idPaquete,
+			   name : name,
+				flg : flg},
+		url: 'Admin/editImg',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function modalConfigurarDiasPaq(element){
+	idPaquete = $(element).parent().attr("data-paquete");
+	card_paquete = $(element).parent().parent().parent().parent();
+	$('#desc_dia_paq').val(null);
+	$('#titulo_dia_paq').val(null);
+
+	// OBTENER DIAS CONFIGURADOS DE BD
+	$.ajax({
+		data: {idPaquete : idPaquete},
+		url: 'Admin/getDiasByPaquete',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			cont_html = "";
+			count = 0;
+			arrayDiasPaq = data.dias == null ? [] : data.dias;
+			
+			$.each(arrayDiasPaq, function (index, value) {
+				count++;
+				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_dias').html(cont_html);
+			modal('ModalDiasPaq');
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+var arrayDiasPaq = [];
+function agregarDiaPaq(){
+	var varDesc = $('#desc_dia_paq').val().trim();
+	if (varDesc.length == 0) {
+		return;
+	}
+	var varTitulo = $('#titulo_dia_paq').val().trim();
+	if (varTitulo.length == 0) {
+		return;
+	}
+	
+	// INSERTART DIA EN BD   idPaquete   RETORNAR ID DEL DIA
+	$.ajax({
+		data: { idPaquete : idPaquete,
+			varTitulo : varTitulo,
+			varDesc : varDesc
+			},
+		url: 'Admin/agregarDiaPaq',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			arrayDiasPaq.push({ desc_lugar: varTitulo , desc_viaje: varDesc, id : 1});
+			cont_html = "";
+			count = 0;
+			$.each(arrayDiasPaq, function (index, value) {
+				count++;
+				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_dias').html(cont_html);
+			$('#desc_dia_paq').val(null);
+			$('#titulo_dia_paq').val(null);
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function quitarDiaPaq(index,id){
+	// ELIMINAR DE BD EL DIA
+	$.ajax({
+		data: { idPaquete : idPaquete,
+				id : id},
+		url: 'Admin/quitarDiaPaq',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			arrayDiasPaq.splice(index, 1);
+			cont_html = "";
+			count = 0;
+			$.each(arrayDiasPaq, function (index, value) {
+				count++;
+				cont_html += '<tr><td>Día '+count+'</td><td>'+value.desc_lugar+'</td><td>' + value.desc_viaje + '</td>' +
+					'<td><i class="mdi mdi-delete" onclick="quitarDiaPaq(' + index + ','+value.id+')"></i></td></tr>';
+			});
+			$('#cont_tabla_dias').html(cont_html);
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function subirImagenOff(){
+	$( "#archivoOff" ).trigger( "click" );
+}
+
+$( "#archivoOff" ).change(function() {
+	if(flgRegistrarAtractivoOff == null){
+		var datos = new FormData();
+		imagen = $('#archivoOff')[0].files[0];
+		if(imagen == undefined){
+			msj('error', 'Seleccione una imagen');
+			return;
+		}
+		datos.append('archivo',$('#archivoOff')[0].files[0]);
+		$.ajax({
+			type:"post",
+			dataType:"json",
+			url:"Admin/verificarImg",
+			contentType:false,
+			data:datos,
+			processData:false,
+		}).done(function(respuesta){
+			if(respuesta.mensaje == null){
+				$('#btnSubirImagenOff').text('Cargado');
+				$('#btnSubirImagenOff').css('background-color','#5CB85C');
+				$('#btnSubirImagenOff').css('color','#FFFFFF');
+			} else {
+				$('#btnSubirImagenOff').text('Subir imagen');
+				$('#btnSubirImagenOff').css('background-color','rgba(158,158,158,.2)');
+				$('#btnSubirImagenOff').css('color','#000');
+				$('#archivoOff').val(null);
+				msj('error', respuesta.mensaje);
+			}
+		});
+	} else {
+		cargarImagenOff();
+	}
+	
+});
+var nameImgOferta = null;
+function cargarImagenOff(){
+	nameImgOferta = null;
+	var datos = new FormData();
+	imagen = $('#archivoOff')[0].files[0];
+	if(imagen == undefined){
+		msj('error', 'Seleccione una imagen');
+		return;
+	}
+	datos.append('archivo',$('#archivoOff')[0].files[0]);
+	$.ajax({
+		type:"post",
+		dataType:"json",
+		url:"Admin/cargarImagenOff",
+		contentType:false,
+		data:datos,
+		processData:false,
+	}).done(function(respuesta){
+		console.log(respuesta.name);
+		nameImgOferta = respuesta.name;
+		msj('error', respuesta.mensaje);
+		if(flgRegistrarAtractivoOff != null && card_oferta != null && respuesta.name != null){
+			card_oferta.find('.img-card-oferta').attr("src",respuesta.ruta);
+			editImg(respuesta.name,idOferta,1);
+		}
+		return respuesta.name;
+	});
 }
