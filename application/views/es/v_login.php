@@ -4,7 +4,7 @@
         <meta charset="ISO-8859-1">
         <meta http-equiv="X-UA-Compatible"  content="IE=edge">
         <meta name="viewport"               content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <meta name="description"            content="Proyecto de desarrollo de un producto wizard online que tenga un quiz y con una unica solucion que es SAP Business One">
+        <meta name="description"            content="Agencia de turismo y viajes a peru">
         <meta name="keywords"               content="Latin American Travel">
         <meta name="robots"                 content="Index,Follow">
         <meta name="date"                   content="May 18, 2018"/>
