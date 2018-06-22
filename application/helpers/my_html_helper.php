@@ -11,7 +11,7 @@ if(!function_exists('__buildCardsPaquetes')) {
             $htmlPaq.= '
                 <div class="mdl-card mdl-paquetes">
                     <div class="mdl-card__title p-0">
-                        <div class="fondo-oferta" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen.')">
+                        <div class="fondo-paquete" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen.')">
                             '.($verMas == null ? ''
                                                : '<button id="paquete'.$key->Id.'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" 
                                                      onclick="goToPaquete(this.id)">Ver m&aacute;s</button>
@@ -56,7 +56,7 @@ if(!function_exists('__buildCardsOfertas')) {
                                 '.($verMas == null ? ''
                                                    : '<button id="oferta'.$key->id.'" class="mdl-button mdl-js-button mdl-button--raised
                                                         mdl-js-ripple-effect" onclick="goToOferta(this.id)">Ver m&aacute;s</button>').'
-                                <img src="'.RUTA_IMG.'ofertas/'.$key->img.'" alt="" class="img-card-oferta">
+                                <div class="fondo-oferta" style="background-image: url('.RUTA_IMG.'ofertas/'.$key->img.')"></div>
                                 <div class="js-paquete-name">
                                     <p>'.$key->titulo.'</p>
                                 </div>
