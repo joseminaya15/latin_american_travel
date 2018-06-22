@@ -174,12 +174,12 @@ function verificarDatos(e) {
 function goToOferta(id) {
 	sessionStorage.setItem('BUTTON_OFERTA', id);
 	$('.mdl-navigation__link').addClass('active');
-	location.href = 'Offer';
+	location.href = 'DetailOffer';
 }
 function goToPaquete(id) {
 	sessionStorage.setItem('BUTTON_PAQUETE', id);
 	$('.mdl-navigation__link').addClass('active');
-	location.href = 'Package';
+	location.href = 'DetailPackage';
 }
 function goToMenu(id) {
 	var idLink = $('#' + id);

@@ -27,7 +27,17 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <nav class="navbar navbar-default js-header--fixed">
+        <div class="js-header">
+            <div class="container text-right">
+                <div class="redes-header">
+                    <ul>
+                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i><span>997725464</span></a></li>
+                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i><span>latintravelpe@yahoo.com</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
                     <button id="nav-icon3" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -48,17 +58,32 @@
                 </div>
             </div>
         </nav>
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-            <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Mejores Ofertas</span>
-                <nav class="mdl-navigation">
-                    <?php echo $nav ?>
-                </nav>
+        <section id="principal" class="js-fondo--principal">
+            <div class="fondo-responsive"></div>
+            <div class="cont-carousel">
+                <div class="cont-carousel__contenido">
+                    <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                </div>
             </div>
-            <main class="mdl-layout__content">
-                <?php echo $section ?>
-            </main>
-        </div>
+            <div class="cont-redes">
+                <p>S&iacute;guenos</p>
+                <a class="mdl-button mdl-js-button mdl-button--fab" href="https://www.facebook.com/Latin-American-Travel-1991867910865245/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+            </div>
+        </section>
+        <section id="ofertas" class="section">
+            <div class="js-container">
+                <h2 class="js-title">Mejores Ofertas</h2>
+                <div class="js-flex ofertas-insert">
+                    <?php echo $ofertas ?>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="js-container">
+                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
+            </div>
+        </footer>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
@@ -70,18 +95,5 @@
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script type="text/javascript" src="<?php echo RUTA_JS?>Utils.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>index.js?v=<?php echo time();?>"></script>
-        <script type="text/javascript">
-            $(window).load(function() {
-                let buttonOferta  = sessionStorage.getItem('BUTTON_OFERTA');
-                if(buttonOferta != null){
-                    $('.mdl-navigation__link').removeClass('active');
-                    $('.js-section--menu').addClass('animated fadeOut');
-                    $('#menu-'+buttonOferta).addClass('active');
-                    $('#section-menu-'+buttonOferta).removeClass('animated fadeOut');
-                    $('#section-menu-'+buttonOferta).addClass('animated fadeIn');
-                    sessionStorage.removeItem('BUTTON_OFERTA');
-                }
-            });
-        </script>
     </body>
 </html>

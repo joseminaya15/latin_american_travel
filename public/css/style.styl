@@ -249,6 +249,7 @@ label
 		font-size 38px
 		text-align center
 		max-width 650px
+		margin 10px 0
 .js-card--login
 	width 100%
 	max-width 360px
@@ -289,12 +290,14 @@ label
 			color #FFFFFF
 .navbar-default
 	background-color #FFFFFF
-	position relative
+	position fixed
 	width 100%
 	border-radius 0
 	z-index 100
 	border none
 	margin 0
+	&.js-header--fixed
+		position relative
 	.navbar-brand
 		flexCenter()
 	.navbar-nav
@@ -572,6 +575,10 @@ footer
 		i
 			vertical-align middle
 			margin-right 5px
+.mdl-checkbox
+	height 100%
+	.mdl-checkbox__label
+		line-height 18px
 /*MODAL*/
 .modal-large
 	width 100%
@@ -636,6 +643,7 @@ footer
 // @media ( max-width: 600px )
 @media ( min-width 768px )
 	.navbar-default
+		position relative
 		.navbar-nav
 			li
 				a
@@ -660,4 +668,17 @@ footer
 							&:after
 								width 30px
 								opacity 1
-						
+@media ( max-width: 768px )
+	.cont-carousel__contenido
+		padding 20px
+		h2
+			font-size 30px
+			line-height 32px
+@media ( max-width: 600px )
+	.js-header 
+		.redes-header 
+			ul 
+				li 
+					a
+						span
+							display none
