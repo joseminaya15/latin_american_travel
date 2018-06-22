@@ -83,7 +83,7 @@
         </section>
         <section id="paquetes" class="section">
             <div class="js-container">
-                <h2 class="js-title">Nuestros paquetes</h2>
+                <h2 class="js-title">Mejores ofertas</h2>
                 <div class="js-flex paquetes-insert">
                     <?php echo $paquetes ?>
                 </div>

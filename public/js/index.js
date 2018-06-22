@@ -879,7 +879,7 @@ function cargarImagen(){
 		nameImgPaquete = respuesta.name;
 		msj('error', respuesta.mensaje);
 		if(flgRegistrarAtractivo != null && card_paquete != null && respuesta.name != null){
-			card_paquete.find('.fondo-oferta').css("background-image", "url("+respuesta.ruta+")");
+			card_paquete.find('.fondo-paquete').css("background-image", "url("+respuesta.ruta+")");
 			editImg(respuesta.name,idPaquete,2);
 		}
 		return respuesta.name;
@@ -1092,11 +1092,11 @@ function cargarImagenOff(){
 		data:datos,
 		processData:false,
 	}).done(function(respuesta){
-		console.log(respuesta.name);
 		nameImgOferta = respuesta.name;
 		msj('error', respuesta.mensaje);
 		if(flgRegistrarAtractivoOff != null && card_oferta != null && respuesta.name != null){
-			card_oferta.find('.img-card-oferta').attr("src",respuesta.ruta);
+			// card_oferta.find('.img-card-oferta').attr("src",respuesta.ruta);
+			card_paquete.find('.fondo-oferta').css("background-image", "url("+respuesta.ruta+")");
 			editImg(respuesta.name,idOferta,1);
 		}
 		return respuesta.name;
