@@ -31,8 +31,8 @@
             <div class="container text-right">
                 <div class="redes-header">
                     <ul>
-                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i>997725464</a></li>
-                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i>latintravelpe@yahoo.com</a></li>
+                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i><span>997725464</span></a></li>
+                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i><span>latintravelpe@yahoo.com</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="cont-redes">
                 <p>S&iacute;guenos</p>
-                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-facebook"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab" href="https://www.facebook.com/Latin-American-Travel-1991867910865245/" target="_blank"><i class="fa fa-facebook"></i></a>
                 <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
             </div>
         </section>
