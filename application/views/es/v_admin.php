@@ -29,15 +29,15 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <nav class="navbar navbar-default js-header--fixed">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand logo link" href="Home"><img src="<?php echo RUTA_IMG?>logo/logo.png"></a>
-                </div>
+        <div class="js-header--nav js-fixed">
+            <div class="js-header--left">
+                <img src="<?php echo RUTA_IMG?>logo/logo.png">
             </div>
-        </nav>
-        <section id="admin" class="section">
-        <button id="btnCrearOferta" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="cerrarSesion()">Cerrar sesion</button>
+            <div class="js-header--right">
+                <a onclick="cerrarSesion()">Cerrar Sesi&oacute;n</a>
+            </div>
+        </div>
+        <section id="admin" class="section m-t-30">
             <div class="js-container">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="active"><a href="#oferta" aria-controls="oferta" role="tab" data-toggle="tab">Ofertas</a></li>
