@@ -81,14 +81,6 @@
                 <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
             </div>
         </section>
-        <section id="ofertas" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Mejores Ofertas</h2>
-                <div class="js-flex ofertas-insert">
-                    <?php echo $ofertas ?>
-                </div>
-            </div>
-        </section>
         <section id="paquetes" class="section">
             <div class="js-container">
                 <h2 class="js-title">Nuestros paquetes</h2>
@@ -99,12 +91,12 @@
         </section>
         <section id="contactanos" class="section">
             <div class="fondo-imagen"></div>
-            <div class="container js-container">
+            <div class="js-container row">
                 <div class="title-contactanos">
                     <h2>Escr&iacute;benos</h2>
                     <p>Te ayudamos a vivir tu mejor experiencia</p>
                 </div>
-                <div class="col-xs-12">
+                <div class="col-xs-12 p-0">
                     <div class="col-sm-6 js-input">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="text" id="nombre">
@@ -135,14 +127,14 @@
                             <label class="mdl-textfield__label" for="mensaje">Mensaje</label>
                         </div>
                     </div>
-                    <div class="col-xs-6 js-input">
+                    <div class="col-xs-12 js-input">
                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
                             <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input">
                             <span class="mdl-checkbox__label">He le&iacute;do y acepto los <a data-toggle="modal" data-target="#ModalTerminos">T&eacute;rminos y Condiciones.</a></span>
                         </label>
                     </div>
                     <div class="col-xs-12 text-center">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" onclick="enviarDatos();">Enviar</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button m-t-20 m-b-10" onclick="enviarDatos();">Enviar</button>
                     </div>
                 </div>
             </div>

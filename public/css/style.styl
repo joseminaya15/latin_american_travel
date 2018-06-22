@@ -249,6 +249,7 @@ label
 		font-size 38px
 		text-align center
 		max-width 650px
+		margin 10px 0
 .js-card--login
 	width 100%
 	max-width 360px
@@ -572,6 +573,10 @@ footer
 		i
 			vertical-align middle
 			margin-right 5px
+.mdl-checkbox
+	height 100%
+	.mdl-checkbox__label
+		line-height 18px
 /*MODAL*/
 .modal-large
 	width 100%
@@ -660,4 +665,9 @@ footer
 							&:after
 								width 30px
 								opacity 1
-						
+@media ( max-width: 768px )
+	.cont-carousel__contenido
+		padding 20px
+		h2
+			font-size 30px
+			line-height 32px
