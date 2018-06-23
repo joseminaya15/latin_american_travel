@@ -153,8 +153,8 @@ function buscarOferta() {
 			data = JSON.parse(data);
 			if (data.error == 0) {
 				$('#texto').val("");
-				$('.ofertas-insert').html('');
-				$('.ofertas-insert').append(data.ofertas);
+				// $('.ofertas-insert').html('');
+				// $('.ofertas-insert').append(data.ofertas);
 				$('.paquetes-insert').html('');
 				$('.paquetes-insert').append(data.paquetes);
 			} else {

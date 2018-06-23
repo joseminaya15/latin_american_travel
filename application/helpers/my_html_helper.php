@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 if(!function_exists('__buildCardsPaquetes')) {
-    function __buildCardsPaquetes($menu = null,$verMas = null, $text = null) {
+    function __buildCardsPaquetes($menu = null,$verMas = null, $text = null,$limit = null) {
         $CI =& get_instance();
         $CI->load->model('M_datos');
         $htmlPaq = null;
         $cont = 1;
-        $paquetes = $CI->M_datos->getPaquetesByBusqueda($text);
+        $paquetes = $CI->M_datos->getPaquetesByBusqueda($text, null, $limit);
         foreach ($paquetes as $key) {
             $htmlPaq.= '
                 <div class="mdl-card mdl-paquetes">

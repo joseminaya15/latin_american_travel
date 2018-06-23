@@ -47,7 +47,7 @@ class M_datos extends  CI_Model{
       $result = $this->db->query($sql);
       return $result->result();
     }
-    function getPaquetesByBusqueda($texto = null,$id = null){
+    function getPaquetesByBusqueda($texto = null,$id = null, $limit = null){
       $sql = "SELECT b.Id,
                      b.lugar titulo,
                      b.dias,
@@ -68,7 +68,9 @@ class M_datos extends  CI_Model{
                           WHEN ? IS NOT NULL THEN b.Id = ?
                           ELSE 1 = 1
                     END
-            GROUP BY b.Id";
+            GROUP BY b.Id
+            ORDER BY b.Id desc
+              ".($limit != null ? "LIMIT ".$limit : "");
       $result = $this->db->query($sql,array('%'.$texto.'%',$id,$id));
       return $result->result();
     }

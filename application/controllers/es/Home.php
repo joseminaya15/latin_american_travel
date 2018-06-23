@@ -45,11 +45,11 @@ class Home extends CI_Controller {
         $cont++;
       }
     }
-    $htmlPaq = __buildCardsPaquetes(null, 1);
-    $htmlOfer  = __buildCardsOfertas(null, 1);
+    $htmlPaq = __buildCardsPaquetes(null, 1,null,6);
+    // $htmlOfer  = __buildCardsOfertas(null, 1);
     $data['comentarios'] = $html;
     $data['paquetes'] = $htmlPaq;
-    $data['ofertas'] = $htmlOfer;
+    // $data['ofertas'] = $htmlOfer;
 		$this->load->view('es/v_home', $data);
 	}
 	function enviarDatos(){
@@ -109,11 +109,11 @@ class Home extends CI_Controller {
 
 
 
-      $htmlPaq  = __buildCardsPaquetes(null, 1, $texto);//CAMBIAR NOMBRES
-      $htmlOfer = __buildCardsOfertas(null, 1, $texto);
+      $htmlPaq  = __buildCardsPaquetes(null, 1, $texto,6);//CAMBIAR NOMBRES
+      // $htmlOfer = __buildCardsOfertas(null, 1, $texto);
 
       $data['paquetes']  = $htmlPaq;
-      $data['ofertas']  = $htmlOfer;
+      // $data['ofertas']  = $htmlOfer;
       $data['error'] = EXIT_SUCCESS;
     }catch(Exception $e){
       $data['msj'] = $e->getMessage();
