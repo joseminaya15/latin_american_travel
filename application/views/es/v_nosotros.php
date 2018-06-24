@@ -107,7 +107,7 @@
         </section>
         <section id="experiencia" class="section">
             <div class="js-container">
-                <h2 class="js-title">Mira las Experiencias</h2>
+                <h2 class="js-title black">Mira las Experiencias</h2>
                 <div class="owl-carousel owl-theme comentarios">
                     <?php echo $comentarios ?>
                 </div>
