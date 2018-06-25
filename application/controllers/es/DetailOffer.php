@@ -62,7 +62,7 @@ class DetailOffer extends CI_Controller {
             }
             $section.= '<section id="section-menu-oferta'.$key->id.'" class="section js-paquete js-section--menu '.$opacity.'">
                             <div class="js-container">
-                                <h2 class="js-title">'.$key->titulo.'</h2>
+                                <h2 class="js-title black">'.$key->titulo.'</h2>
                                 <p>'.$lugares.'</p>
                                 <p>'.$key->dias.'</p>
                                 <div class="js-paquete--contenido">
