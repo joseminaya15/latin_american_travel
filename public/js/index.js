@@ -994,7 +994,6 @@ function agregarDia(){
 		try {
 			data = JSON.parse(data);
 			arrayDias.push({ desc_lugar: varTitulo , desc_viaje: varDesc, id : data.id});
-			console.log(arrayDias);
 			cont_html = "";
 			count = 0;
 			$.each(arrayDias, function (index, value) {
@@ -1137,4 +1136,172 @@ function getOfertasByDestino(element){
 			msj('error', err.message);
 		}
 	});
+}
+var flgEditar = null;
+var idEditarPrecio = null;
+function modalEditarPrecio(element,flg) {
+	$('#eco_1').val(null);
+	$('#eco_2').val(null);
+	$('#sup_1').val(null);
+	$('#sup_2').val(null);
+	$('#luj_1').val(null);
+	$('#luj_2').val(null);
+
+	$('#desc_incluye').val(null);
+	$('#desc_no_incluye').val(null);
+	$('#cont_tabla_incluye').html(null);
+	$('#cont_tabla_no_incluye').html(null);
+
+	arrayIncluye = [];
+	arrayNoIncluye = [];
+	
+	flgEditar = flg;
+	if(flg == 1) {
+		idOferta = $(element).parent().attr("data-oferta");
+		idEditarPrecio = idOferta;
+	}	 else if (flg == 2){
+		idPaquete = $(element).parent().attr("data-paquete");
+		idEditarPrecio = idPaquete;
+	}
+	$.ajax({
+		data: { flg  : flgEditar,
+				id 	 : idEditarPrecio
+			},
+		url: 'Admin/modalEditarPrecio',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				if(data.precio != null){
+					$('#eco_1').val(data.precio[0]);
+					$('#eco_1').parent().addClass('is-dirty');
+					$('#eco_2').val(data.precio[1]);
+					$('#eco_2').parent().addClass('is-dirty');
+					$('#sup_1').val(data.precio[2]);
+					$('#sup_1').parent().addClass('is-dirty');
+					$('#sup_2').val(data.precio[3]);
+					$('#sup_2').parent().addClass('is-dirty');
+					$('#luj_1').val(data.precio[4]);
+					$('#luj_1').parent().addClass('is-dirty');
+					$('#luj_2').val(data.precio[5]);
+					$('#luj_2').parent().addClass('is-dirty');
+				}
+				if(data.incluye != null){
+					arrayIncluye = data.incluye;
+					cont_html = "";
+					$.each(arrayIncluye, function (index, value) {
+						cont_html += '<tr><td>' + value + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="quitarIncluye(' + index + ')"></i></td></tr>';
+					});
+					$('#cont_tabla_incluye').html(cont_html);
+				}
+				if(data.no_incluye != null){
+					arrayNoIncluye = data.no_incluye;
+					cont_html = "";
+					$.each(arrayNoIncluye, function (index, value) {
+						cont_html += '<tr><td>' + value + '</td>' +
+							'<td><i class="mdi mdi-delete" onclick="quitarNoIncluye(' + index + ')"></i></td></tr>';
+					});
+					$('#cont_tabla_no_incluye').html(cont_html);
+				}
+				modal('ModalPrecio');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function editarPrecio(){
+	var eco_1 = $('#eco_1').val();
+	var eco_2 = $('#eco_2').val();
+	var sup_1 = $('#sup_1').val();
+	var sup_2 = $('#sup_2').val();
+	var luj_1 = $('#luj_1').val();
+	var luj_2 = $('#luj_2').val();
+
+	var txt_precio = eco_1+'|'+eco_2+'|'+sup_1+'|'+sup_2+'|'+luj_1+'|'+luj_2;
+	$.ajax({
+		data: { txt            : txt_precio,
+				flg            : flgEditar,
+				id             : idEditarPrecio,
+				arrayIncluye   : arrayIncluye,
+				arrayNoIncluye : arrayNoIncluye
+			},
+		url: 'Admin/editarPrecio',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				$('#eco_1').val(null);
+				$('#eco_2').val(null);
+				$('#sup_1').val(null);
+				$('#sup_2').val(null);
+				$('#luj_1').val(null);
+				$('#luj_2').val(null);
+				msj('error', 'Se editó correctamente.');
+				modal('ModalPrecio');
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+var arrayIncluye = [];
+var arrayNoIncluye = [];
+function agregarIncluye(){
+	valdesc = $('#desc_incluye').val().trim().replace(/[|]/gi, '');
+	if(valdesc.length == 0){
+		return;
+	}
+	$('#desc_incluye').val(null);
+	arrayIncluye.push(valdesc);
+	cont_html = "";
+	count = 0;
+	$.each(arrayIncluye, function (index, value) {
+		count++;
+		cont_html += '<tr><td>' + value + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="quitarIncluye(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_incluye').html(cont_html);
+}
+
+function agregarNoIncluye(){
+	valdesc = $('#desc_no_incluye').val().trim().replace(/[|]/gi, '');
+	if(valdesc.length == 0){
+		return;
+	}
+	$('#desc_no_incluye').val(null);
+	arrayNoIncluye.push(valdesc);
+	cont_html = "";
+	$.each(arrayNoIncluye, function (index, value) {
+		cont_html += '<tr><td>' + value + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="quitarNoIncluye(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_no_incluye').html(cont_html);
+}
+
+function quitarIncluye(indice){
+	arrayIncluye.splice(indice, 1);
+	cont_html = "";
+	$.each(arrayIncluye, function (index, value) {
+		cont_html += '<tr><td>' + value + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="quitarIncluye(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_incluye').html(cont_html);
+}
+
+function quitarNoIncluye(indice){
+	arrayNoIncluye.splice(indice, 1);
+	cont_html = "";
+	count = 0;
+	$.each(arrayNoIncluye, function (index, value) {
+		count++;
+		cont_html += '<tr><td>' + value + '</td>' +
+			'<td><i class="mdi mdi-delete" onclick="quitarNoIncluye(' + index + ')"></i></td></tr>';
+	});
+	$('#cont_tabla_no_incluye').html(cont_html);
 }

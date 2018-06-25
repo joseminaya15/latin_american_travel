@@ -29,12 +29,6 @@ class Admin extends CI_Controller
                     </tr>';
         }else {
           foreach ($datos as $key) {
-            /*$img     = '';
-            if($key->imagen == null || $key->imagen == ''){
-                $img = 'nouser.png';
-            }else {
-                $img = $key->imagen;
-            }*/
             $foto = ($key->Foto == 'nouser') ? RUTA_IMG.'logo/nouser.jpg' : $key->Foto;
             $html .= '<tr>
                         <td><img src="'.$foto.'" style="width:  100%;max-width: 80px;"></td>
@@ -318,6 +312,8 @@ class Admin extends CI_Controller
             $desc  = $this->input->post('desc');
             $id    = $this->input->post('id');
             $flg    = $this->input->post('flg');
+            
+            $desc   = str_replace("|","",str_replace("*", "", $desc));
             $insert = $this->M_datos->insertarDatos(
                                            array('lugar'            => $lugar,
                                                  'descripcion'      => $desc,
@@ -465,6 +461,9 @@ class Admin extends CI_Controller
             $varDesc    = $this->input->post('varDesc');
             $flg        = $this->input->post('flg');
 
+            $varTitulo = str_replace("|","",str_replace("*", "", $varDesc));
+            $varDesc   = str_replace("|","",str_replace("*", "", $varDesc));
+
             $nextDia  = $this->M_datos->getNextDia($idGrupo,$flg);
             $insert   = $this->M_datos->insertarDatos(array('desc_lugar'       => $varTitulo,
                                                             'desc_viaje'       => $varDesc,
@@ -472,7 +471,6 @@ class Admin extends CI_Controller
                                                             'id_paquete'       => $idGrupo,
                                                             'flg_paquet_ofert' => $flg),
                                                         'dias_x_atractivos');
-            // log_message('error', print_r($insert, true));
             $data['id'] = $insert['Id'];
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
@@ -490,6 +488,57 @@ class Admin extends CI_Controller
 
             $datos = $this->M_datos->deleteDatos($id,'dias_x_atractivos','Id');
 
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function modalEditarPrecio(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $flg   = $this->input->post('flg');
+            $idVal = $this->input->post('id');
+            if($flg == 1){
+                $tabla = 'ofertas';
+                $idColumn = 'id';
+            } else if ($flg == 2){
+                $tabla = 'paquetes';
+                $idColumn = 'Id';
+            }
+
+            $datos = $this->M_datos->getPreciosByID($tabla,$idColumn,$idVal);
+            log_message('error', print_r($datos, true));
+            $data['precio']     = $datos['precio'] != null ? explode('|',$datos['precio']) : null;
+            $data['incluye']    = $datos['incluye'] != null ? explode('|',$datos['incluye']) : null;
+            $data['no_incluye'] = $datos['no_incluye'] != null ? explode('|',$datos['no_incluye']) : null;
+            $data['error']  = EXIT_SUCCESS;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
+
+    function editarPrecio(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;  
+        try {
+            $flg             = $this->input->post('flg');
+            $txt             = $this->input->post('txt');
+            $id              = $this->input->post('id');
+            $arrayIncluye    = $this->input->post('arrayIncluye');
+            $arrayNoIncluye  = $this->input->post('arrayNoIncluye');
+
+            $txt = (str_replace("|", "", $txt) != null) ? $txt : null;
+            $txtIncluye   = $arrayIncluye != null ? implode("|",$arrayIncluye) : null;
+            $txtNoIncluye = $arrayNoIncluye != null ? implode("|",$arrayNoIncluye) : null;
+            if($flg == 1){
+                $this->M_datos->updateDatos(array('precio'=>$txt,'incluye'=>$txtIncluye,'no_incluye'=>$txtNoIncluye), $id , 'ofertas','id');
+            } else if ($flg == 2){
+                $this->M_datos->updateDatos(array('precio'=>$txt,'incluye'=>$txtIncluye,'no_incluye'=>$txtNoIncluye), $id , 'paquetes');
+            }
             $data['error'] = EXIT_SUCCESS;
         }catch(Exception $e){
             $data['msj'] = $e->getMessage();

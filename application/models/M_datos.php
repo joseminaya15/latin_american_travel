@@ -52,6 +52,9 @@ class M_datos extends  CI_Model{
                      b.lugar titulo,
                      b.dias,
                      b.imagen,
+                     b.precio,
+                     b.incluye,
+                     b.no_incluye,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
                      group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
                      ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
@@ -82,6 +85,9 @@ class M_datos extends  CI_Model{
                      o.dias,
                      o.img,
                      o.desc_general,
+                     o.precio,
+                     o.incluye,
+                     o.no_incluye,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
                      group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
                      ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
@@ -169,5 +175,15 @@ class M_datos extends  CI_Model{
              ORDER BY lugar";
       $result = $this->db->query($sql,array($flgPaqOff));
       return $result->result();
+    }
+
+    function getPreciosByID($tabla,$idColumn,$idVal){
+      $sql = "SELECT precio,
+                     incluye,
+                     no_incluye
+                FROM ".$tabla."
+               WHERE ".$idColumn." = ?";
+      $result = $this->db->query($sql,array($idVal));
+      return $result->row_array();
     }
 }

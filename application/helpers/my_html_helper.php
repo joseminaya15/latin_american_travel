@@ -31,6 +31,7 @@ if(!function_exists('__buildCardsPaquetes')) {
                                                 <li class="mdl-menu__item" onclick="modalEditarPaquete(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                 <li class="mdl-menu__item" onclick="modalEliminarPaquete(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                                 <li class="mdl-menu__item" onclick="modalConfigurarDiasPaq(this)"><i class="mdi mdi-edit"></i>Días</li>
+                                                <li class="mdl-menu__item" onclick="modalEditarPrecio(this,2)"><i class="mdi mdi-attach_money"></i>Precio</li>
                                             </ul>
                                         </div>').'
                 </div>';
@@ -84,6 +85,7 @@ if(!function_exists('__buildCardsOfertas')) {
                                                         <li class="mdl-menu__item" onclick="modalEditarOferta(this)"><i class="mdi mdi-edit"></i>Editar</li>
                                                         <li class="mdl-menu__item" onclick="modalEliminarOferta(this)"><i class="mdi mdi-delete"></i>Eliminar</li>
                                                         <li class="mdl-menu__item" onclick="modalConfigurarDiasOff(this)"><i class="mdi mdi-edit"></i>Días</li>
+                                                        <li class="mdl-menu__item" onclick="modalEditarPrecio(this,1)"><i class="mdi mdi-attach_money"></i>Precio</li>
                                                     </ul>
                                                 </div>').'
                         </div>';
