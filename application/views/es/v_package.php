@@ -48,19 +48,27 @@
                 </div>
             </div>
         </nav>
-        <section id="paquetes" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Nuestros paquetes</h2>
-                <div class="js-flex paquetes-insert">
-                    <?php echo $paquetes ?>
-                </div>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Nuestros Paquetes</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link active" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
             </div>
-        </section>
-        <footer>
-            <div class="js-container">
-                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
-            </div>
-        </footer>
+            <main class="mdl-layout__content">
+                <section id="paquetes" class="section white">
+                    <div class="js-container">
+                        <h2 class="js-title black">Nuestros paquetes</h2>
+                        <div class="js-flex paquetes-insert">
+                            <?php echo $paquetes ?>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
