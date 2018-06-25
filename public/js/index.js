@@ -1102,3 +1102,39 @@ function cargarImagenOff(){
 		return respuesta.name;
 	});
 }
+
+function getPaquetesByDestino(element){
+	var txt = $(element).html();
+	$.ajax({
+		data: { txt: txt },
+		url: 'Package/getPaquetesByDestino',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				$('#cont_paquetes').html(data.paquetes);
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}
+
+function getOfertasByDestino(element){
+	var txt = $(element).html();
+	$.ajax({
+		data: { txt: txt },
+		url: 'Offer/getOfertasByDestino',
+		type: 'POST'
+	}).done(function (data) {
+		try {
+			data = JSON.parse(data);
+			if (data.error == 0) {
+				$('#cont_ofertas').html(data.ofertas);
+			}
+		} catch (err) {
+			msj('error', err.message);
+		}
+	});
+}

@@ -63,7 +63,9 @@ class M_datos extends  CI_Model{
                      atractivos a
                WHERE a.flg_paquet_ofert = 2
                  AND a.id_paquetes = b.id
-                 AND b.lugar LIKE ?
+                 AND (b.lugar       LIKE ?
+                  OR  a.descripcion LIKE ?
+                  OR  a.lugar       LIKE ?)
                  AND CASE
                           WHEN ? IS NOT NULL THEN b.Id = ?
                           ELSE 1 = 1
@@ -71,7 +73,7 @@ class M_datos extends  CI_Model{
             GROUP BY b.Id
             ORDER BY b.Id desc
               ".($limit != null ? "LIMIT ".$limit : "");
-      $result = $this->db->query($sql,array('%'.$texto.'%',$id,$id));
+      $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%',$id,$id));
       return $result->result();
     }
     function getOfertasByBusqueda($texto = null,$id = null){
@@ -157,5 +159,15 @@ class M_datos extends  CI_Model{
                                               AND flg_paquet_ofert = ?";
       $result = $this->db->query($sql, array($idPaquete,$flgPaqOff));
       return $result;
+    }
+
+    function getDestinosByFlg($flgPaqOff){
+      $sql =  "SELECT UPPER(lugar) lugar
+                 FROM atractivos
+                WHERE flg_paquet_ofert = ?
+             GROUP BY UPPER(lugar)
+             ORDER BY lugar";
+      $result = $this->db->query($sql,array($flgPaqOff));
+      return $result->result();
     }
 }

@@ -105,15 +105,8 @@ class Home extends CI_Controller {
       $cont  = 1;
       $img   = '';
       $texto = $this->input->post('texto');
-      // $datos    = $this->M_datos->getOfertas($texto);
-
-
-
-      $htmlPaq  = __buildCardsPaquetes(null, 1, $texto,6);//CAMBIAR NOMBRES
-      // $htmlOfer = __buildCardsOfertas(null, 1, $texto);
-
+      $htmlPaq  = __buildCardsPaquetes(null, 1, $texto,6);
       $data['paquetes']  = $htmlPaq;
-      // $data['ofertas']  = $htmlOfer;
       $data['error'] = EXIT_SUCCESS;
     }catch(Exception $e){
       $data['msj'] = $e->getMessage();

@@ -52,17 +52,14 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Nuestros Paquetes</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link active" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
+                    <?php echo $nav ?>
                 </nav>
             </div>
             <main class="mdl-layout__content">
                 <section id="paquetes" class="section white">
                     <div class="js-container">
                         <h2 class="js-title black">Nuestros paquetes</h2>
-                        <div class="js-flex paquetes-insert">
+                        <div class="js-flex paquetes-insert" id="cont_paquetes">
                             <?php echo $paquetes ?>
                         </div>
                     </div>

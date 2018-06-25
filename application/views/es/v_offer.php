@@ -52,17 +52,14 @@
             <div class="mdl-layout__drawer">
                 <span class="mdl-layout-title">Mejores Ofertas</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link active" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    <a class="mdl-navigation__link" href="">Link</a>
+                    <?php echo $nav ?>
                 </nav>
             </div>
             <main class="mdl-layout__content">
                 <section id="ofertas" class="section">
                     <div class="js-container">
                         <h2 class="js-title black">Mejores Ofertas</h2>
-                        <div class="js-flex ofertas-insert">
+                        <div class="js-flex ofertas-insert" id = "cont_ofertas">
                             <?php echo $ofertas ?>
                         </div>
                     </div>

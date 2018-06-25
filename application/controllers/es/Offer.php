@@ -14,8 +14,33 @@ class Offer extends CI_Controller {
     }
 
 	public function index(){
+        $destinos = $this->M_datos->getDestinosByFlg(1);
+        $nav = '';
+        if(count($destinos) != 0){
+            $count = 0;
+            foreach ($destinos as $key) {
+                $count++;
+                $nav.= '<a id="menu-paquete'.$count.'" class="mdl-navigation__link" onclick="getOfertasByDestino(this)">'.$key->lugar.'</a>';
+            }
+        }
         $htmlOfer  = __buildCardsOfertas(null, 1);
+        $data['nav'] = $nav;
         $data['ofertas'] = $htmlOfer;
 		$this->load->view('es/v_offer',$data);
 	}
+
+    function getOfertasByDestino(){
+        $data['error'] = EXIT_ERROR;
+        $data['msj']   = null;
+        try {
+            $txt = $this->input->post('txt');
+            
+            $htmlOfer  = __buildCardsOfertas(null, 1, $txt);
+            $data['ofertas']  = $htmlOfer;
+            $data['error'] = EXIT_SUCCESS;
+        }catch(Exception $e){
+          $data['msj'] = $e->getMessage();
+        }
+        echo json_encode($data);
+    }
 }
