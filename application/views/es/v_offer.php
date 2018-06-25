@@ -27,16 +27,6 @@
         <link rel="stylesheet"    href="<?php echo RUTA_CSS?>style.css?v=<?php echo time();?>">
     </head>
     <body>
-        <div class="js-header">
-            <div class="container text-right">
-                <div class="redes-header">
-                    <ul>
-                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i><span>997725464</span></a></li>
-                        <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i><span>latintravelpe@yahoo.com</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -58,19 +48,27 @@
                 </div>
             </div>
         </nav>
-        <section id="ofertas" class="section">
-            <div class="js-container">
-                <h2 class="js-title">Mejores Ofertas</h2>
-                <div class="js-flex ofertas-insert">
-                    <?php echo $ofertas ?>
-                </div>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Mejores Ofertas</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
             </div>
-        </section>
-        <footer>
-            <div class="js-container">
-                <p>Latin American Travel 2018 - Todos los derechos reservados</p>  
-            </div>
-        </footer>
+            <main class="mdl-layout__content">
+                <section id="ofertas" class="section">
+                    <div class="js-container">
+                        <h2 class="js-title">Mejores Ofertas</h2>
+                        <div class="js-flex ofertas-insert">
+                            <?php echo $ofertas ?>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
         <script src="<?php echo RUTA_JS?>jquery-3.2.1.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_JS?>jquery-1.11.2.min.js?v=<?php echo time();?>"></script>
         <script src="<?php echo RUTA_PLUGINS?>bootstrap/js/bootstrap.min.js?v=<?php echo time();?>"></script>
