@@ -31,7 +31,8 @@
             <div class="container text-right">
                 <div class="redes-header">
                     <ul>
-                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i><span>997725464</span></a></li>
+                        <li class="border"><a href="tel:01396-3263"><i class="fa fa-phone same m-r-10"></i><span>01396-3263</span></a></li>
+                        <li class="border"><a href="tel:+51997725464"><i class="fa fa-phone same m-r-10"></i><span>+51997725464</span></a></li>
                         <li class="border"><a href="mailto:latintravelpe@yahoo.com"><i class="fa fa-envelope same m-r-10"></i><span>latintravelpe@yahoo.com</span></a></li>
                     </ul>
                 </div>
