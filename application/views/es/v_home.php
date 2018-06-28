@@ -69,7 +69,7 @@
             <div class="cont-carousel">
                 <div class="cont-carousel__contenido">
                     <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
-                    <div class="js-search">
+                    <div class="js-search hidden">
                         <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
                     </div>
@@ -78,7 +78,7 @@
             <div class="cont-redes">
                 <p>S&iacute;guenos</p>
                 <a class="mdl-button mdl-js-button mdl-button--fab" href="https://www.facebook.com/Latin-American-Travel-1991867910865245/" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a class="mdl-button mdl-js-button mdl-button--fab"><i class="fa fa-instagram"></i></a>
+                <a class="mdl-button mdl-js-button mdl-button--fab" href="https://www.instagram.com/latintravel18/?hl=es-la" target="_blank"><i class="fa fa-instagram"></i></a>
             </div>
         </section>
         <section id="paquetes" class="section">
