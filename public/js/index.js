@@ -45,6 +45,21 @@ $('#experiencia .owl-carousel').owlCarousel({
 	autoplayTimeout: 5000,
 	navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
 });
+$('.js-section--menu .owl-carousel').owlCarousel({
+	lazyLoad: true,
+	responsive: {
+		0: {
+			items: 1
+		}
+	},
+	navigation: false,
+	nav: true,
+	loop: false,
+	dots: false,
+	autoplay: false,
+	autoplayTimeout: 5000,
+	navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+});
 function enviarDatos() {
 	var nombre = $('#nombre').val();
 	var dni = $('#dni').val();
