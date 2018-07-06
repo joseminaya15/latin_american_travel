@@ -27,6 +27,21 @@ $('a.link[href^="#"]').click(function (e) {
 		scrollTop: (y - 20)
 	}, 'slow');
 });
+$('#principal .owl-carousel').owlCarousel({
+	lazyLoad: true,
+	responsive: {
+		0: {
+			items: 1
+		}
+	},
+	navigation: false,
+	nav: true,
+	loop: false,
+	dots: false,
+	autoplay: false,
+	autoplayTimeout: 5000,
+	navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+});
 $('#experiencia .owl-carousel').owlCarousel({
 	lazyLoad: true,
 	responsive: {

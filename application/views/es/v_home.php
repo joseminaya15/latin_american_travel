@@ -66,6 +66,17 @@
             </div>
         </nav>
         <section id="principal" class="js-fondo--principal">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    
+                </div>
+                <div class="item">
+                    
+                </div>
+                <div class="item">
+                    
+                </div>
+            </div>
             <div class="fondo-responsive"></div>
             <div class="cont-carousel">
                 <div class="cont-carousel__contenido">
