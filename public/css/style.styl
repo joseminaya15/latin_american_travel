@@ -57,6 +57,12 @@ absolute()
 	left 0
 	right 0
 	bottom 0
+relative()
+	position relative
+	top 0
+	right 0
+	bottom 0
+	left 0
 flipCard()
 	-moz-backface-visibility hidden
 	-webkit-backface-visibility hidden
@@ -242,24 +248,38 @@ label
 		height calc( 100vh - 86px)
 	&.js-fondo--login
 		height calc( 100vh - 50px)
-	.fondo-responsive
-		position absolute
-		top 0
-		right 0
-		bottom 0
-		left 0
-		background url(../img/fondo/fondo_header1.jpg) no-repeat center center
-		background-size cover
-		&:AFTER
-			position absolute
-			content ''
-			top 0
-			right 0
-			left 0
-			z-index 2
-			background linear-gradient(#FFFFFF, transparent)
-			width 100%
-			height 200px
+	.owl-carousel
+		relative()
+		height calc( 100vh - 86px)
+		width 100%
+		z-index 2
+		.owl-item
+			height calc( 100vh - 86px)
+			.item
+				height calc( 100vh - 86px)
+				.fondo-responsive
+					position absolute
+					top 0
+					right 0
+					bottom 0
+					left 0
+					background-size cover !important
+					&.fondo1
+						background url(../img/fondo/fondo_header1.jpg) no-repeat center center
+					&.fondo2
+						background url(../img/fondo/fondo_header2.jpg) no-repeat center center
+					&.fondo3
+						background url(../img/fondo/fondo_header3.jpg) no-repeat center center
+					&:AFTER
+						position absolute
+						content ''
+						top 0
+						right 0
+						left 0
+						z-index 2
+						background linear-gradient(#FFFFFF, transparent)
+						width 100%
+						height 200px
 .owl-theme 
 	.owl-nav
 		flexCenter()
@@ -269,12 +289,14 @@ label
 		z-index 0
 		width 100%
 		.owl-prev
+			flexCenter()
 			position absolute
 			left 0
 			background-color $color
 			&:hover
 				background-color $color
 		.owl-next
+			flexCenter()
 			position absolute
 			right 0
 			background-color $color
@@ -363,9 +385,9 @@ label
 		top 0
 		right 0
 		left 0
-		opacity 0.7
+		opacity 0.5
 		z-index 2
-		background-color #007749
+		background-color #67741E
 		width 100%
 		height 100%
 .mdl-experiencia

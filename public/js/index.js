@@ -37,8 +37,10 @@ $('#principal .owl-carousel').owlCarousel({
 	navigation: false,
 	nav: true,
 	loop: false,
-	dots: false,
-	autoplay: false,
+	dots: true,
+	animateOut: 'fadeOut',
+	animateIn: 'fadeIn',
+	autoplay: true,
 	autoplayTimeout: 5000,
 	navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
 });
