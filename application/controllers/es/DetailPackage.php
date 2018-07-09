@@ -126,8 +126,6 @@ class DetailPackage extends CI_Controller {
                             <div class="js-costo">
                                 '.$htmlPrecio.'
                                 '.$htmlIncluye.$htmlNoIncluye.'
-                                <h3>RECOMENDACIONES E INDICACIONES:</h3>
-                                <p>Traer crema bloqueadora para el sol, gorra, lentes de sol, c&aacute;mara fotogr&aacute;fica, impermeable para la lluvia y abrigo para las tardes.</p>
                             </div>
                             <br>
                         </div>
