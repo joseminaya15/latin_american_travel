@@ -36,7 +36,7 @@
                 </div>
             </nav>
             <section id="principal" class="js-fondo--login">
-                <div class="fondo-responsive"></div>
+                <div class="fondo-responsive fondo-login"></div>
                 <div class="cont-carousel">
                     <div class="mdl-card js-card--login">
                         <div class="mdl-card__title p-b-0">
