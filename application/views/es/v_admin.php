@@ -124,9 +124,24 @@
                                     <label class="mdl-textfield__label" for="diasAtractivo">D&iacute;as y noches</label>
                                 </div>
                             </div>
-                            <div class="mdl-input factura">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
-                                onclick="subirImagen()" id="btnSubirImagen">Subir imagen</button>
+                            <h3>Imágenes</h3>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagen(null)" id="btnSubirImagen">Subir imagen</button>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagen(2)" id="btnSubirImagen2">Subir imagen</button>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagen(3)" id="btnSubirImagen3">Subir imagen</button>
+                                </div>
                             </div>
                             <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
@@ -194,9 +209,24 @@
                                     <label class="mdl-textfield__label" for="descAtractivoOff">Descripci&oacute;n general</label>
                                 </div>
                             </div>
-                            <div class="mdl-input factura">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
-                                onclick="subirImagenOff()" id="btnSubirImagenOff">Subir imagen</button>
+                            <h3>Imágenes</h3>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagenOff(null)" id="btnSubirImagenOff">Subir imagen</button>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagenOff(2)" id="btnSubirImagenOff2">Subir imagen</button>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 js-input">
+                                <div class="mdl-input factura">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-select"
+                                    onclick="subirImagenOff(3)" id="btnSubirImagenOff3">Subir imagen</button>
+                                </div>
                             </div>
                             <h3>Atractivos</h3>
                             <div class="col-xs-12 js-input">
@@ -385,8 +415,28 @@
             <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
             <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
         </form>
+        <form id="frmArchivo2" method="post" style="display: none;">
+            <input id="archivo2" type="file" name="archivo" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
+        <form id="frmArchivo3" method="post" style="display: none;">
+            <input id="archivo3" type="file" name="archivo" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
         <form id="frmArchivoOff" method="post" style="display: none;">
             <input id="archivoOff" type="file" name="archivoOff" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
+        <form id="frmArchivoOff2" method="post" style="display: none;">
+            <input id="archivoOff2" type="file" name="archivoOff" />
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+            <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
+        </form>
+        <form id="frmArchivoOff3" method="post" style="display: none;">
+            <input id="archivoOff3" type="file" name="archivoOff" />
             <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
             <input class="boton" type="submit" name="enviar" value="Importar" style="display: none" />
         </form>

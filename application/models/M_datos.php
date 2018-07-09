@@ -52,6 +52,8 @@ class M_datos extends  CI_Model{
                      b.lugar titulo,
                      b.dias,
                      b.imagen,
+                     b.imagen2,
+                     b.imagen3,
                      b.precio,
                      b.incluye,
                      b.no_incluye,
@@ -84,6 +86,8 @@ class M_datos extends  CI_Model{
                      o.nombre titulo,
                      o.dias,
                      o.img,
+                     o.img2,
+                     o.img3,
                      o.desc_general,
                      o.precio,
                      o.incluye,
@@ -106,7 +110,8 @@ class M_datos extends  CI_Model{
                           WHEN ? IS NOT NULL THEN o.id = ?
                           ELSE 1 = 1
                      END
-            GROUP BY id";
+            GROUP BY o.id
+            ORDER BY o.Id desc";
       $result = $this->db->query($sql,array('%'.$texto.'%','%'.$texto.'%','%'.$texto.'%',$id,$id));
       return $result->result();
     }

@@ -125,10 +125,14 @@ class Admin extends CI_Controller
             $dias       = $this->input->post('dias');
             $atractivos = $this->input->post('atractivos');
             $img        = $this->input->post('img');
+            $img2       = $this->input->post('img2');
+            $img3       = $this->input->post('img3');
             // log_message('error', print_r($titulo, true));
-            $insert = $this->M_datos->insertarDatos(array('lugar'  => $titulo,
-                                                          'dias'   => $dias,
-                                                          'imagen' => $img),
+            $insert = $this->M_datos->insertarDatos(array('lugar'   => $titulo,
+                                                          'dias'    => $dias,
+                                                          'imagen'  => $img,
+                                                          'imagen2' => $img2,
+                                                          'imagen3' => $img3),
                                                     'paquetes');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -155,11 +159,15 @@ class Admin extends CI_Controller
             $desc       = $this->input->post('desc');
             $atractivos = $this->input->post('atractivos');
             $img        = $this->input->post('img');
+            $img2       = $this->input->post('img2');
+            $img3       = $this->input->post('img3');
             
             $insert = $this->M_datos->insertarDatos(array('nombre'       => $titulo,
                                                           'dias'         => $dias,
                                                           'desc_general' => $desc,
-                                                          'img'          => $img),
+                                                          'img'          => $img,
+                                                          'img2'          => $img2,
+                                                          'img3'          => $img3),
                                                     'ofertas');
             foreach($atractivos as $key){
                 $this->M_datos->insertarDatos(array('lugar'            => $key['lugar'],
@@ -349,6 +357,7 @@ class Admin extends CI_Controller
 
     function cargarImagen(){
         $respuesta = new stdClass();
+        $respuesta->error = EXIT_ERROR;
         $respuesta->mensaje = $this->validarImagen($_FILES);
         if(count($_FILES) != 0 && $respuesta->mensaje == null){
             $tipo = $_FILES['archivo']['type']; 
@@ -358,6 +367,7 @@ class Admin extends CI_Controller
             $nuevo = explode(".",$namearch);
             $target = getcwd().DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'paquetes'.DIRECTORY_SEPARATOR.basename($_FILES['archivo']['name']);
             if(move_uploaded_file($archivotmp, $target) ){
+                $respuesta->error = EXIT_SUCCESS ;
                 $respuesta->mensaje = 'Su imagen se subió correctamente.';
                 $respuesta->name    = $namearch;
                 $respuesta->ruta    = RUTA_IMG.'paquetes/'.$namearch;
@@ -370,6 +380,7 @@ class Admin extends CI_Controller
 
     function cargarImagenOff(){
         $respuesta = new stdClass();
+        $respuesta->error = EXIT_ERROR;
         $respuesta->mensaje = $this->validarImagen($_FILES);
         if(count($_FILES) != 0 && $respuesta->mensaje == null){
             $tipo = $_FILES['archivo']['type']; 
@@ -379,6 +390,7 @@ class Admin extends CI_Controller
             $nuevo = explode(".",$namearch);
             $target = getcwd().DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'ofertas'.DIRECTORY_SEPARATOR.basename($_FILES['archivo']['name']);
             if(move_uploaded_file($archivotmp, $target) ){
+                $respuesta->error = EXIT_SUCCESS ;
                 $respuesta->mensaje = 'Su imagen se subió correctamente.';
                 $respuesta->name    = $namearch;
                 $respuesta->ruta    = RUTA_IMG.'ofertas/'.$namearch;
@@ -420,14 +432,15 @@ class Admin extends CI_Controller
         $data['error'] = EXIT_ERROR;
         $data['msj']   = null;  
         try {
-            $name       = $this->input->post('name');
+            $name       = $this->input->post('name');   
             $idPaquete  = $this->input->post('idPaquete');
             $flg        = $this->input->post('flg');
+            $num        = $this->input->post('num');
             if($name == null){
                 return;
             }
             $table  = ($flg == 1) ? 'ofertas' : 'paquetes';
-            $img    = ($flg == 1) ? 'img' : 'imagen';
+            $img    = ($flg == 1) ? 'img'.$num : 'imagen'.$num;
             $col_id = ($flg == 1) ? 'id' : 'Id';
             $this->M_datos->updateDatos(array($img=>$name), $idPaquete , $table,$col_id);
             $data['error'] = EXIT_SUCCESS;
@@ -510,7 +523,7 @@ class Admin extends CI_Controller
             }
 
             $datos = $this->M_datos->getPreciosByID($tabla,$idColumn,$idVal);
-            log_message('error', print_r($datos, true));
+            
             $data['precio']     = $datos['precio'] != null ? explode('|',$datos['precio']) : null;
             $data['incluye']    = $datos['incluye'] != null ? explode('|',$datos['incluye']) : null;
             $data['no_incluye'] = $datos['no_incluye'] != null ? explode('|',$datos['no_incluye']) : null;

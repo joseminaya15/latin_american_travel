@@ -105,17 +105,18 @@ class DetailPackage extends CI_Controller {
                     $htmlNoIncluye.= '<li>'.$arr.'</li>';
                 }
             }
+            $slider =  '<div class="js-slider">
+                            <div class="owl-carousel owl-theme">
+                                <div class="item"><div class="js-slider--imagen imagen1" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen.')"></div></div>
+                                <div class="item"><div class="js-slider--imagen imagen2" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen2.')"></div></div>
+                                <div class="item"><div class="js-slider--imagen imagen3" style="background-image: url('.RUTA_IMG.'paquetes/'.$key->imagen3.')"></div></div>
+                            </div>
+                        </div>';
 
             $section.= '
                 <section id="section-menu-paquete'.$key->Id.'" class="section js-paquete js-section--menu '.$opacity.'">
                     <div class="js-container">
-                        <div class="js-slider">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item"><div class="js-slider--imagen imagen1"></div></div>
-                                <div class="item"><div class="js-slider--imagen imagen2"></div></div>
-                                <div class="item"><div class="js-slider--imagen imagen3"></div></div>
-                            </div>
-                        </div>
+                        '.$slider.'
                         <h2 class="js-title black">'.$key->titulo.'</h2>
                         <p>'.$lugares.'</p>
                         <p>'.$key->dias.'</p>

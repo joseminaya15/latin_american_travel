@@ -303,9 +303,6 @@ function modalCrearOferta() {
 	$('#tituloAtractivoOff').removeAttr('onchange');
 	$('#diasAtractivoOff').removeAttr('onchange');
 	$('#descAtractivoOff').removeAttr('onchange');
-	$('#btnSubirImagenOff').text('Subir imagen');
-	$('#btnSubirImagenOff').css('background-color','rgba(158,158,158,.2)');
-	$('#btnSubirImagenOff').css('color','#000');
 	$('#btnConfirmarRegistrarOff').show();
 
 	resetDatos();
@@ -513,12 +510,28 @@ function agregarAtractivoOff() {
 function registrarPaquete() {
 	varTitulo = $('#tituloAtractivo').val().trim();
 	varDias = $('#diasAtractivo').val().trim();
-	if (varTitulo.length == 0 || varDias.length == 0 || arrayTableAtractivos.length == 0) {
+	if (varTitulo.length == 0 || varDias.length == 0) {
+		msj('error', 'Completa los campos.');
 		return;
 	}
-	var img = cargarImagen();
+	imagen  = $('#archivo')[0].files[0]; 
+	imagen2 = $('#archivo2')[0].files[0];
+	imagen3 = $('#archivo3')[0].files[0];
+	if(imagen == undefined || imagen2 == undefined || imagen3 == undefined){
+		msj('error', 'Seleccionar todas las imagenes.');
+		return;
+	}
+	if (arrayTableAtractivos.length == 0) {
+		msj('error', 'Completa los atractivos.');
+		return;
+	}
+	
+	cargarImagen('');
+	cargarImagen(2);
+	cargarImagen(3);
 	setTimeout(function(){
-		if(nameImgPaquete == null){
+		if(nameImgPaquete == null || nameImgPaquete2 == null || nameImgPaquete3 == null){
+			msj('error', 'Seleccionar todas las imagenes.');
 			return;
 		}
 		$.ajax({
@@ -526,7 +539,9 @@ function registrarPaquete() {
 				titulo: varTitulo,
 				dias: varDias,
 				atractivos: arrayTableAtractivos,
-				img : nameImgPaquete
+				img  : nameImgPaquete,
+				img2 : nameImgPaquete2,
+				img3 : nameImgPaquete3
 			},
 			url: 'Admin/registrarPaquete',
 			type: 'POST'
@@ -538,6 +553,7 @@ function registrarPaquete() {
 					nameImgPaquete = null;
 					$('#cont_paquetes').html(data.htmlPaq);
 					componentHandler.upgradeAllRegistered();
+					msj('error', 'Se registró correctamente el paquete.');
 					modal('ModalCrearPaquete');
 				}
 			} catch (err) {
@@ -548,15 +564,30 @@ function registrarPaquete() {
 }
 function registrarOferta() {
 	varTitulo = $('#tituloAtractivoOff').val().trim();
-	varDias = $('#diasAtractivoOff').val().trim();
-	varDesc = $('#descAtractivoOff').val().trim();
-	if (varTitulo.length == 0 || varDias.length == 0 || varDesc.length == 0 || arrayTableAtractivosOff.length == 0) {
+	varDias   = $('#diasAtractivoOff').val().trim();
+	varDesc   = $('#descAtractivoOff').val().trim();
+	if (varTitulo.length == 0 || varDias.length == 0 || varDesc.length == 0) {
+		msj('error', 'Completa los campos.');
+		return;
+	}
+	imagen  = $('#archivoOff')[0].files[0]; 
+	imagen2 = $('#archivoOff2')[0].files[0];
+	imagen3 = $('#archivoOff3')[0].files[0];
+	if(imagen == undefined || imagen2 == undefined || imagen3 == undefined){
+		msj('error', 'Seleccionar todas las imagenes.');
+		return;
+	}
+	if (arrayTableAtractivosOff.length == 0) {
+		msj('error', 'Completa los atractivos.');
 		return;
 	}
 
-	var img = cargarImagenOff();
+	cargarImagenOff('');
+	cargarImagenOff(2);
+	cargarImagenOff(3);
 	setTimeout(function(){
-		if(nameImgOferta == null){
+		if(nameImgOferta == null || nameImgOferta2 == null || nameImgOferta3 == null){
+			msj('error', 'Seleccionar todas las imagenes.');
 			return;
 		}
 		$.ajax({
@@ -565,7 +596,9 @@ function registrarOferta() {
 				dias: varDias,
 				desc: varDesc,
 				atractivos: arrayTableAtractivosOff,
-				img : nameImgOferta
+				img  : nameImgOferta,
+				img2 : nameImgOferta2,
+				img3 : nameImgOferta3
 			},
 			url: 'Admin/registrarOferta',
 			type: 'POST'
@@ -575,8 +608,11 @@ function registrarOferta() {
 				if (data.error == 0) {
 					arrayTableAtractivosOff = [];
 					nameImgOferta = null;
+					nameImgOferta2 = null;
+					nameImgOferta3 = null;
 					$('#cont_ofertas').html(data.htmlOff);
 					componentHandler.upgradeAllRegistered();
+					msj('error', 'Se registró correctamente la oferta.');
 					modal('ModalCrearOferta');
 				}
 			} catch (err) {
@@ -652,6 +688,13 @@ function modalEditarPaquete(element){
 			$('#btnSubirImagen').text('Cargado');
 			$('#btnSubirImagen').css('background-color','#5CB85C');
 			$('#btnSubirImagen').css('color','#FFFFFF');
+			$('#btnSubirImagen2').text('Cargado');
+			$('#btnSubirImagen2').css('background-color','#5CB85C');
+			$('#btnSubirImagen2').css('color','#FFFFFF');
+			$('#btnSubirImagen3').text('Cargado');
+			$('#btnSubirImagen3').css('background-color','#5CB85C');
+			$('#btnSubirImagen3').css('color','#FFFFFF');
+
 			cont_html = "";
 			arrayTableAtractivos = data.array_lugares;
 			$.each(arrayTableAtractivos, function (index, value) {
@@ -695,6 +738,12 @@ function modalEditarOferta(element){
 			$('#btnSubirImagenOff').text('Cargado');
 			$('#btnSubirImagenOff').css('background-color','#5CB85C');
 			$('#btnSubirImagenOff').css('color','#FFFFFF');
+			$('#btnSubirImagenOff2').text('Cargado');
+			$('#btnSubirImagenOff2').css('background-color','#5CB85C');
+			$('#btnSubirImagenOff2').css('color','#FFFFFF');
+			$('#btnSubirImagenOff3').text('Cargado');
+			$('#btnSubirImagenOff3').css('background-color','#5CB85C');
+			$('#btnSubirImagenOff3').css('color','#FFFFFF');
 
 			
 			cont_html = "";
@@ -830,10 +879,16 @@ function limpiarModalOferta(){
 	$('#lugarAtractivoOff').val(null);
 	$('#descripcionAtractivoOff').val(null);
 	$('#cont_tabla_ofertas').html(null);
-
-	$('#btnSubirImagen').text('Subir imagen');
-	$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
-	$('#btnSubirImagen').css('color','#000');
+	
+	$('#btnSubirImagenOff').text('Subir imagen');
+	$('#btnSubirImagenOff').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagenOff').css('color','#000');
+	$('#btnSubirImagenOff2').text('Subir imagen');
+	$('#btnSubirImagenOff2').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagenOff2').css('color','#000');
+	$('#btnSubirImagenOff3').text('Subir imagen');
+	$('#btnSubirImagenOff3').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagenOff3').css('color','#000');
 	$('#archivoOff').val(null);
 	arrayTableAtractivosOff = [];
 }
@@ -847,82 +902,22 @@ function limpiarModalPaquete(){
 	$('#btnSubirImagen').text('Subir imagen');
 	$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
 	$('#btnSubirImagen').css('color','#000');
+	$('#btnSubirImagen2').text('Subir imagen');
+	$('#btnSubirImagen2').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagen2').css('color','#000');
+	$('#btnSubirImagen3').text('Subir imagen');
+	$('#btnSubirImagen3').css('background-color','rgba(158,158,158,.2)');
+	$('#btnSubirImagen3').css('color','#000');
 	$('#archivo').val(null);
 	arrayTableAtractivos = [];
 }
 
-function subirImagen(){
-	$( "#archivo" ).trigger( "click" );
-}
-
-$( "#archivo" ).change(function() {
-	if(flgRegistrarAtractivo == null){
-		var datos = new FormData();
-		imagen = $('#archivo')[0].files[0];
-		if(imagen == undefined){
-			msj('error', 'Seleccione una imagen');
-			return;
-		}
-		datos.append('archivo',$('#archivo')[0].files[0]);
-		$.ajax({
-			type:"post",
-			dataType:"json",
-			url:"Admin/verificarImg",
-			contentType:false,
-			data:datos,
-			processData:false,
-		}).done(function(respuesta){
-			if(respuesta.mensaje == null){
-				$('#btnSubirImagen').text('Cargado');
-				$('#btnSubirImagen').css('background-color','#5CB85C');
-				$('#btnSubirImagen').css('color','#FFFFFF');
-			} else {
-				$('#btnSubirImagen').text('Subir imagen');
-				$('#btnSubirImagen').css('background-color','rgba(158,158,158,.2)');
-				$('#btnSubirImagen').css('color','#000');
-				
-				$('#archivo').val(null);
-				msj('error', respuesta.mensaje);
-			}
-		});
-	} else {
-		cargarImagen();
-	}
-	
-});
-var nameImgPaquete = null;
-function cargarImagen(){
-	nameImgPaquete = null;
-	var datos = new FormData();
-	imagen = $('#archivo')[0].files[0];
-	if(imagen == undefined){
-		msj('error', 'Seleccione una imagen');
-		return;
-	}
-	datos.append('archivo',$('#archivo')[0].files[0]);
-	$.ajax({
-		type:"post",
-		dataType:"json",
-		url:"Admin/cargarImagen",
-		contentType:false,
-		data:datos,
-		processData:false,
-	}).done(function(respuesta){
-		nameImgPaquete = respuesta.name;
-		msj('error', respuesta.mensaje);
-		if(flgRegistrarAtractivo != null && card_paquete != null && respuesta.name != null){
-			card_paquete.find('.fondo-paquete').css("background-image", "url("+respuesta.ruta+")");
-			editImg(respuesta.name,idPaquete,2);
-		}
-		return respuesta.name;
-	});
-}
-
-function editImg(name,idPaquete,flg){
+function editImg(name,idPaquete,flg,num){
 	$.ajax({
 		data: {idPaquete : idPaquete,
 			   name : name,
-				flg : flg},
+				flg : flg,
+				num : num},
 		url: 'Admin/editImg',
 		type: 'POST'
 	}).done(function (data) {
@@ -1067,19 +1062,46 @@ function quitarDia(indice,id){
 	});
 }
 
-function subirImagenOff(){
-	$( "#archivoOff" ).trigger( "click" );
+$( "#archivoOff").change(function() {
+	imagenSeleccionadaOff('');
+});
+$( "#archivoOff2").change(function() {
+	imagenSeleccionadaOff(2);
+});
+$( "#archivoOff3").change(function() {
+	imagenSeleccionadaOff(3);
+});
+
+$( "#archivo").change(function() {
+	imagenSeleccionada('');
+});
+$( "#archivo2").change(function() {
+	imagenSeleccionada(2);
+});
+$( "#archivo3").change(function() {
+	imagenSeleccionada(3);
+});
+
+function subirImagen(num){
+	$( "#archivo"+(num != null ? num : '') ).trigger( "click" );
 }
 
-$( "#archivoOff" ).change(function() {
+function subirImagenOff(num){
+	$( "#archivoOff"+(num != null ? num : '')).trigger( "click" );
+}
+
+function imagenSeleccionadaOff(num){
 	if(flgRegistrarAtractivoOff == null){
 		var datos = new FormData();
-		imagen = $('#archivoOff')[0].files[0];
+		imagen = $('#archivoOff'+num)[0].files[0];
 		if(imagen == undefined){
-			msj('error', 'Seleccione una imagen');
+			$('#btnSubirImagenOff'+num).text('Subir imagen');
+			$('#btnSubirImagenOff'+num).css('background-color','rgba(158,158,158,.2)');
+			$('#btnSubirImagenOff'+num).css('color','#000');
+			// msj('error', 'Seleccione una imagen');
 			return;
 		}
-		datos.append('archivo',$('#archivoOff')[0].files[0]);
+		datos.append('archivo',$('#archivoOff'+num)[0].files[0]);
 		$.ajax({
 			type:"post",
 			dataType:"json",
@@ -1089,32 +1111,129 @@ $( "#archivoOff" ).change(function() {
 			processData:false,
 		}).done(function(respuesta){
 			if(respuesta.mensaje == null){
-				$('#btnSubirImagenOff').text('Cargado');
-				$('#btnSubirImagenOff').css('background-color','#5CB85C');
-				$('#btnSubirImagenOff').css('color','#FFFFFF');
+				$('#btnSubirImagenOff'+num).text('Cargado');
+				$('#btnSubirImagenOff'+num).css('background-color','#5CB85C');
+				$('#btnSubirImagenOff'+num).css('color','#FFFFFF');
 			} else {
-				$('#btnSubirImagenOff').text('Subir imagen');
-				$('#btnSubirImagenOff').css('background-color','rgba(158,158,158,.2)');
-				$('#btnSubirImagenOff').css('color','#000');
-				$('#archivoOff').val(null);
+				$('#btnSubirImagenOff'+num).text('Subir imagen');
+				$('#btnSubirImagenOff'+num).css('background-color','rgba(158,158,158,.2)');
+				$('#btnSubirImagenOff'+num).css('color','#000');
+				$('#archivoOff'+num).val(null);
 				msj('error', respuesta.mensaje);
 			}
 		});
 	} else {
-		cargarImagenOff();
+		cargarImagenOff(num);
 	}
-	
-});
-var nameImgOferta = null;
-function cargarImagenOff(){
-	nameImgOferta = null;
+}
+
+function imagenSeleccionada(num){
+	if(flgRegistrarAtractivo == null){
+		var datos = new FormData();
+		imagen = $('#archivo'+num)[0].files[0];
+		if(imagen == undefined){
+			$('#btnSubirImagen'+num).text('Subir imagen');
+			$('#btnSubirImagen'+num).css('background-color','rgba(158,158,158,.2)');
+			$('#btnSubirImagen'+num).css('color','#000');
+			// msj('error', 'Seleccione una imagen');
+			return;
+		}
+		datos.append('archivo',$('#archivo'+num)[0].files[0]);
+		$.ajax({
+			type:"post",
+			dataType:"json",
+			url:"Admin/verificarImg",
+			contentType:false,
+			data:datos,
+			processData:false,
+		}).done(function(respuesta){
+			if(respuesta.mensaje == null){
+				$('#btnSubirImagen'+num).text('Cargado');
+				$('#btnSubirImagen'+num).css('background-color','#5CB85C');
+				$('#btnSubirImagen'+num).css('color','#FFFFFF');
+			} else {
+				$('#btnSubirImagen'+num).text('Subir imagen');
+				$('#btnSubirImagen'+num).css('background-color','rgba(158,158,158,.2)');
+				$('#btnSubirImagen'+num).css('color','#000');
+				
+				$('#archivo'+num).val(null);
+				msj('error', respuesta.mensaje);
+			}
+		});
+	} else {
+		cargarImagen(num);
+	}
+}
+
+var nameImgPaquete = null;
+var nameImgPaquete2 = null;
+var nameImgPaquete3 = null;
+function cargarImagen(num){
+	if(num.length == 0){
+		nameImgPaquete  = null;
+	} else if(num == 2){
+		nameImgPaquete2 = null;
+	} else if(num == 3){
+		nameImgPaquete3 = null;
+	}
+	nameImgPaquete = null;
 	var datos = new FormData();
-	imagen = $('#archivoOff')[0].files[0];
+	imagen = $('#archivo'+num)[0].files[0];
 	if(imagen == undefined){
-		msj('error', 'Seleccione una imagen');
+		// msj('error', 'Seleccione una imagen');
 		return;
 	}
-	datos.append('archivo',$('#archivoOff')[0].files[0]);
+	datos.append('archivo',$('#archivo'+num)[0].files[0]);
+	$.ajax({
+		type:"post",
+		dataType:"json",
+		url:"Admin/cargarImagen",
+		contentType:false,
+		data:datos,
+		processData:false,
+	}).done(function(respuesta){
+		if(respuesta.error == 0){
+			if(flgRegistrarAtractivo != null){
+				msj('error', respuesta.mensaje);
+			}
+			if(num.length == 0){
+				nameImgPaquete = respuesta.name;
+			} else if(num == 2){
+				nameImgPaquete2 = respuesta.name;
+			} else if(num == 3){
+				nameImgPaquete3 = respuesta.name;
+			}
+			if(flgRegistrarAtractivo != null && card_paquete != null && respuesta.name != null){
+				editImg(respuesta.name,idPaquete,2,num);
+				if(num.length == 0){
+					card_paquete.find('.fondo-paquete').css("background-image", "url("+respuesta.ruta+")");
+				}
+			}
+		} else {
+			msj('error', respuesta.mensaje);
+		}
+	});
+}
+
+var nameImgOferta = null;
+var nameImgOferta2 = null;
+var nameImgOferta3 = null;
+function cargarImagenOff(num){
+	if(num.length == 0){
+		nameImgOferta  = null;
+	} else if(num == 2){
+		nameImgOferta2 = null;
+	} else if(num == 3){
+		nameImgOferta3 = null;
+	}
+	
+	var datos = new FormData();
+	imagen = $('#archivoOff'+num)[0].files[0];
+	if(imagen == undefined){
+		// msj('error', 'Seleccione una imagen');
+		return;
+	}
+	datos.append('archivo',$('#archivoOff'+num)[0].files[0]);
 	$.ajax({
 		type:"post",
 		dataType:"json",
@@ -1123,14 +1242,27 @@ function cargarImagenOff(){
 		data:datos,
 		processData:false,
 	}).done(function(respuesta){
-		nameImgOferta = respuesta.name;
-		msj('error', respuesta.mensaje);
-		if(flgRegistrarAtractivoOff != null && card_oferta != null && respuesta.name != null){
-			// card_oferta.find('.img-card-oferta').attr("src",respuesta.ruta);
-			card_paquete.find('.fondo-oferta').css("background-image", "url("+respuesta.ruta+")");
-			editImg(respuesta.name,idOferta,1);
+		if(respuesta.error == 0){
+			if(flgRegistrarAtractivoOff != null){
+				msj('error', respuesta.mensaje);
+			}
+			if(num.length == 0){
+				nameImgOferta  = respuesta.name;
+			} else if(num == 2){
+				nameImgOferta2 = respuesta.name;
+			} else if(num == 3){
+				nameImgOferta3 = respuesta.name;
+			}
+			if(flgRegistrarAtractivoOff != null && card_oferta != null && respuesta.name != null){
+				editImg(respuesta.name,idOferta,1,num);
+				if(num.length == 0){
+					card_oferta.find('.fondo-oferta').css("background-image", "url("+respuesta.ruta+")");
+				}
+			}
+		} else {
+			msj('error', respuesta.mensaje);
 		}
-		return respuesta.name;
+		
 	});
 }
 
