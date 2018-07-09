@@ -49,8 +49,8 @@ class M_datos extends  CI_Model{
     }
     function getPaquetesByBusqueda($texto = null,$id = null, $limit = null){
       $sql = "SELECT b.Id,
-                     b.lugar titulo,
-                     b.dias,
+                     UPPER(b.lugar) titulo,
+                     UPPER(b.dias) dias,
                      b.imagen,
                      b.imagen2,
                      b.imagen3,
@@ -59,11 +59,11 @@ class M_datos extends  CI_Model{
                      b.no_incluye,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
                      group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
-                     ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
+                     ( SELECT group_concat(CONCAT(UPPER(dxa.desc_lugar),'*',dxa.desc_viaje)  SEPARATOR '|')
                          FROM dias_x_atractivos dxa
                         WHERE dxa.id_paquete = b.id
                           AND dxa.flg_paquet_ofert = 2
-                    ORDER BY id_dia) desc_dias
+                     ORDER BY id_dia ) desc_dias
                 FROM paquetes b,
                      atractivos a
                WHERE a.flg_paquet_ofert = 2
@@ -83,8 +83,8 @@ class M_datos extends  CI_Model{
     }
     function getOfertasByBusqueda($texto = null,$id = null){
       $sql = "SELECT o.id,
-                     o.nombre titulo,
-                     o.dias,
+                     UPPER(o.nombre) titulo,
+                     UPPER(o.dias) dias,
                      o.img,
                      o.img2,
                      o.img3,
@@ -94,11 +94,11 @@ class M_datos extends  CI_Model{
                      o.no_incluye,
                      group_concat(CONCAT(UPPER(LEFT(a.lugar,1)),LOWER(SUBSTR(a.lugar,2)))) atractivos,
                      group_concat(CONCAT(UPPER(a.lugar),'*',a.descripcion,'*',a.Id) SEPARATOR '|') lugar_detalle,
-                     ( SELECT group_concat(CONCAT(dxa.desc_lugar,'*',dxa.desc_viaje)  SEPARATOR '|')
+                     ( SELECT group_concat(CONCAT(UPPER(dxa.desc_lugar),'*',dxa.desc_viaje)  SEPARATOR '|')
                          FROM dias_x_atractivos dxa
                         WHERE dxa.id_paquete = o.Id
                           AND dxa.flg_paquet_ofert = 1
-                    ORDER BY id_dia) desc_dias
+                     ORDER BY id_dia) desc_dias
                 FROM ofertas o,
                      atractivos a
                WHERE a.id_paquetes = o.Id

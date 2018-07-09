@@ -71,7 +71,7 @@
                     <div class="fondo-responsive fondo1"></div>
                     <div class="cont-carousel">
                         <div class="cont-carousel__contenido">
-                            <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                            <h2>Vive la mejor experiencia. Encuentra las mejores ofertas para ti.</h2>
                             <div class="js-search hidden">
                                 <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
@@ -83,7 +83,7 @@
                     <div class="fondo-responsive fondo2"></div>
                     <div class="cont-carousel">
                         <div class="cont-carousel__contenido">
-                            <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                            <h2>Vive la mejor experiencia. Encuentra las mejores ofertas para ti.</h2>
                             <div class="js-search hidden">
                                 <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
@@ -95,7 +95,7 @@
                     <div class="fondo-responsive fondo3"></div>
                     <div class="cont-carousel">
                         <div class="cont-carousel__contenido">
-                            <h2>Vive la mejor experiencia, Encuentra las mejores ofertas para ti.</h2>
+                            <h2>Vive la mejor experiencia. Encuentra las mejores ofertas para ti.</h2>
                             <div class="js-search hidden">
                                 <input type="text" class="form-control" placeholder="Busca tu destino ideal" id="texto" onkeypress="verificarDatos(event);">
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="buscarOferta()">BUSCAR</button>
